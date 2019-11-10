@@ -38,6 +38,62 @@ if ($_SESSION['level'] != 'mahasiswa') {
     opacity: 1
   }
 
+
+
+  ul {
+
+  margin: 0;
+  padding: 0;
+  
+  background-color: red;
+}
+
+li {
+  float: left;
+  background-color: red;
+}
+
+li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+li.dropdown {
+  display: inline-block;
+  background-color: red;
+
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: red;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
   body {
     background-image: url(https://pbs.twimg.com/media/EId7pQsU0AAca8l?format=png&name=900x900)
   }
@@ -55,6 +111,15 @@ if ($_SESSION['level'] != 'mahasiswa') {
       <h4><b>SISTEM INFORMASI TUGAS AKHIR</b></h4>
       <h5>Teknik Industri<br>Universitas Diponegoro</h5>
     </div>
+
+
+  <div class="w3-container">
+  
+
+  </div>
+
+
+
     <div class="w3-container">
       <h4><b>Menu Utama</b></h4>
     </div>
@@ -63,12 +128,43 @@ if ($_SESSION['level'] != 'mahasiswa') {
       <a href="#beranda" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Beranda</a>
       <a href="#Data_Diri" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Data Diri</a>
       <a href="#daftar" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Pendaftaran Tugas Akhir</a>
-      <a href="#sempro" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Seminar Proposal</a>
-      <a href="#semta" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Sidang Tugas Akhir</a>
+      
+   <div class="w3-bar-block">
+  <ul>
+  <li class="dropdown">
+  <a href="#sempro" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Seminar Proposal</a>  
+    <div class="dropdown-content">
+      <a href="#">Bimbingan</a>
+      <a href="#">Pendaftaran</a>
+      <a href="#">Jadwal Seminar</a>
+    </div>
+  </li>
+</ul>
+      </div>
+
+      <div class="w3-bar-block">
+  <ul>
+  <li class="dropdown">
+  <a href="#semta" class="w3-bar-item w3-button w3-hover-white" onclick="w3_close()">Sidang Tugas Akhir</a>    
+    <div class="dropdown-content">
+      <a href="#">Bimbingan</a>
+      <a href="#">Pendaftaran</a>
+      <a href="#">Jadwal Sidang TA</a>
+      <a href="#">Upload Laporan Final</a>
+    </div>
+  </li>
+</ul>
+      </div>
+
+
+    
       <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
       <a href="../logout.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a>
     </div>
   </nav>
+
+  
+</div>
 
   <!-- Top menu on small screens -->
   <header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
@@ -110,6 +206,7 @@ if ($_SESSION['level'] != 'mahasiswa') {
       <h1 class="w3-xxxlarge w3-text-red"><b>Data Diri</b></h1>
       <hr style="width:50px;border:5px solid red" class="w3-round">
 
+<div class="w3-container">
       <form style="color: #f44336" method="POST" action="aksi.php">
         <label style="color:color:#f44336">
         Nama: <input type="text" name="nama_mahasiswa" required></label><br>
@@ -118,13 +215,14 @@ if ($_SESSION['level'] != 'mahasiswa') {
         Alamat: <input type="text" name="alamat_mahasiswa" required><br>
         E-mail: <input type="text" name="email_mahasiswa" required><br>
         Dosen Wali: <input type="text" name="doswal_mahasiswa" required><br>
-
+</div>
         <h2 style="color:#f44336"><b>Data Orang Tua</b></h2>
         Nama Ayah: <input type="text" name="ayah_mahasiswa" required><br>
         Nomor Telpon: <input type="text" name="ayah_no_telepon" required><br>
         Alamat: <input type="text" name="ayah_alamat" required><br>
         <input type="submit" value="Submit">
       </form>
+     
 
     </div>
 
