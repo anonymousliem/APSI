@@ -112,17 +112,27 @@ if ($_SESSION['level'] != 'mahasiswa') {
 
       <form style="color: #f44336" method="POST" action="aksi.php">
         <label style="color:color:#f44336">
-        Nama: <input type="text" name="nama_mahasiswa" required></label><br>
-        NIM: <input type="text" name="nim_mahasiswa" required><br>
-        Nomor Telepon: <input type="text" name="no_telp_mahasiswa" required><br>
-        Alamat: <input type="text" name="alamat_mahasiswa" required><br>
-        E-mail: <input type="text" name="email_mahasiswa" required><br>
-        Dosen Wali: <input type="text" name="doswal_mahasiswa" required><br>
+        Nama: <br>
+        <input type="text" name="nama_mahasiswa" required></label><br>
+        NIM:<br>
+        <input type="text" name="nim_mahasiswa" required><br>
+        Nomor Telepon: <br>
+         <input type="text" name="no_telp_mahasiswa" required><br>
+        Alamat: <br>
+        <input type="text" name="alamat_mahasiswa" required><br>
+        E-mail: <br>
+        <input type="text" name="email_mahasiswa" required><br>
+        Dosen Wali: <br>
+        <input type="text" name="doswal_mahasiswa" required><br>
 
         <h2 style="color:#f44336"><b>Data Orang Tua</b></h2>
-        Nama Ayah: <input type="text" name="ayah_mahasiswa" required><br>
-        Nomor Telpon: <input type="text" name="ayah_no_telepon" required><br>
-        Alamat: <input type="text" name="ayah_alamat" required><br>
+        Nama Ayah: <br>
+        <input type="text" name="ayah_mahasiswa" required><br>
+        Nomor Telpon:<br>
+         <input type="text" name="ayah_no_telepon" required><br>
+        Alamat:
+        <br>
+        <input type="text" name="ayah_alamat" required><br><br>
         <input type="submit" value="Submit">
       </form>
 
@@ -133,12 +143,20 @@ if ($_SESSION['level'] != 'mahasiswa') {
       <h1 class="w3-xxxlarge w3-text-red">Pendaftaran Tugas Akhir<b></b></h1>
       <hr style="width:50px;border:5px solid red" class="w3-round">
       <h2 style="color:#f44336"><b>Akademik</b></h2>
-      <form style="color: #f44336" action="action_menuutama.php">
-        IPK <input type="text" name="ipk">
-        SKS <input type="text" name="sks">
+      <form method="POST" style="color: #f44336" enctype="multipart/form-data" action="aksi_upload.php">
+        NIM: <br>
+        <input type="text" name="nim"><br>
+        IPK: <br>
+        <input type="text" name="ipk"><br>
+        SKS:<br>
+         <input type="text" name="sks">
+         
         <h2 style="color:#f44336"><b>Upload Berkas</b></h2>
-        Transkrip Lengkap <input type="text" name="ipk"><br>
-        Pra-Bimbingan <input type="file" name="prabimbingan">
+        <!-- Transkrip Lengkap <input type="text" name="ipk"><br> -->
+        Pra-Bimbingan <br>
+        <input type="file" name="file">
+        <br><br>
+        <input type="submit" value="Submit" name="upload">
     </div>
 
     <div class="w3-display-middle" style="color:#f44336"><b>pengajuan TA
