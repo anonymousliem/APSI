@@ -1,301 +1,669 @@
 <?php
+
+if(isset($_GET['pesan'])){
+  if($_GET['pesan'] == "berhasilupload"){
+    echo '<script language="javascript">alert("berhasil upload file")</script>';
+  }
+}
+
 session_start();
 if ($_SESSION['level'] != 'mahasiswa') {
-  header("location:../index.php");
+header("location:../index.php");
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<title>SISTEM INFORMASI TA</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-<style>
-  body,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5 {
-    font-family: "Poppins", sans-serif
-  }
+    <!DOCTYPE html>
+    <html lang="en">
+    <title>SISTEM INFORMASI TA</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: "Poppins", sans-serif
+        }
+        
+        body {
+            font-size: 16px;
+        }
+        
+        .w3-half img {
+            margin-bottom: -6px;
+            margin-top: 16px;
+            a opacity: 0.8;
+            cursor: pointer
+        }
+        
+        .w3-half img:hover {
+            opacity: 1
+        }
+        
+        ul {
+            margin: 0;
+            padding: 0;
+            background-color: red;
+        }
+        
+        li {
+            float: left;
+            background-color: red;
+        }
+        
+        li a,
+        .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        li a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: red;
+        }
+        
+        li.dropdown {
+            display: inline-block;
+            background-color: red;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: red;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        body {
+            background-image: url(https://pbs.twimg.com/media/EId7pQsU0AAca8l?format=png&name=900x900)
+        }
+        
+        thead {
+            color: red;
+        }
+        
+        tbody {
+            color: blue;
+        }
+        
+        tfoot {
+            color: red;
+        }
+        
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
 
-  body {
-    font-size: 16px;
-  }
+    <body>
 
-  .w3-half img {
-    margin-bottom: -6px;
-    margin-top: 16px;
-    opacity: 0.8;
-    cursor: pointer
-  }
+        <!-- Sidebar/menu -->
+        <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar">
+            <br>
+            <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
 
-  .w3-half img:hover {
-    opacity: 1
-  }
+            <div class="w3-container">
+                <h3><b>SISTA</b></h3>
+                <h4><b>SISTEM INFORMASI TUGAS AKHIR</b></h4>
+                <h5>Teknik Industri<br>Universitas Diponegoro</h5>
+            </div>
 
+            <div class="w3-container">
 
+            </div>
 
-  ul {
+            <div class="w3-container">
+                <h4><b>Menu Utama</b></h4>
+            </div>
 
-  margin: 0;
-  padding: 0;
-  
-  background-color: red;
-}
+            <div class="w3-bar-block">
+                <a href="#beranda" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Beranda</a>
+                <a href="#Data_Diri" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Data Diri</a>
+                <a href="#daftar" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Pendaftaran Tugas Akhir</a>
 
-li {
-  float: left;
-  background-color: red;
-}
+                <div class="w3-bar-block">
+                    <ul>
+                        <li class="dropdown">
+                            <a href="#bimbingan" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Seminar Proposal</a>
+                            <div class="dropdown-content">
+                                <a href="#bimbingan">Bimbingan</a>
+                                <a href="#daftarsempro">Pendaftaran</a>
+                                <a href="#jadwalsempro">Jadwal Seminar</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
 
-li a, .dropbtn {
-  display: inline-block;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-}
+                <div class="w3-bar-block">
+                    <ul>
+                        <li class="dropdown">
+                            <a href="#bimbingansidangTA" class="w3-bar-item w3-button w3-hover-white" onclick="w3_close()">Sidang Tugas Akhir</a>
+                            <div class="dropdown-content">
+                                <a href="#bimbingansidangTA">Bimbingan</a>
+                                <a href="#daftarsidangTA">Pendaftaran</a>
+                                <a href="#jadwalsidangTA">Jadwal Sidang TA</a>
+                                <a href="#selamat">Upload Laporan Final</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
 
-li a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
-}
+                <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+                <a href="../logout.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a>
+            </div>
+        </nav>
 
-li.dropdown {
-  display: inline-block;
-  background-color: red;
+        </div>
 
-}
+        <!-- Top menu on small screens -->
+        <header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
+            <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
+            <span>SISTA</span>
+        </header>
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
+        <!-- Overlay effect when opening sidebar on small screens -->
+        <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
+        <!-- !PAGE CONTENT! -->
+        <div class="w3-main" style="margin-left:340px;margin-right:40px">
 
-.dropdown-content a:hover {background-color: red;}
+            <!-- Headernyaberanda -->
+            <div class="w3-container" style="margin-top:80px" id="beranda">
+                <h4 style="text-align:right; color:#f44336"><b>Selamat datang,</b></h4>
+                <h1 class="w3-jumbo" style="text-align:right; color:#f44336"><b><?php echo $_SESSION['nama']; ?></b></h1>
+                <h6 style="text-align:right; color:#f44336"><b>Status Login : <?php echo $_SESSION['level']; ?></b></h6>
+                <h1 class="w3-xxxlarge w3-text-red"><b>Beranda.</b></h1>
+                <hr style="width:50px;border:5px solid red" class="w3-round">
+            </div>
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
+            <!-- kontenyaberanda -->
+            <div class="w3-container">
+                <p><b>Apa itu Sista</b></p>
+                <p>SISTA merupakan Sistem Informasi Tugas Akhir terpadu yang membantu mahasiswa tingkat akhir dalam menyelesaikan adminitrasi Tugas Akhir di Teknik Industri, Universitas Diponegoro.</p>
+                <p>Tugas Akhir adalah karya ilmiah yang disusun oleh mahasiswa berdasarkan hasil penelitian suatu masalah yang dilakukan dengan bimbingan oleh dosen pembimbing.
+                    <p>Persyaratan Tugas Akhir
+                        <br> 1. Mengambil Mata Kuliah Tugas Akhir pada KRS
+                        <br> 2. Capaian SKS minimal 128 SKS dengan nilai minimal C
+                        <br> 3. IPK > 2,25
+                        <br> 4. Lulus Kerja Praktek</p>
+                </p>
+            </div>
 
+            <!-- Data Diri -->
+            <div class="w3-container" style="margin-top:75px" id="Data_Diri">
+                <h1 class="w3-xxxlarge w3-text-red"><b>Data Diri</b></h1>
+                <hr style="width:50px;border:5px solid red" class="w3-round">
 
-  body {
-    background-image: url(https://pbs.twimg.com/media/EId7pQsU0AAca8l?format=png&name=900x900)
-  }
-</style>
+                <div class="w3-container">
+                    <form style="color: #f44336" method="POST" action="aksi.php">
+                        <label style="color:color:#f44336">
+                            Nama:
+                            <br>
+                            <input type="text" name="nama_mahasiswa" required>
+                        </label>
+                        <br> NIM:
+                        <br>
+                        <input type="text" name="nim_mahasiswa" required>
+                        <br> Nomor Telepon:
+                        <br>
+                        <input type="text" name="no_telp_mahasiswa" required>
+                        <br> Alamat:
+                        <br>
+                        <input type="text" name="alamat_mahasiswa" required>
+                        <br> E-mail:
+                        <br>
+                        <input type="text" name="email_mahasiswa" required>
+                        <br> Dosen Wali:
+                        <br>
+                        <input type="text" name="doswal_mahasiswa" required>
+                        <br>
 
-<body>
+                        <h2 style="color:#f44336"><b>Data Orang Tua</b></h2> Nama Ayah:
+                        <br>
+                        <input type="text" name="ayah_mahasiswa" required>
+                        <br> Nomor Telpon:
+                        <br>
+                        <input type="text" name="ayah_no_telepon" required>
+                        <br> Alamat:
+                        <br>
+                        <input type="text" name="ayah_alamat" required>
+                        <br>
+                        <br>
+                        <input type="submit" value="Submit" style="background:red; width:200px">
+                    </form>
 
+                </div>
 
-  <!-- Sidebar/menu -->
-  <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
-    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+                <!-- Designers -->
+                <div class="w3-container" id="daftar" style="margin-top:75px">
+                    <h1 class="w3-xxxlarge w3-text-red">Pendaftaran Tugas Akhir<b></b></h1>
+                    <hr style="width:50px;border:5px solid red" class="w3-round">
+                    <h2 style="color:#f44336"><b>Akademik</b></h2>
+                    <form method="POST" style="color: #f44336" enctype="multipart/form-data" action="aksi_upload.php">
+                        NIM:
+                        <br>
+                        <input type="text" name="nim">
+                        <br> IPK:
+                        <br>
+                        <input type="text" name="ipk">
+                        <br> SKS:
+                        <br>
+                        <input type="text" name="sks">
 
-    <div class="w3-container">
-      <h3><b>SISTA</b></h3>
-      <h4><b>SISTEM INFORMASI TUGAS AKHIR</b></h4>
-      <h5>Teknik Industri<br>Universitas Diponegoro</h5>
-    </div>
+                        <h2 style="color:#f44336"><b>Upload Berkas</b></h2>
+                        <!-- Transkrip Lengkap <input type="text" name="ipk"><br> -->
+                        Pra-Bimbingan
+                        <br>
+                        <input type="file" name="file">
+                        <br>
 
+                        <br>
+                        <h2 style="color:#f44336"><b>Pengajuan Tema</b></h2>
+                        <B> TEMA 1 </B>
 
-  <div class="w3-container">
-  
+                        <select name="tema1" style="width:250px;">
+                            <option value="volvo"></option>
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                            <option value="fiat">Fiat</option>
+                            <option value="audi">Audi</option>
+                        </select>
+                        <br>
+                        <br>
+                        <B> TEMA 2 </B>
 
-  </div>
+                        <select name="tem2" style="width:250px;">
+                            <option value="volvo"></option>
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                            <option value="fiat">Fiat</option>
+                            <option value="audi">Audi</option>
+                        </select>
+                        <br>
+                        <h2 style="color:#f44336"><b>Pengajuan Dosen Pembimbing</b></h2>
+                        <B> DOSEN PEMBIMBING 1 </B>
+                        <BR>
+                        <select name="dosbing1" style="width:250px;">
+                            <option value="volvo"></option>
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                            <option value="fiat">Fiat</option>
+                            <option value="audi">Audi</option>
+                        </select>
+                        <br>
+                        <B> DOSEN PEMBIMBING 2 </B>
+                        <BR>
+                        <select name="dosbing2" style="width:250px;">
+                            <option value="volvo"></option>
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                            <option value="fiat">Fiat</option>
+                            <option value="audi">Audi</option>
+                        </select>
+                        <br>
+                        <br>
+                        <input type="submit" value="Submit" name="upload" style="background:red;width:200px">
+                    </form>
+                </div>
 
+                <!-- pengumuman dosen -->
+                <div class="w3-container" id="pengumumandosen" style="margin-top:75px">
+                    <h3 class="w3-xxxlarge w3-text-red">Pengumuman Dosen Pembimbing<b></b></h3>
+                    <hr style="width:50px;border:5px solid red" class="w3-round">
 
+                    <form method="POST" style="color: #f44336" enctype="multipart/form-data" action="#">
+                        NAMA:
+                        <br>
+                        <input type="text" name="nim">
+                        <br> NIM:
+                        <br>
+                        <input type="text" name="ipk">
+                        <br> TOPIK TA:
+                        <br>
+                        <input type="text" name="sks">
+                        <br> Dosen Pembimbing
+                        <br>
+                        <input type="text" name="sks">
+                    </form>
+                </div>
 
-    <div class="w3-container">
-      <h4><b>Menu Utama</b></h4>
-    </div>
+                <!-- bimbingan sempro -->
+                <div class="w3-container" id="bimbingan" style="margin-top:75px">
+                    <h3 class="w3-xxxlarge w3-text-red">Bimbingan<b></b></h3>
+                    <hr style="width:50px;border:5px solid red" class="w3-round">
+                    <form action="#">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Tanggal</th>
+                                    <th>Catatan Bimbingan</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input type="text">
+                                    </td>
+                                    <td>
+                                        <textarea rows="4" cols="50"></textarea>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" style="width:50px;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="text">
+                                    </td>
+                                    <td>
+                                        <textarea rows="4" cols="50"></textarea>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" style="width:50px;">
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td>
+                                        <input type="text">
+                                    </td>
+                                    <td>
+                                        <textarea rows="4" cols="50"></textarea>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" style="width:50px;">
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <br>
+                        <input type="submit" value="Submit" style="background:red; width:200px">
+                    </form>
+                </div>
 
-    <div class="w3-bar-block">
-      <a href="#beranda" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Beranda</a>
-      <a href="#Data_Diri" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Data Diri</a>
-      <a href="#daftar" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Pendaftaran Tugas Akhir</a>
-      
-   <div class="w3-bar-block">
-  <ul>
-  <li class="dropdown">
-  <a href="#sempro" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Seminar Proposal</a>  
-    <div class="dropdown-content">
-      <a href="#">Bimbingan</a>
-      <a href="#">Pendaftaran</a>
-      <a href="#">Jadwal Seminar</a>
-    </div>
-  </li>
-</ul>
-      </div>
+                <!-- Pendaftaran Sempro -->
+                <div class="w3-container" id="daftarsempro" style="margin-top:75px">
+                    <h3 class="w3-xxxlarge w3-text-red">Pendaftaran<b></b></h3>
+                    <hr style="width:50px;border:5px solid red" class="w3-round">
 
-      <div class="w3-bar-block">
-  <ul>
-  <li class="dropdown">
-  <a href="#semta" class="w3-bar-item w3-button w3-hover-white" onclick="w3_close()">Sidang Tugas Akhir</a>    
-    <div class="dropdown-content">
-      <a href="#">Bimbingan</a>
-      <a href="#">Pendaftaran</a>
-      <a href="#">Jadwal Sidang TA</a>
-      <a href="#">Upload Laporan Final</a>
-    </div>
-  </li>
-</ul>
-      </div>
+                    <div class="w3-container">
+                        <form style="color: #f44336" method="POST" action="#">
+                            <label style="color:color:#f44336">
+                                Nama:
+                                <br>
+                                <input type="text" name="nama_mahasiswa" required>
+                            </label>
+                            <br> NIM:
+                            <br>
+                            <input type="text" name="nim_mahasiswa" required>
+                            <br> DOSEN PEMBIMBING
+                            <BR>
+                            <select name="dosbing2" style="width:250px;">
+                                <option value="volvo"></option>
+                                <option value="volvo">Volvo</option>
+                                <option value="saab">Saab</option>
+                                <option value="fiat">Fiat</option>
+                                <option value="audi">Audi</option>
+                            </select>
+                            <br> Topik TA:
+                            <br>
+                            <input type="text" name="alamat_mahasiswa" required>
+                            <br> Tanggal Seminar:
+                            <br>
+                            <input type="date" name="email_mahasiswa" required>
+                            <br> Jam Seminar:
+                            <br>
+                            <input type="time" name="doswal_mahasiswa" required>
+                            <br> Proposal Tugas Akhir (format pdf)
+                            <br>
+                            <input type="file" value="Submit">
 
+                            <br> Lembar Persetujuan Seminar Proposal
+                            <br>
+                            <input type="file" value="Submit">
+                            <br>
+                            <br>
+                            <input type="submit" value="Submit" style="background:red; width:200px">
+                        </form>
 
-    
-      <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
-      <a href="../logout.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a>
-    </div>
-  </nav>
+                    </div>
+                </div>
 
-  
-</div>
+                <!-- jadwal semimar proposal -->
+                <div class="w3-container" id="jadwalsempro" style="margin-top:75px">
+                    <h3 class="w3-xxxlarge w3-text-red">Jadwal Seminar Proposal<b></b></h3>
+                    <hr style="width:50px;border:5px solid red" class="w3-round">
 
-  <!-- Top menu on small screens -->
-  <header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
-    <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
-    <span>SISTA</span>
-  </header>
+                    <form method="POST" style="color: #f44336" enctype="multipart/form-data" action="#">
+                        Hari:
+                        <br>
+                        <input type="text" name="nim">
+                        <br> Tanggal:
+                        <br>
+                        <input type="date" name="ipk">
+                        <br> Jam
+                        <br>
+                        <input type="time" name="sks">
+                        <br> Ruangan
+                        <br>
+                        <input type="text" name="sks">
+                        <br> Dosen Penguji
+                        <br>
+                        <input type="text" name="sks">
+                    </form>
+                </div>
 
-  <!-- Overlay effect when opening sidebar on small screens -->
-  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+                <!-- bimbingan sidang tugas akhir-->
+                <div class="w3-container" id="bimbingansidangTA" style="margin-top:75px">
+                    <h3 class="w3-xxxlarge w3-text-red">Bimbingan<b></b></h3>
+                    <hr style="width:50px;border:5px solid red" class="w3-round">
+                    <form action="#">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Tanggal</th>
+                                    <th>Catatan Bimbingan</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input type="text">
+                                    </td>
+                                    <td>
+                                        <textarea rows="4" cols="50"></textarea>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" style="width:50px;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="text">
+                                    </td>
+                                    <td>
+                                        <textarea rows="4" cols="50"></textarea>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" style="width:50px;">
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td>
+                                        <input type="text">
+                                    </td>
+                                    <td>
+                                        <textarea rows="4" cols="50"></textarea>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" style="width:50px;">
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <br>
+                        <input type="submit" value="Submit" style="background:red; width:200px">
+                    </form>
+                </div>
 
-  <!-- !PAGE CONTENT! -->
-  <div class="w3-main" style="margin-left:340px;margin-right:40px">
+                <!-- Pendaftaran Sidang tugas akhir -->
+                <div class="w3-container" id="daftarsidangTA" style="margin-top:75px">
+                    <h3 class="w3-xxxlarge w3-text-red">Pendaftaran<b></b></h3>
+                    <hr style="width:50px;border:5px solid red" class="w3-round">
 
-    <!-- Headernyaberanda -->
-    <div class="w3-container" style="margin-top:80px" id="beranda">
-      <h4 style="text-align:right; color:#f44336"><b>Selamat datang,</b></h4>
-      <h1 class="w3-jumbo" style="text-align:right; color:#f44336"><b><?php echo $_SESSION['nama']; ?></b></h1>
-      <h6 style="text-align:right; color:#f44336"><b>Status Login : <?php echo $_SESSION['level']; ?></b></h6>
-      <h1 class="w3-xxxlarge w3-text-red"><b>Beranda.</b></h1>
-      <hr style="width:50px;border:5px solid red" class="w3-round">
-    </div>
+                    <div class="w3-container">
+                        <form style="color: #f44336" method="POST" action="#">
+                            <label style="color:color:#f44336">
+                                Nama:
+                                <br>
+                                <input type="text" name="nama_mahasiswa" required>
+                            </label>
+                            <br> NIM:
+                            <br>
+                            <input type="text" name="nim_mahasiswa" required>
+                            <br> DOSEN PEMBIMBING
+                            <BR>
+                            <select name="dosbing2" style="width:250px;">
+                                <option value="volvo"></option>
+                                <option value="volvo">Volvo</option>
+                                <option value="saab">Saab</option>
+                                <option value="fiat">Fiat</option>
+                                <option value="audi">Audi</option>
+                            </select>
+                            <br> Topik TA:
+                            <br>
+                            <input type="text" name="alamat_mahasiswa" required>
+                            <br> Tanggal Seminar:
+                            <br>
+                            <input type="date" name="email_mahasiswa" required>
+                            <br> Jam Seminar:
+                            <br>
+                            <input type="time" name="doswal_mahasiswa" required>
+                            <br> Proposal Tugas Akhir (format pdf)
+                            <br>
+                            <input type="file" value="Submit">
 
-    <!-- kontenyaberanda -->
-    <div class="w3-container">
-      <p><b>Apa itu Sista</b></p>
-      <p>SISTA merupakan Sistem Informasi Tugas Akhir terpadu yang membantu mahasiswa tingkat akhir dalam menyelesaikan adminitrasi Tugas Akhir di Teknik Industri,
-        Universitas Diponegoro.</p>
-      <p>Tugas Akhir adalah karya ilmiah yang disusun oleh mahasiswa berdasarkan hasil penelitian suatu masalah yang dilakukan dengan bimbingan oleh dosen pembimbing.
-        <p>Persyaratan Tugas Akhir<br>
-          1. Mengambil Mata Kuliah Tugas Akhir pada KRS<br>
-          2. Capaian SKS minimal 128 SKS dengan nilai minimal C<br>
-          3. IPK > 2,25<br>
-          4. Lulus Kerja Praktek</p>
-      </p>
-    </div>
+                            <br> Lembar Persetujuan Sidang TA
+                            <br>
+                            <input type="file" value="Submit">
+                            <br>
+                            <br>
+                            <br> Sertifikat TOEFL
+                            <br>
+                            <input type="file" value="Submit">
+                            <BR>
+                            <BR>
+                            <input type="submit" value="Submit" style="background:red; width:200px">
+                        </form>
 
-    <!-- Data Diri -->
-    <div class="w3-container" style="margin-top:75px" id="Data_Diri">
-      <h1 class="w3-xxxlarge w3-text-red"><b>Data Diri</b></h1>
-      <hr style="width:50px;border:5px solid red" class="w3-round">
+                    </div>
+                </div>
 
-<div class="w3-container">
-      <form style="color: #f44336" method="POST" action="aksi.php">
-        <label style="color:color:#f44336">
-        Nama: <br>
-        <input type="text" name="nama_mahasiswa" required></label><br>
-        NIM:<br>
-        <input type="text" name="nim_mahasiswa" required><br>
-        Nomor Telepon: <br>
-         <input type="text" name="no_telp_mahasiswa" required><br>
-        Alamat: <br>
-        <input type="text" name="alamat_mahasiswa" required><br>
-        E-mail: <br>
-        <input type="text" name="email_mahasiswa" required><br>
-        Dosen Wali: <br>
-        <input type="text" name="doswal_mahasiswa" required><br>
+                <!-- jadwal sidang tugas akhir -->
+                <div class="w3-container" id="jadwalsidangTA" style="margin-top:75px">
+                    <h3 class="w3-xxxlarge w3-text-red">Jadwal Sidang Tugas Akhir<b></b></h3>
+                    <hr style="width:50px;border:5px solid red" class="w3-round">
 
-        <h2 style="color:#f44336"><b>Data Orang Tua</b></h2>
-        Nama Ayah: <br>
-        <input type="text" name="ayah_mahasiswa" required><br>
-        Nomor Telpon:<br>
-         <input type="text" name="ayah_no_telepon" required><br>
-        Alamat:
-        <br>
-        <input type="text" name="ayah_alamat" required><br><br>
-        <input type="submit" value="Submit">
-      </form>
-     
+                    <form method="POST" style="color: #f44336" enctype="multipart/form-data" action="#">
+                        Hari:
+                        <br>
+                        <input type="text" name="nim">
+                        <br> Tanggal:
+                        <br>
+                        <input type="date" name="ipk">
+                        <br> Jam
+                        <br>
+                        <input type="time" name="sks">
+                        <br> Ruangan
+                        <br>
+                        <input type="text" name="sks">
+                        <br> Dosen Penguji
+                        <br>
+                        <input type="text" name="sks">
+                        <br>
+                        <br>
+                        <input type="submit" value="LANJUT" style="background:red; width:200px">
+                    </form>
+                </div>
 
-    </div>
+                <!-- Upload Laporan Final -->
+                <div class="w3-container" style="margin-top:75px" id="selamat">
+                    <h1> <FONT COLOR="red"><b>SELAMAT!</b></h1>
 
-    <!-- Designers -->
-    <div class="w3-container" id="daftar" style="margin-top:75px">
-      <h1 class="w3-xxxlarge w3-text-red">Pendaftaran Tugas Akhir<b></b></h1>
-      <hr style="width:50px;border:5px solid red" class="w3-round">
-      <h2 style="color:#f44336"><b>Akademik</b></h2>
-      <form method="POST" style="color: #f44336" enctype="multipart/form-data" action="aksi_upload.php">
-        NIM: <br>
-        <input type="text" name="nim"><br>
-        IPK: <br>
-        <input type="text" name="ipk"><br>
-        SKS:<br>
-         <input type="text" name="sks">
+                    <p><b>ENRICA,</b> Kamu telah mencapai tahap</p>
+                    <p>akhir dari Tugas Akhir. Silahkan upload hasil</p>
+                    <p>Laporan Tugas Akhir Di Bawah Ini</p>
+                    <hr style="width:50px;border:5px solid red" class="w3-round">
+                    </font>
+                    <form action="#">
+                        <br> Laporan Tugas Akhir (format pdf)
+                        <br>
+                        <input type="file" name="sks">
+                        <br>
+                        <br>
+                        <input type="submit" value="Submit" style="background:red; width:200px">
+                    </form>
+                    <!-- End page content -->
+                </div>
 
-        <h2 style="color:#f44336"><b>Upload Berkas</b></h2>
-        <!-- Transkrip Lengkap <input type="text" name="ipk"><br> -->
-        Pra-Bimbingan <br>
-        <input type="file" name="file">
-        <br><br>
-        <input type="submit" value="Submit" name="upload">
-    </div>
+                <!-- W3.CSS Container -->
+                <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px">
+                    <p class="w3-right">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p>
+                </div>
 
-    <div class="w3-display-middle" style="color:#f44336"><b>pengajuan TA
-      </b></div>
-    </form>
+                <script>
+                    // Script to open and close sidebar
+                    function w3_open() {
+                        document.getElementById("mySidebar").style.display = "block";
+                        document.getElementById("myOverlay").style.display = "block";
+                    }
 
-  </div>
+                    function w3_close() {
+                        document.getElementById("mySidebar").style.display = "none";
+                        document.getElementById("myOverlay").style.display = "none";
+                    }
 
+                    // Modal Image Gallery
+                    function onClick(element) {
+                        document.getElementById("img01").src = element.src;
+                        document.getElementById("modal01").style.display = "block";
+                        var captionText = document.getElementById("caption");
+                        captionText.innerHTML = element.alt;
+                    }
+                </script>
 
+    </body>
 
-
-
-  <!-- End page content -->
-  </div>
-
-  <!-- W3.CSS Container -->
-  <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px">
-    <p class="w3-right">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p>
-  </div>
-
-  <script>
-    // Script to open and close sidebar
-    function w3_open() {
-      document.getElementById("mySidebar").style.display = "block";
-      document.getElementById("myOverlay").style.display = "block";
-    }
-
-    function w3_close() {
-      document.getElementById("mySidebar").style.display = "none";
-      document.getElementById("myOverlay").style.display = "none";
-    }
-
-    // Modal Image Gallery
-    function onClick(element) {
-      document.getElementById("img01").src = element.src;
-      document.getElementById("modal01").style.display = "block";
-      var captionText = document.getElementById("caption");
-      captionText.innerHTML = element.alt;
-    }
-  </script>
-
-</body>
-
-</html>
+    </html>

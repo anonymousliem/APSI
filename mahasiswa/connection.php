@@ -2,8 +2,8 @@
 setlocale(LC_TIME, ['id_ID', 'INDONESIA']);
 
 $hostname = "localhost";
-$username = "debian-sys-maint";
-$password = "2k9YkosFTmNc9DXa";
+$username = "root";
+$password = "";
 $database = "apsi";
 
 $koneksi = mysqli_connect($hostname, $username, $password, $database);

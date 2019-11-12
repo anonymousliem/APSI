@@ -2,49 +2,57 @@
 var_dump($_POST['upload']);
 print_r($_POST['upload']);
 ?>
+
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Membuat Upload File Dengan PHP Dan MySQL | www.malasngoding.com</title>
+
 	</head>
 	<body>
-	<h1>Membuat Upload File Dengan PHP Dan MySQL <br/> www.malasngoding.com</h1>
+
 		<?php 
 		include 'connection.php';
 		if($_POST['upload']){
-			$ekstensi_diperbolehkan	= array('png','jpg');
+			$ekstensi_diperbolehkan	= array('pdf','docx','doc');
             $filename = $_FILES['file']['name'];
-            var_dump($filename);
+           // var_dump($filename);
 			$x = explode('.', $filename);
 			$ekstensi = strtolower(end($x));
 			$ukuran	= $_FILES['file']['size'];
             $file_tmp = $_FILES['file']['tmp_name'];
             $nim = $_POST['nim'];
-            var_dump($nim);
+          //  var_dump($nim);
             $ipk = $_POST['ipk'];
-            var_dump($ipk);
+           // var_dump($ipk);
             $sks = $_POST['sks'];
-            $folder = '/file';
-            var_dump($sks);
+            $folder = 'file/';
+           // var_dump($sks);
             
-			// if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
-				// if($ukuran < 1044070){			
-                    print_r(__DIR__.$folder);
-					move_uploaded_file($file_tmp,__DIR__.$folder.$filename);
-                    $query = mysql_query("INSERT INTO tugas_akhir(id_tugasakhir,no_induk,ipk,sks,transkrip) VALUES(NULL,$nim, $ipk, $sks, $filename)");
+			 if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
+				 if($ukuran < 1044070){			
+                    
+					$query = mysqli_query($koneksi, 
+					"INSERT INTO tugas_akhir (no_induk, ipk, sks, transkrip)
+					 VALUES ('$nim', '$ipk', '$sks', '$filename')
+					 ") or die(mysqli_error($koneksi));
                     print_r($query);
                     var_dump($query);
                     if ($query){
-                        echo 'FILE BERHASIL DI UPLOAD';
-                    } else {
-                        echo 'GAGAL MENGUPLOAD GAMBAR';
+						move_uploaded_file($file_tmp,$folder.$filename);
+                        echo '<script language="javascript">alert("FILE Berhasil Ditambahkan")</script>';
+            header('location:index.php?pesan=berhasilupload');
+						
+
+					} else {
+						echo 'GAGAL MENGUPLOAD GAMBAR';
+						mysqli_error($koneksi);
                     }
-                // }else{
-				// 	echo 'UKURAN FILE TERLALU BESAR';
-				// }
-            // }else{
-			// 	echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
-			// }
+                 }else{
+				 	echo 'UKURAN FILE TERLALU BESAR';
+				 }
+         }else{
+				echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
+			 }
 		}
 		?>
 
@@ -56,12 +64,12 @@ print_r($_POST['upload']);
 
 		<table>
 			<?php 
-			$data = mysql_query("select * from tugas_akhir");
-			while($d = mysql_fetch_array($data)){
+			$data = mysqli_query($koneksi, "select * from tugas_akhir");
+			while($d = mysqli_fetch_array($data)){
 			?>
 			<tr>
 				<td>
-					<img src="<?php echo "file_transkrip/".$d['transkrip']; ?>">
+					<img src="<?php echo "file/".$d['transkrip']; ?>">
 				</td>		
 			</tr>
 			<?php } ?>

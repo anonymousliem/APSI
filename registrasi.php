@@ -98,6 +98,8 @@ if (isset($_POST["register"])) {
                 </button>
             </form>
             <br>
+            <p class=text-center style="color:white"><a href="koordinator/index.php">Kembali</a>
+                <p>
         </div>
 
         </div>
