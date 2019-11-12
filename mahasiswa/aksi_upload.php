@@ -24,7 +24,12 @@ print_r($_POST['upload']);
           //  var_dump($nim);
             $ipk = $_POST['ipk'];
            // var_dump($ipk);
-            $sks = $_POST['sks'];
+			$sks = $_POST['sks'];
+			$tema1 = $_POST['tema1'];
+			$tema2 = $_POST['tema2'];
+			$dosbing1 = $_POST['dosbing1'];
+			$dosbing2 = $_POST['dosbing2'];
+			$nama = $_POST['nama'];;
             $folder = 'file/';
            // var_dump($sks);
             
@@ -32,8 +37,8 @@ print_r($_POST['upload']);
 				 if($ukuran < 1044070){			
                     
 					$query = mysqli_query($koneksi, 
-					"INSERT INTO tugas_akhir (no_induk, ipk, sks, transkrip)
-					 VALUES ('$nim', '$ipk', '$sks', '$filename')
+					"INSERT INTO tugas_akhir (nama, no_induk, ipk, sks, transkrip, tema1, tema2, dosbing1, dosbing2)
+					 VALUES ('$nama','$nim', '$ipk', '$sks', '$filename', '$tema1','$tema2','$dosbing1','$dosbing2')
 					 ") or die(mysqli_error($koneksi));
                     print_r($query);
                     var_dump($query);

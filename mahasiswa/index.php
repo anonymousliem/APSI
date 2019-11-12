@@ -267,6 +267,9 @@ header("location:../index.php");
                     <hr style="width:50px;border:5px solid red" class="w3-round">
                     <h2 style="color:#f44336"><b>Akademik</b></h2>
                     <form method="POST" style="color: #f44336" enctype="multipart/form-data" action="aksi_upload.php">
+                        NAMA:
+                        <br>
+                        <input type="text" name="nama"><br>
                         NIM:
                         <br>
                         <input type="text" name="nim">
@@ -279,54 +282,58 @@ header("location:../index.php");
 
                         <h2 style="color:#f44336"><b>Upload Berkas</b></h2>
                         <!-- Transkrip Lengkap <input type="text" name="ipk"><br> -->
-                        Pra-Bimbingan
+                        Tranksrip Lengkap
                         <br>
                         <input type="file" name="file">
                         <br>
 
                         <br>
                         <h2 style="color:#f44336"><b>Pengajuan Tema</b></h2>
-                        <B> TEMA 1 </B>
-
-                        <select name="tema1" style="width:250px;">
+                        <B> TEMA 1 </B><br>
+                        <input type="text" name="tema1">
+                      <!--  <select name="tema1" style="width:250px;">
                             <option value="volvo"></option>
                             <option value="volvo">Volvo</option>
                             <option value="saab">Saab</option>
                             <option value="fiat">Fiat</option>
                             <option value="audi">Audi</option>
                         </select>
+                        -->
                         <br>
-                        <br>
-                        <B> TEMA 2 </B>
-
-                        <select name="tem2" style="width:250px;">
+                    
+                        <B> TEMA 2 </B><br>
+                        <input type="text" name="tema2">
+                        <!--  <select name="tema1" style="width:250px;">
                             <option value="volvo"></option>
                             <option value="volvo">Volvo</option>
                             <option value="saab">Saab</option>
                             <option value="fiat">Fiat</option>
                             <option value="audi">Audi</option>
                         </select>
+                        -->
                         <br>
                         <h2 style="color:#f44336"><b>Pengajuan Dosen Pembimbing</b></h2>
-                        <B> DOSEN PEMBIMBING 1 </B>
-                        <BR>
-                        <select name="dosbing1" style="width:250px;">
-                            <option value="volvo"></option>
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="fiat">Fiat</option>
-                            <option value="audi">Audi</option>
-                        </select>
-                        <br>
                         <B> DOSEN PEMBIMBING 2 </B>
                         <BR>
                         <select name="dosbing2" style="width:250px;">
                             <option value="volvo"></option>
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="fiat">Fiat</option>
-                            <option value="audi">Audi</option>
+                            <option value="volvo">A</option>
+                            <option value="saab">B</option>
+                            <option value="fiat">C</option>
+                            <option value="audi">D</option>
                         </select>
+                        <br>
+                        <B> DOSEN PEMBIMBING 1 </B>
+                        <BR>
+                        <select name="dosbing1" style="width:250px;">
+                            <option value="volvo"></option>
+                            <option value="volvo">E</option>
+                            <option value="saab">F</option>
+                            <option value="fiat">G</option>
+                            <option value="audi">H</option>
+                        </select>
+                        <br>
+                       
                         <br>
                         <br>
                         <input type="submit" value="Submit" name="upload" style="background:red;width:200px">
@@ -334,6 +341,43 @@ header("location:../index.php");
                 </div>
 
                 <!-- pengumuman dosen -->
+                
+    <?php	include "connection.php"; 
+    $sesi = $_SESSION['nama'];
+   
+    $sql = "SELECT no_induk FROM tugas_akhir WHERE nama='$sesi'";
+    $result = $koneksi->query($sql);
+    $sql2 = "SELECT tema1 FROM tugas_akhir WHERE nama='$sesi'";
+    $result2 = $koneksi->query($sql2);
+    $sql3 = "SELECT dosbing1 FROM tugas_akhir WHERE nama='$sesi'";
+    $result3 = $koneksi->query($sql3);
+    
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            $nimku =  $row["no_induk"];
+        }
+    } 
+
+      
+    if ($result2->num_rows > 0) {
+        // output data of each row
+        while($row = $result2->fetch_assoc()) {
+            $temaku =  $row["tema1"];
+        }
+    } 
+
+    if ($result3->num_rows > 0) {
+        // output data of each row
+        while($row = $result3->fetch_assoc()) {
+            $dosbingku =  $row["dosbing1"];
+        }
+    } 
+    
+    
+     ?>
+    
+
                 <div class="w3-container" id="pengumumandosen" style="margin-top:75px">
                     <h3 class="w3-xxxlarge w3-text-red">Pengumuman Dosen Pembimbing<b></b></h3>
                     <hr style="width:50px;border:5px solid red" class="w3-round">
@@ -341,16 +385,16 @@ header("location:../index.php");
                     <form method="POST" style="color: #f44336" enctype="multipart/form-data" action="#">
                         NAMA:
                         <br>
-                        <input type="text" name="nim">
+                        <input type="text" disabled name="nim" value="<?php echo $sesi ?>">
                         <br> NIM:
                         <br>
-                        <input type="text" name="ipk">
+                        <input type="text" disabled  name="ipk" value="<?php echo $nimku; ?>">
                         <br> TOPIK TA:
                         <br>
-                        <input type="text" name="sks">
+                        <input type="text" disabled  name="sks" value="<?php echo $temaku; ?>">
                         <br> Dosen Pembimbing
                         <br>
-                        <input type="text" name="sks">
+                        <input type="text" disabled value="<?php echo $dosbingku; ?>">
                     </form>
                 </div>
 

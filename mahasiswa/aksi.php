@@ -20,7 +20,7 @@ $alamatAyah = $_POST['ayah_alamat'];
 $query = mysqli_query($koneksi, "INSERT INTO ortu ( nama, no_induk, no_telepon, alamat, email, doswal, nama_ayah, no_ayah, alamat_ayah)
     VALUES ('$namaMhs','$nimMhs','$noTelpMhs','$alamatMhs','$emailMhs','$doswalMhs','$namaAyah','$noAyah','$alamatAyah') ");
 print_r($query);
-var_dump($query)
+//var_dump($query)
 if($query){
      echo '<script language="javascript">alert("Data Berhasil Ditambahkan")</script>';
             header('location:index.php');
