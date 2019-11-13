@@ -45,7 +45,7 @@ print_r($_POST['upload']);
                     if ($query){
 						move_uploaded_file($file_tmp,$folder.$filename);
                         echo '<script language="javascript">alert("FILE Berhasil Ditambahkan")</script>';
-            header('location:index.php?pesan=berhasilupload');
+            			header('location:index.php?pesan=berhasilupload');
 						
 
 					} else {
@@ -67,8 +67,8 @@ print_r($_POST['upload']);
 		<br/>
 		<br/>
 
-		<table>
-			<?php 
+	<!--	<table>
+		<?php  /*
 			$data = mysqli_query($koneksi, "select * from tugas_akhir");
 			while($d = mysqli_fetch_array($data)){
 			?>
@@ -77,7 +77,8 @@ print_r($_POST['upload']);
 					<img src="<?php echo "file/".$d['transkrip']; ?>">
 				</td>		
 			</tr>
-			<?php } ?>
+			<?php } */?> 
 		</table>
+		-->
 	</body>
 </html>

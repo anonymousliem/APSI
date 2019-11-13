@@ -269,7 +269,7 @@ header("location:../index.php");
                     <form method="POST" style="color: #f44336" enctype="multipart/form-data" action="aksi_upload.php">
                         NAMA:
                         <br>
-                        <input type="text" name="nama"><br>
+                        <input type="text" name="nama" disabled value="<?php echo $_SESSION['nama']; ?>"><br>
                         NIM:
                         <br>
                         <input type="text" name="nim">
@@ -402,7 +402,7 @@ header("location:../index.php");
                 <div class="w3-container" id="bimbingan" style="margin-top:75px">
                     <h3 class="w3-xxxlarge w3-text-red">Bimbingan<b></b></h3>
                     <hr style="width:50px;border:5px solid red" class="w3-round">
-                    <form action="#">
+                    <form  method="POST" action="aksi_bimbingan_sempro.php">
                         <table>
                             <thead>
                                 <tr>
@@ -414,37 +414,37 @@ header("location:../index.php");
                             <tbody>
                                 <tr>
                                     <td>
-                                        <input type="text">
+                                        <input type="date" name="tanggal1">
                                     </td>
                                     <td>
-                                        <textarea rows="4" cols="50"></textarea>
+                                        <textarea rows="4" cols="50" name="textarea1"></textarea>
                                     </td>
                                     <td>
-                                        <input type="checkbox" style="width:50px;">
+                                        <input type="checkbox" style="width:50px;" name="status1" required>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input type="text">
+                                        <input type="date" name="tanggal2">
                                     </td>
                                     <td>
-                                        <textarea rows="4" cols="50"></textarea>
+                                        <textarea rows="4" cols="50" name="textarea2"></textarea>
                                     </td>
                                     <td>
-                                        <input type="checkbox" style="width:50px;">
+                                        <input type="checkbox" style="width:50px;" name="status2" >
                                     </td>
                                 </tr>
                             </tbody>
                             <tfoot>
                                 <tr>
                                     <td>
-                                        <input type="text">
+                                        <input type="date" name="tanggal3">
                                     </td>
                                     <td>
-                                        <textarea rows="4" cols="50"></textarea>
+                                        <textarea rows="4" cols="50" name="textarea3"></textarea>
                                     </td>
                                     <td>
-                                        <input type="checkbox" style="width:50px;">
+                                        <input type="checkbox" name="status3" style="width:50px;  " >
                                     </td>
                                 </tr>
                             </tfoot>
@@ -464,7 +464,7 @@ header("location:../index.php");
                             <label style="color:color:#f44336">
                                 Nama:
                                 <br>
-                                <input type="text" name="nama_mahasiswa" required>
+                                <input type="text" disabled name="nim" value="<?php echo $sesi ?>">
                             </label>
                             <br> NIM:
                             <br>
@@ -530,7 +530,7 @@ header("location:../index.php");
                 <div class="w3-container" id="bimbingansidangTA" style="margin-top:75px">
                     <h3 class="w3-xxxlarge w3-text-red">Bimbingan<b></b></h3>
                     <hr style="width:50px;border:5px solid red" class="w3-round">
-                    <form action="#">
+                    <form method="POST" action="aksi_bimbingan_TA.php">
                         <table>
                             <thead>
                                 <tr>
@@ -542,37 +542,37 @@ header("location:../index.php");
                             <tbody>
                                 <tr>
                                     <td>
-                                        <input type="text">
+                                        <input type="date" name="tanggal1TA" required>
                                     </td>
                                     <td>
-                                        <textarea rows="4" cols="50"></textarea>
+                                        <textarea rows="4" cols="50" name="catatan1TA"required ></textarea>
                                     </td>
                                     <td>
-                                        <input type="checkbox" style="width:50px;">
+                                        <input type="checkbox" name="status1TA" style="width:50px;" required>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input type="text">
+                                    <input type="date" name="tanggal2TA">
                                     </td>
                                     <td>
-                                        <textarea rows="4" cols="50"></textarea>
+                                    <textarea rows="4" cols="50" name="catatan2TA" ></textarea>
                                     </td>
                                     <td>
-                                        <input type="checkbox" style="width:50px;">
+                                    <input type="checkbox" name="status2TA" style="width:50px;">
                                     </td>
                                 </tr>
                             </tbody>
                             <tfoot>
                                 <tr>
                                     <td>
-                                        <input type="text">
+                                    <input type="date" name="tanggal3TA">
                                     </td>
                                     <td>
-                                        <textarea rows="4" cols="50"></textarea>
+                                    <textarea rows="4" cols="50" name="catatan3TA" ></textarea>
                                     </td>
                                     <td>
-                                        <input type="checkbox" style="width:50px;">
+                                    <input type="checkbox" name="status3TA" style="width:50px;">
                                     </td>
                                 </tr>
                             </tfoot>
