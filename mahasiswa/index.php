@@ -351,6 +351,10 @@ header("location:../index.php");
     $result2 = $koneksi->query($sql2);
     $sql3 = "SELECT dosbing1 FROM tugas_akhir WHERE nama='$sesi'";
     $result3 = $koneksi->query($sql3);
+    $sql4 = "SELECT tanggal FROM daftarsempro WHERE nama='$sesi'";
+    $result4 = $koneksi->query($sql4);
+    $sql5 = "SELECT jam FROM daftarsempro WHERE nama='$sesi'";
+    $result5 = $koneksi->query($sql5);
     
     if ($result->num_rows > 0) {
         // output data of each row
@@ -371,6 +375,20 @@ header("location:../index.php");
         // output data of each row
         while($row = $result3->fetch_assoc()) {
             $dosbingku =  $row["dosbing1"];
+        }
+    }
+
+    if ($result4->num_rows > 0) {
+            // output data of each row
+            while($row = $result4->fetch_assoc()) {
+                $tanggalsempro =  $row["tanggal"];
+            }
+    } 
+
+    if ($result5->num_rows > 0) {
+        // output data of each row
+        while($row = $result5->fetch_assoc()) {
+            $jamsempro =  $row["jam"];
         }
     } 
     
@@ -460,18 +478,18 @@ header("location:../index.php");
                     <hr style="width:50px;border:5px solid red" class="w3-round">
 
                     <div class="w3-container">
-                        <form style="color: #f44336" method="POST" action="#">
+                        <form style="color: #f44336" method="POST" action="aksi_pendaftaran_sempro.php">
                             <label style="color:color:#f44336">
                                 Nama:
                                 <br>
-                                <input type="text" disabled name="nim" value="<?php echo $sesi ?>">
+                                <input type="text" disabled name="nama" value="<?php echo $sesi ?>">
                             </label>
                             <br> NIM:
                             <br>
-                            <input type="text" name="nim_mahasiswa" required>
+                            <input type="text" name="nim" required>
                             <br> DOSEN PEMBIMBING
                             <BR>
-                            <select name="dosbing2" style="width:250px;">
+                            <select name="dosbing" style="width:250px;">
                                 <option value="volvo"></option>
                                 <option value="volvo">Volvo</option>
                                 <option value="saab">Saab</option>
@@ -480,23 +498,23 @@ header("location:../index.php");
                             </select>
                             <br> Topik TA:
                             <br>
-                            <input type="text" name="alamat_mahasiswa" required>
+                            <input type="text" name="topik" required>
                             <br> Tanggal Seminar:
                             <br>
-                            <input type="date" name="email_mahasiswa" required>
+                            <input type="date" name="tanggal" required>
                             <br> Jam Seminar:
                             <br>
-                            <input type="time" name="doswal_mahasiswa" required>
+                            <input type="time" name="jam" required>
                             <br> Proposal Tugas Akhir (format pdf)
                             <br>
-                            <input type="file" value="Submit">
+                            <input type="file" value="Submit" name="lembar_proposal">
 
                             <br> Lembar Persetujuan Seminar Proposal
                             <br>
-                            <input type="file" value="Submit">
+                            <input type="file" value="Submit" name="lembar_persetujuan">
                             <br>
                             <br>
-                            <input type="submit" value="Submit" style="background:red; width:200px">
+                            <input type="submit" value="Submit" style="background:red; width:200px" name="uploadSempro">
                         </form>
 
                     </div>
@@ -507,16 +525,19 @@ header("location:../index.php");
                     <h3 class="w3-xxxlarge w3-text-red">Jadwal Seminar Proposal<b></b></h3>
                     <hr style="width:50px;border:5px solid red" class="w3-round">
 
+                    
+                      
+
                     <form method="POST" style="color: #f44336" enctype="multipart/form-data" action="#">
                         Hari:
                         <br>
-                        <input type="text" name="nim">
+                        <input type="text" name="nim" >
                         <br> Tanggal:
                         <br>
-                        <input type="date" name="ipk">
+                        <input type="date" name="ipk" value="<?php echo $tanggalsempro ?>" disabled > 
                         <br> Jam
                         <br>
-                        <input type="time" name="sks">
+                        <input type="time" name="sks" value="<?php echo $jamsempro ?>" disabled>
                         <br> Ruangan
                         <br>
                         <input type="text" name="sks">
@@ -592,7 +613,7 @@ header("location:../index.php");
                             <label style="color:color:#f44336">
                                 Nama:
                                 <br>
-                                <input type="text" name="nama_mahasiswa" required>
+                                <input type="text" name="nama_mahasiswa" value="<?php echo $_SESSION['nama'] ?>" disabled>
                             </label>
                             <br> NIM:
                             <br>
