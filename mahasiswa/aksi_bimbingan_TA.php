@@ -7,7 +7,7 @@ if ($_SESSION['level'] != 'mahasiswa') {
 }
 
 
-$nama = $_SESSION['nama'];;
+$nama = $_SESSION['nama'];
 $tanggal1 = $_POST['tanggal1TA'];
 //$tanggal2 = $_POST['tanggal2'];
 //$tanggal3 = $_POST['tanggal3'];

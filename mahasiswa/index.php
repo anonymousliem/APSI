@@ -355,7 +355,10 @@ header("location:../index.php");
     $result4 = $koneksi->query($sql4);
     $sql5 = "SELECT jam FROM daftarsempro WHERE nama='$sesi'";
     $result5 = $koneksi->query($sql5);
-    
+    $sql6 = "SELECT tanggal FROM daftarta WHERE nama='$sesi'";
+    $result6 = $koneksi->query($sql6);
+    $sql7 = "SELECT jam FROM daftarta WHERE nama='$sesi'";
+    $result7 = $koneksi->query($sql7);
     if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
@@ -391,8 +394,18 @@ header("location:../index.php");
             $jamsempro =  $row["jam"];
         }
     } 
-    
-    
+    if ($result6->num_rows > 0) {
+        // output data of each row
+        while($row = $result6->fetch_assoc()) {
+            $tanggalta =  $row["tanggal"];
+        }
+    } 
+    if ($result7->num_rows > 0) {
+        // output data of each row
+        while($row = $result7->fetch_assoc()) {
+            $jamta =  $row["jam"];
+        }
+    } 
      ?>
     
 
@@ -609,7 +622,7 @@ header("location:../index.php");
                     <hr style="width:50px;border:5px solid red" class="w3-round">
 
                     <div class="w3-container">
-                        <form style="color: #f44336" method="POST" action="#">
+                        <form style="color: #f44336" method="POST" action="aksi_pendaftaran_ta.php">
                             <label style="color:color:#f44336">
                                 Nama:
                                 <br>
@@ -617,10 +630,10 @@ header("location:../index.php");
                             </label>
                             <br> NIM:
                             <br>
-                            <input type="text" name="nim_mahasiswa" required>
+                            <input type="text" name="nim" required>
                             <br> DOSEN PEMBIMBING
                             <BR>
-                            <select name="dosbing2" style="width:250px;">
+                            <select name="dosbing" style="width:250px;">
                                 <option value="volvo"></option>
                                 <option value="volvo">Volvo</option>
                                 <option value="saab">Saab</option>
@@ -629,25 +642,25 @@ header("location:../index.php");
                             </select>
                             <br> Topik TA:
                             <br>
-                            <input type="text" name="alamat_mahasiswa" required>
+                            <input type="text" name="topik" required>
                             <br> Tanggal Seminar:
                             <br>
-                            <input type="date" name="email_mahasiswa" required>
+                            <input type="date" name="tanggal" required>
                             <br> Jam Seminar:
                             <br>
-                            <input type="time" name="doswal_mahasiswa" required>
+                            <input type="time" name="time" required>
                             <br> Proposal Tugas Akhir (format pdf)
                             <br>
-                            <input type="file" value="Submit">
+                            <input type="file" value="Submit" name="lembar_proposal">
 
                             <br> Lembar Persetujuan Sidang TA
                             <br>
-                            <input type="file" value="Submit">
+                            <input type="file" value="Submit" name="lembar_persetujuan">
                             <br>
-                            <br>
+                           
                             <br> Sertifikat TOEFL
                             <br>
-                            <input type="file" value="Submit">
+                            <input type="file" value="Submit" name="toefl">
                             <BR>
                             <BR>
                             <input type="submit" value="Submit" style="background:red; width:200px">
@@ -661,16 +674,16 @@ header("location:../index.php");
                     <h3 class="w3-xxxlarge w3-text-red">Jadwal Sidang Tugas Akhir<b></b></h3>
                     <hr style="width:50px;border:5px solid red" class="w3-round">
 
-                    <form method="POST" style="color: #f44336" enctype="multipart/form-data" action="#">
+                  
                         Hari:
                         <br>
                         <input type="text" name="nim">
                         <br> Tanggal:
                         <br>
-                        <input type="date" name="ipk">
+                        <input type="date" name="ipk" disabled value="<?php echo $tanggalta?>">
                         <br> Jam
                         <br>
-                        <input type="time" name="sks">
+                        <input type="time" name="sks" disabled value="<?php echo $jamta?>">
                         <br> Ruangan
                         <br>
                         <input type="text" name="sks">
@@ -679,23 +692,23 @@ header("location:../index.php");
                         <input type="text" name="sks">
                         <br>
                         <br>
-                        <input type="submit" value="LANJUT" style="background:red; width:200px">
-                    </form>
+                      <a  href="#selamat"><button  style="background:red; width:200px">LANJUT</a>
+                  
                 </div>
 
                 <!-- Upload Laporan Final -->
                 <div class="w3-container" style="margin-top:75px" id="selamat">
                     <h1> <FONT COLOR="red"><b>SELAMAT!</b></h1>
 
-                    <p><b>ENRICA,</b> Kamu telah mencapai tahap</p>
+                    <p><b><h2><?php echo $_SESSION['nama'] ?></h2></b> Kamu telah mencapai tahap</p>
                     <p>akhir dari Tugas Akhir. Silahkan upload hasil</p>
                     <p>Laporan Tugas Akhir Di Bawah Ini</p>
                     <hr style="width:50px;border:5px solid red" class="w3-round">
                     </font>
-                    <form action="#">
+                    <form  method="POST" action="aksi_laporan_tugas_akhir.php">
                         <br> Laporan Tugas Akhir (format pdf)
                         <br>
-                        <input type="file" name="sks">
+                        <input type="file" name="laporan">
                         <br>
                         <br>
                         <input type="submit" value="Submit" style="background:red; width:200px">

@@ -37,13 +37,15 @@ header("location:../index.php");
 			 }*/
         }
         
+
+
              
              $nama = $_SESSION['nama'];
              $nim = $_POST['nim'];
              $dosenpembimbing = $_POST['dosbing'];
 			 $topik = $_POST['topik'];
 			 $tanggal = $_POST['tanggal'];
-			 $jam = $_POST['jam'];
+			 $jam = $_POST['time'];
              $lembarpersetujuan= $_POST['lembar_persetujuan'];
              if($lembarpersetujuan){
                 $ekstensi_diperbolehkan2	= array('pdf','docx','doc');
@@ -71,9 +73,36 @@ header("location:../index.php");
                  }*/
             } 
 
+            $toefl= $_POST['toefl'];
+            if($toefl){
+                $ekstensi_diperbolehkan4	= array('pdf','docx','doc');
+                $filename3 = $_FILES['lembar_persetujuan']['name'];
+                $folder3 = 'lembarpersetujuan/';
+                $x3 = explode('.', $filename3);
+                $ekstensi2 = strtolower(end($x3));
+            //	$ukuran	= $_FILES['file']['size'];
+                $file_tmp2 = $_FILES['lembar_persetujuan']['tmp_name'];
+                  move_uploaded_file($file_tmp3,$folder3.$filename3);
+    
+               /*  if(in_array($ekstensi2, $ekstensi_diperbolehkan2) === true){
+    
+                        
+                      
+                       // if ($query){
+                          
+                            //echo '<script language="javascript">alert("FILE Berhasil Ditambahkan")</script>';
+                           // header('location:index.php?pesan=berhasilupload');
+    
+                       // } 
+    
+             }else{
+                    echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
+                 }*/
+            } 
+
             $query = mysqli_query($koneksi, 
-                        "INSERT INTO daftarsempro (nama, nim, dosbing, tanggal, jam, proposalta,seminarproposal)
-                         VALUES ('$nama','$nim','$dosenpembimbing','$tanggal', '$jam', '$lembarproposal','$lembarpersetujuan')
+                        "INSERT INTO daftarta (nama, nim, dosbing, tanggal, jam, proposalta,seminarproposal,toefl)
+                         VALUES ('$nama','$nim','$dosenpembimbing','$tanggal', '$jam', '$lembarproposal','$lembarpersetujuan','$toefl')
                          ") or die(mysqli_error($koneksi));
 if($query){
     echo '<script language="javascript">alert("Data Berhasil Ditambahkan")</script>';
