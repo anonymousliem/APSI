@@ -29,12 +29,12 @@ print_r($_POST['upload']);
 			$tema2 = $_POST['tema2'];
 			$dosbing1 = $_POST['dosbing1'];
 			$dosbing2 = $_POST['dosbing2'];
-			$nama = $_POST['nama'];;
+			
             $folder = 'file/';
            // var_dump($sks);
             
 			 if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
-				 if($ukuran < 1044070){			
+			//	 if($ukuran < 1044070){			
                     
 					$query = mysqli_query($koneksi, 
 					"INSERT INTO tugas_akhir (nama, no_induk, ipk, sks, transkrip, tema1, tema2, dosbing1, dosbing2)
@@ -52,9 +52,9 @@ print_r($_POST['upload']);
 						echo 'GAGAL MENGUPLOAD GAMBAR';
 						mysqli_error($koneksi);
                     }
-                 }else{
+               /*  }else{
 				 	echo 'UKURAN FILE TERLALU BESAR';
-				 }
+				 } */
          }else{
 				echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
 			 }
