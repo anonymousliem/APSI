@@ -5,10 +5,21 @@ session_start();
 if ($_SESSION['level'] != 'mahasiswa') {
   header("location:../index.php");
 }
+$namaMhs = $_SESSION['nama'];
+$sql8 = "SELECT no_induk FROM user WHERE nama='$namaMhs'";
+$result8 = $koneksi->query($sql8);
+if ($result8->num_rows > 0) {
+  // output data of each row
+  while($row = $result8->fetch_assoc()) {
+      $nimMhs =  $row["no_induk"];
+  }
+} 
 
 
-$namaMhs = $_POST['nama_mahasiswa'];
-$nimMhs = $_POST['nim_mahasiswa'];
+
+
+//$namaMhs = $_POST['nama_mahasiswa'];
+//$nimMhs = $_POST['nim_mahasiswa'];
 $noTelpMhs = $_POST['no_telp_mahasiswa'];
 $alamatMhs = $_POST['alamat_mahasiswa'];
 $emailMhs = $_POST['email_mahasiswa'];
@@ -23,7 +34,7 @@ print_r($query);
 //var_dump($query)
 if($query){
      echo '<script language="javascript">alert("Data Berhasil Ditambahkan")</script>';
-            header('location:index.php');
+     header('location:index.php?pesan=berhasilupload');
         }   else{
                 echo mysqli_error($koneksi);
     }

@@ -146,6 +146,7 @@ header("location:../index.php");
             <div class="w3-bar-block">
                 <a href="#beranda" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Beranda</a>
                 <a href="#Data_Diri" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Data Diri</a>
+                <a href="profile.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Profile</a>
                 <a href="#daftar" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Pendaftaran Tugas Akhir</a>
 
                 <div class="w3-bar-block">
@@ -203,6 +204,81 @@ header("location:../index.php");
                 <hr style="width:50px;border:5px solid red" class="w3-round">
             </div>
 
+                
+            <?php	include "connection.php"; 
+    $sesi = $_SESSION['nama'];
+   
+    $sql = "SELECT no_induk FROM tugas_akhir WHERE nama='$sesi'";
+    $result = $koneksi->query($sql);
+    $sql2 = "SELECT tema1 FROM tugas_akhir WHERE nama='$sesi'";
+    $result2 = $koneksi->query($sql2);
+    $sql3 = "SELECT dosbing1 FROM tugas_akhir WHERE nama='$sesi'";
+    $result3 = $koneksi->query($sql3);
+    $sql4 = "SELECT tanggal FROM daftarsempro WHERE nama='$sesi'";
+    $result4 = $koneksi->query($sql4);
+    $sql5 = "SELECT jam FROM daftarsempro WHERE nama='$sesi'";
+    $result5 = $koneksi->query($sql5);
+    $sql6 = "SELECT tanggal FROM daftarta WHERE nama='$sesi'";
+    $result6 = $koneksi->query($sql6);
+    $sql7 = "SELECT jam FROM daftarta WHERE nama='$sesi'";
+    $result7 = $koneksi->query($sql7);
+    $sql8 = "SELECT no_induk FROM user WHERE nama='$sesi'";
+    $result8 = $koneksi->query($sql8);
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            $nimku =  $row["no_induk"];
+        }
+    } 
+    if ($result8->num_rows > 0) {
+        // output data of each row
+        while($row = $result8->fetch_assoc()) {
+            $anjay =  $row["no_induk"];
+        }
+    } 
+      
+    if ($result2->num_rows > 0) {
+        // output data of each row
+        while($row = $result2->fetch_assoc()) {
+            $temaku =  $row["tema1"];
+        }
+    } 
+
+    if ($result3->num_rows > 0) {
+        // output data of each row
+        while($row = $result3->fetch_assoc()) {
+            $dosbingku =  $row["dosbing1"];
+        }
+    }
+
+    if ($result4->num_rows > 0) {
+            // output data of each row
+            while($row = $result4->fetch_assoc()) {
+                $tanggalsempro =  $row["tanggal"];
+            }
+    } 
+
+    if ($result5->num_rows > 0) {
+        // output data of each row
+        while($row = $result5->fetch_assoc()) {
+            $jamsempro =  $row["jam"];
+        }
+    } 
+    if ($result6->num_rows > 0) {
+        // output data of each row
+        while($row = $result6->fetch_assoc()) {
+            $tanggalta =  $row["tanggal"];
+        }
+    } 
+    if ($result7->num_rows > 0) {
+        // output data of each row
+        while($row = $result7->fetch_assoc()) {
+            $jamta =  $row["jam"];
+        }
+    } 
+     ?>
+
+
             <!-- kontenyaberanda -->
             <div class="w3-container">
                 <p><b>Apa itu Sista</b></p>
@@ -226,11 +302,11 @@ header("location:../index.php");
                         <label style="color:color:#f44336">
                             Nama:
                             <br>
-                            <input type="text" name="nama_mahasiswa" required>
+                            <input type="text" name="nama_mahasiswa"  value="<?php echo $_SESSION['nama']?>" disabled>
                         </label>
                         <br> NIM:
                         <br>
-                        <input type="text" name="nim_mahasiswa" required>
+                        <input type="text" name="nim_mahasiswa" disabled value="<?php echo $anjay?>">
                         <br> Nomor Telepon:
                         <br>
                         <input type="text" name="no_telp_mahasiswa" required>
@@ -242,7 +318,15 @@ header("location:../index.php");
                         <input type="text" name="email_mahasiswa" required>
                         <br> Dosen Wali:
                         <br>
-                        <input type="text" name="doswal_mahasiswa" required>
+                
+
+                        <select name="doswal_mahasiswa" style="width:200px;">
+                            <option value="volvo"></option>
+                            <option value="volvo">A</option>
+                            <option value="saab">B</option>
+                            <option value="fiat">C</option>
+                            <option value="audi">D</option>
+                        </select>
                         <br>
 
                         <h2 style="color:#f44336"><b>Data Orang Tua</b></h2> Nama Ayah:
@@ -341,72 +425,7 @@ header("location:../index.php");
                 </div>
 
                 <!-- pengumuman dosen -->
-                
-    <?php	include "connection.php"; 
-    $sesi = $_SESSION['nama'];
-   
-    $sql = "SELECT no_induk FROM tugas_akhir WHERE nama='$sesi'";
-    $result = $koneksi->query($sql);
-    $sql2 = "SELECT tema1 FROM tugas_akhir WHERE nama='$sesi'";
-    $result2 = $koneksi->query($sql2);
-    $sql3 = "SELECT dosbing1 FROM tugas_akhir WHERE nama='$sesi'";
-    $result3 = $koneksi->query($sql3);
-    $sql4 = "SELECT tanggal FROM daftarsempro WHERE nama='$sesi'";
-    $result4 = $koneksi->query($sql4);
-    $sql5 = "SELECT jam FROM daftarsempro WHERE nama='$sesi'";
-    $result5 = $koneksi->query($sql5);
-    $sql6 = "SELECT tanggal FROM daftarta WHERE nama='$sesi'";
-    $result6 = $koneksi->query($sql6);
-    $sql7 = "SELECT jam FROM daftarta WHERE nama='$sesi'";
-    $result7 = $koneksi->query($sql7);
-    if ($result->num_rows > 0) {
-        // output data of each row
-        while($row = $result->fetch_assoc()) {
-            $nimku =  $row["no_induk"];
-        }
-    } 
 
-      
-    if ($result2->num_rows > 0) {
-        // output data of each row
-        while($row = $result2->fetch_assoc()) {
-            $temaku =  $row["tema1"];
-        }
-    } 
-
-    if ($result3->num_rows > 0) {
-        // output data of each row
-        while($row = $result3->fetch_assoc()) {
-            $dosbingku =  $row["dosbing1"];
-        }
-    }
-
-    if ($result4->num_rows > 0) {
-            // output data of each row
-            while($row = $result4->fetch_assoc()) {
-                $tanggalsempro =  $row["tanggal"];
-            }
-    } 
-
-    if ($result5->num_rows > 0) {
-        // output data of each row
-        while($row = $result5->fetch_assoc()) {
-            $jamsempro =  $row["jam"];
-        }
-    } 
-    if ($result6->num_rows > 0) {
-        // output data of each row
-        while($row = $result6->fetch_assoc()) {
-            $tanggalta =  $row["tanggal"];
-        }
-    } 
-    if ($result7->num_rows > 0) {
-        // output data of each row
-        while($row = $result7->fetch_assoc()) {
-            $jamta =  $row["jam"];
-        }
-    } 
-     ?>
     
 
                 <div class="w3-container" id="pengumumandosen" style="margin-top:75px">
