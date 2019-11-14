@@ -41,8 +41,7 @@ $query = mysqli_query($koneksi, "UPDATE ortu SET nama='$namaMhs', no_induk='$nim
  nama_ayah='$namaAyah',  no_ayah='$noAyah', alamat_ayah='$alamatAyah'");
 
 if($query){
-     echo '<script language="javascript">alert("Data Berhasil Ditambahkan")</script>';
-     header('location:index.php?pesan=berhasilupload');
+     header('location:profile.php');
         }   else{
                 echo mysqli_error($koneksi);
     }

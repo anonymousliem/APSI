@@ -15,8 +15,10 @@ header("location:../index.php");
 <body>
 
     <?php 
+
+    
         include 'connection.php';
-       $lembarproposal= $_POST['lembar_proposal'];
+        $lembarproposal= $_POST['lembar_proposal'];
 		if($lembarproposal){
 			$ekstensi_diperbolehkan	= array('pdf','docx','doc');
             $filename = $_FILES['lembar_proposal']['name'];
@@ -72,8 +74,8 @@ header("location:../index.php");
             } 
 
             $query = mysqli_query($koneksi, 
-                        "INSERT INTO daftarsempro (nama, nim, dosbing, tanggal, jam, proposalta,seminarproposal)
-                         VALUES ('$nama','$nim','$dosenpembimbing','$tanggal', '$jam', '$lembarproposal','$lembarpersetujuan')
+                        "INSERT INTO daftarsempro (status, nama, nim, dosbing, tanggal, jam, proposalta,seminarproposal)
+                         VALUES ('pending','$nama','$nim','$dosenpembimbing','$tanggal', '$jam', '$lembarproposal','$lembarpersetujuan')
                          ") or die(mysqli_error($koneksi));
 if($query){
     echo '<script language="javascript">alert("Data Berhasil Ditambahkan")</script>';

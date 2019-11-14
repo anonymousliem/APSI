@@ -1,6 +1,11 @@
 <?php
-var_dump($_POST['upload']);
-print_r($_POST['upload']);
+include "connection.php";
+
+session_start();
+if ($_SESSION['level'] != 'mahasiswa') {
+  header("location:../index.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +16,17 @@ print_r($_POST['upload']);
 	<body>
 
 		<?php 
-		include 'connection.php';
+		
+		$namaMhs = $_SESSION['nama'];
+$sql8 = "SELECT no_induk FROM user WHERE nama='$namaMhs'";
+$result8 = $koneksi->query($sql8);
+if ($result8->num_rows > 0) {
+  // output data of each row
+  while($row = $result8->fetch_assoc()) {
+      $nimMhs =  $row["no_induk"];
+  }
+} 
+
 		if($_POST['upload']){
 			$ekstensi_diperbolehkan	= array('pdf','docx','doc');
             $filename = $_FILES['file']['name'];
@@ -20,7 +35,7 @@ print_r($_POST['upload']);
 			$ekstensi = strtolower(end($x));
 			$ukuran	= $_FILES['file']['size'];
             $file_tmp = $_FILES['file']['tmp_name'];
-            $nim = $_POST['nim'];
+            //$nim = $_POST['nim'];
           //  var_dump($nim);
             $ipk = $_POST['ipk'];
            // var_dump($ipk);
@@ -37,8 +52,8 @@ print_r($_POST['upload']);
 			//	 if($ukuran < 1044070){			
                     
 					$query = mysqli_query($koneksi, 
-					"INSERT INTO tugas_akhir (nama, no_induk, ipk, sks, transkrip, tema1, tema2, dosbing1, dosbing2)
-					 VALUES ('$nama','$nim', '$ipk', '$sks', '$filename', '$tema1','$tema2','$dosbing1','$dosbing2')
+					"INSERT INTO tugas_akhir (status, nama, no_induk, ipk, sks, transkrip, tema1, tema2, dosbing1, dosbing2)
+					 VALUES ('pending','$namaMhs','$nimMhs', '$ipk', '$sks', '$filename', '$tema1','$tema2','$dosbing1','$dosbing2')
 					 ") or die(mysqli_error($koneksi));
                     print_r($query);
                     var_dump($query);

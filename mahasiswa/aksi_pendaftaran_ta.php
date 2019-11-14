@@ -101,8 +101,8 @@ header("location:../index.php");
             } 
 
             $query = mysqli_query($koneksi, 
-                        "INSERT INTO daftarta (nama, nim, dosbing, tanggal, jam, proposalta,seminarproposal,toefl)
-                         VALUES ('$nama','$nim','$dosenpembimbing','$tanggal', '$jam', '$lembarproposal','$lembarpersetujuan','$toefl')
+                        "INSERT INTO daftarta (status, nama, nim, dosbing, tanggal, jam, proposalta,seminarproposal,toefl)
+                         VALUES ('pending','$nama','$nim','$dosenpembimbing','$tanggal', '$jam', '$lembarproposal','$lembarpersetujuan','$toefl')
                          ") or die(mysqli_error($koneksi));
 if($query){
     echo '<script language="javascript">alert("Data Berhasil Ditambahkan")</script>';

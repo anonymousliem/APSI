@@ -2,7 +2,10 @@
 
 if(isset($_GET['pesan'])){
   if($_GET['pesan'] == "berhasilupload"){
-    echo '<script language="javascript">alert("berhasil upload file")</script>';
+    echo '<script language="javascript">alert("data berhasil ditambahkan")</script>';
+  }
+  if($_GET['pesan'] == "berhasilupdate"){
+    echo '<script language="javascript">alert("update berhasil file")</script>';
   }
 }
 
@@ -208,6 +211,8 @@ header("location:../index.php");
             <?php	include "connection.php"; 
     $sesi = $_SESSION['nama'];
    
+    $sqlnim = "SELECT no_induk FROM user WHERE nama='$sesi'";
+    $resultnim = $koneksi->query($sqlnim);
     $sql = "SELECT no_induk FROM tugas_akhir WHERE nama='$sesi'";
     $result = $koneksi->query($sql);
     $sql2 = "SELECT tema1 FROM tugas_akhir WHERE nama='$sesi'";
@@ -224,6 +229,12 @@ header("location:../index.php");
     $result7 = $koneksi->query($sql7);
     $sql8 = "SELECT no_induk FROM user WHERE nama='$sesi'";
     $result8 = $koneksi->query($sql8);
+    if ($resultnim->num_rows > 0) {
+        // output data of each row
+        while($row = $resultnim->fetch_assoc()) {
+            $nimasli =  $row["no_induk"];
+        }
+    } 
     if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
@@ -306,7 +317,7 @@ header("location:../index.php");
                         </label>
                         <br> NIM:
                         <br>
-                        <input type="text" name="nim_mahasiswa" disabled value="<?php echo $anjay?>">
+                        <input type="text" name="nim_mahasiswa" readonly value="<?php echo $nimasli?>">
                         <br> Nomor Telepon:
                         <br>
                         <input type="text" name="no_telp_mahasiswa" required>
@@ -356,7 +367,7 @@ header("location:../index.php");
                         <input type="text" name="nama" disabled value="<?php echo $_SESSION['nama']; ?>"><br>
                         NIM:
                         <br>
-                        <input type="text" name="nim">
+                        <input type="text" name="nim" readonly value="<?php echo $nimasli ?>">
                         <br> IPK:
                         <br>
                         <input type="text" name="ipk">
@@ -438,7 +449,7 @@ header("location:../index.php");
                         <input type="text" disabled name="nim" value="<?php echo $sesi ?>">
                         <br> NIM:
                         <br>
-                        <input type="text" disabled  name="ipk" value="<?php echo $nimku; ?>">
+                        <input type="text" disabled  name="ipk" value="<?php echo $nimasli; ?>">
                         <br> TOPIK TA:
                         <br>
                         <input type="text" disabled  name="sks" value="<?php echo $temaku; ?>">
@@ -458,7 +469,7 @@ header("location:../index.php");
                                 <tr>
                                     <th>Tanggal</th>
                                     <th>Catatan Bimbingan</th>
-                                    <th>Status</th>
+                                  <!--  <th>Status</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -469,11 +480,11 @@ header("location:../index.php");
                                     <td>
                                         <textarea rows="4" cols="50" name="textarea1"></textarea>
                                     </td>
-                                    <td>
+                                    <!-- <td>
                                         <input type="checkbox" style="width:50px;" name="status1" required>
-                                    </td>
+                                    </td> -->
                                 </tr>
-                                <tr>
+                          <!--      <tr>
                                     <td>
                                         <input type="date" name="tanggal2">
                                     </td>
@@ -482,21 +493,21 @@ header("location:../index.php");
                                     </td>
                                     <td>
                                         <input type="checkbox" style="width:50px;" name="status2" >
-                                    </td>
-                                </tr>
+                                    </td> 
+                                </tr> -->
                             </tbody>
                             <tfoot>
-                                <tr>
+                               <!-- <tr>
                                     <td>
                                         <input type="date" name="tanggal3">
                                     </td>
                                     <td>
                                         <textarea rows="4" cols="50" name="textarea3"></textarea>
                                     </td>
-                                    <td>
+                                     <td>
                                         <input type="checkbox" name="status3" style="width:50px;  " >
-                                    </td>
-                                </tr>
+                                    </td> 
+                                </tr> -->
                             </tfoot>
                         </table>
                         <br>
@@ -518,7 +529,7 @@ header("location:../index.php");
                             </label>
                             <br> NIM:
                             <br>
-                            <input type="text" name="nim" required>
+                            <input type="text" name="nim" value="<?php echo $nimasli ?>" readonly>
                             <br> DOSEN PEMBIMBING
                             <BR>
                             <select name="dosbing" style="width:250px;">
@@ -589,7 +600,7 @@ header("location:../index.php");
                                 <tr>
                                     <th>Tanggal</th>
                                     <th>Catatan Bimbingan</th>
-                                    <th>Status</th>
+                                   <!-- <th>Status</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -600,11 +611,11 @@ header("location:../index.php");
                                     <td>
                                         <textarea rows="4" cols="50" name="catatan1TA"required ></textarea>
                                     </td>
-                                    <td>
+                                  <!--  <td>
                                         <input type="checkbox" name="status1TA" style="width:50px;" required>
-                                    </td>
+                                    </td> -->
                                 </tr>
-                                <tr>
+                                <!--<tr>
                                     <td>
                                     <input type="date" name="tanggal2TA">
                                     </td>
@@ -614,10 +625,10 @@ header("location:../index.php");
                                     <td>
                                     <input type="checkbox" name="status2TA" style="width:50px;">
                                     </td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                             <tfoot>
-                                <tr>
+                              <!--  <tr>
                                     <td>
                                     <input type="date" name="tanggal3TA">
                                     </td>
@@ -627,7 +638,7 @@ header("location:../index.php");
                                     <td>
                                     <input type="checkbox" name="status3TA" style="width:50px;">
                                     </td>
-                                </tr>
+                                </tr>-->
                             </tfoot>
                         </table>
                         <br>
@@ -649,7 +660,7 @@ header("location:../index.php");
                             </label>
                             <br> NIM:
                             <br>
-                            <input type="text" name="nim" required>
+                            <input type="text" name="nim" readonly value="<?php echo $nimasli ?>" >
                             <br> DOSEN PEMBIMBING
                             <BR>
                             <select name="dosbing" style="width:250px;">

@@ -19,7 +19,7 @@ $status1 = $_POST['status1'];
 //$status3 = $_POST['status3'];
 $query = mysqli_query($koneksi, "INSERT INTO 
 bimbingansempro ( nama, tanggal, catatan, status)
-    VALUES ('$nama','$tanggal1','$catatan1','checked')  ");
+    VALUES ('$nama','$tanggal1','$catatan1','pending')  ");
 print_r($query);
 //var_dump($query)
 if($query){
