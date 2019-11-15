@@ -6,6 +6,8 @@ if(isset($_GET['pesan'])){
   }
   if($_GET['pesan'] == "berhasilupdate"){
     echo '<script language="javascript">alert("update berhasil file")</script>';
+  } if($_GET['pesan'] == "sudahada"){
+    echo '<script language="javascript">alert("anda sudah pernah memasukan sebelumnya")</script>';
   }
 }
 
@@ -333,11 +335,11 @@ header("location:../index.php");
                 
 
                         <select name="doswal_mahasiswa" style="width:200px;">
-                            <option value="volvo"></option>
-                            <option value="volvo">A</option>
-                            <option value="saab">B</option>
-                            <option value="fiat">C</option>
-                            <option value="audi">D</option>
+                            <option value=""></option>
+                            <option value="AGUS">Agus</option>
+                            <option value="Budi">Budi</option>
+                            <option value="Caca">Caca</option>
+                            <option value="Dodi">Dodi</option>
                         </select>
                         <br>
 
@@ -371,10 +373,10 @@ header("location:../index.php");
                         <input type="text" name="nim" readonly value="<?php echo $nimasli ?>">
                         <br> IPK:
                         <br>
-                        <input type="text" name="ipk">
+                        <input type="text" name="ipk" required>
                         <br> SKS:
                         <br>
-                        <input type="text" name="sks">
+                        <input type="text" name="sks" required>
 
                         <h2 style="color:#f44336"><b>Upload Berkas</b></h2>
                         <!-- Transkrip Lengkap <input type="text" name="ipk"><br> -->
@@ -386,7 +388,7 @@ header("location:../index.php");
                         <br>
                         <h2 style="color:#f44336"><b>Pengajuan Tema</b></h2>
                         <B> TEMA 1 </B><br>
-                        <input type="text" name="tema1">
+                        <input type="text" name="tema1" required>
                       <!--  <select name="tema1" style="width:250px;">
                             <option value="volvo"></option>
                             <option value="volvo">Volvo</option>
@@ -398,7 +400,7 @@ header("location:../index.php");
                         <br>
                     
                         <B> TEMA 2 </B><br>
-                        <input type="text" name="tema2">
+                        <input type="text" name="tema2" required>
                         <!--  <select name="tema1" style="width:250px;">
                             <option value="volvo"></option>
                             <option value="volvo">Volvo</option>
@@ -409,24 +411,20 @@ header("location:../index.php");
                         -->
                         <br>
                         <h2 style="color:#f44336"><b>Pengajuan Dosen Pembimbing</b></h2>
-                        <B> DOSEN PEMBIMBING 2 </B>
-                        <BR>
-                        <select name="dosbing2" style="width:250px;">
-                            <option value="volvo"></option>
-                            <option value="volvo">A</option>
-                            <option value="saab">B</option>
-                            <option value="fiat">C</option>
-                            <option value="audi">D</option>
-                        </select>
-                        <br>
                         <B> DOSEN PEMBIMBING 1 </B>
                         <BR>
-                        <select name="dosbing1" style="width:250px;">
-                            <option value="volvo"></option>
-                            <option value="volvo">E</option>
-                            <option value="saab">F</option>
-                            <option value="fiat">G</option>
-                            <option value="audi">H</option>
+                        <select name="dosbing1" style="width:250px;" required>
+                        <option value=""></option>
+                            <option value="Caca">Caca</option>
+                            <option value="Dodi">Dodi</option>
+                        </select>
+                        <br>
+                        <B> DOSEN PEMBIMBING 2 </B>
+                        <BR>
+                        <select name="dosbing2" style="width:250px;" required>
+                        <option value=""></option>
+                                <option value="Caca">Caca</option>
+                            <option value="Dodi">Dodi</option>
                         </select>
                         <br>
                        

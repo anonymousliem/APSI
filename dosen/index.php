@@ -3,7 +3,22 @@
   if ($_SESSION['level'] != 'dosen') {
     header("location:../index.php");
   }
+
+  if(isset($_GET['pesan'])){
+    if($_GET['pesan'] == "berhasilupload"){
+      echo '<script language="javascript">alert("data berhasil ditambahkan")</script>';
+    }
+    if($_GET['pesan'] == "berhasilupdate"){
+      echo '<script language="javascript">alert("update berhasil")</script>';
+    } if($_GET['pesan'] == "sudahada"){
+      echo '<script language="javascript">alert("anda sudah pernah memasukan sebelumnya")</script>';
+    }
+    
+  }
   ?>
+
+
+
   <!DOCTYPE html>
   <html lang="en">
   <title>SISTEM INFORMASI TA</title>
@@ -61,7 +76,7 @@
 
       <div class="w3-bar-block">
         <a href="#beranda" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Beranda</a>
-        <a href="#Data_Diri" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Data Diri</a>
+        <a href="rekapdosen.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Rekapan</a>
         <a href="#daftar" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Pendaftaran Tugas Akhir</a>
         <a href="#sempro" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Seminar Proposal</a>
         <a href="#semta" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Sidang Tugas Akhir</a>

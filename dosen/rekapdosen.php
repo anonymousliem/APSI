@@ -7,7 +7,7 @@ if(isset($_GET['pesan'])){
 }
 
 session_start();
-if ($_SESSION['level'] != 'mahasiswa') {
+if ($_SESSION['level'] != 'dosen') {
 header("location:../index.php");
 }
 ?>
@@ -228,7 +228,7 @@ header("location:../index.php");
             </div>
 
             <!-- Mulai info-->
-            <?php	include "connection.php"; 
+            <?php	include "../connection.php"; 
     $sesi = $_SESSION['nama'];
 
     $sql = "SELECT no_induk FROM ortu WHERE nama='$sesi'";
@@ -323,27 +323,33 @@ header("location:../index.php");
                             <!-- <div class="col-sm-9" > -->
                             <div class="tab-content">
                                 <div class="tab-pane active" id="home">
-                                    <form class="form" method="post" id="registrationForm">
+                                    <form action="##"method="post">
                                         <h1>Pendaftaran Tugas Akhir</h1>
                                         <table class="table table-striped table-bordered table-hover table-condensed ">
                                             <thead>
                                                 <tr>
+                                                    <th>ID Tugas Akhir</th>    
+                                                    <th>NIM</th>
                                                     <th>Nama</th>
-                                                    <th>Nim</th>
                                                     <th>Topik</th>
                                                     <th>Dosen Pembimbing</th>
                                                     <th>status</th>
+                                                    <th>aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
-                                        
-                                         $query = "SELECT no_induk, nama, tema1, dosbing1, status FROM tugas_akhir where nama='$sesi'";
+                                             $dosenasli = $_SESSION['nama'];
+                                         $query = "SELECT id_tugasakhir, no_induk, nama, tema1, dosbing1, status FROM tugas_akhir WHERE dosbing1='$dosenasli' ";
                                          $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
                                          while ($row = mysqli_fetch_array($result)) {
                                      ?>
 
                                                     <tr>
+                                                    <td>
+                                                            <?php echo $row['id_tugasakhir']; ?>
+                                                        </td>
+                                                    
                                                         <td>
                                                             <?php echo $row['no_induk']; ?>
                                                         </td>
@@ -357,15 +363,27 @@ header("location:../index.php");
                                                             <?php echo $row['dosbing1']; ?>
                                                         </td>
                                                         <td>
-                                                            <?php echo $row['status']; ?>
+                                                       
+                                                        <?php echo $row['status']; ?>
+                                                       <!--  <select name='statusku'>
+                              
+                                                        <option value="<?php  echo $row['status']; ?>"> <?php echo $row['status']; ?></option>
+                                                        <option value="DISETUJUI">DISETUJUI</option>
+                                                        <option value="DITOLAK">DITOLAK</option>
+                                
+                                                        </select> -->
+                                                    </td>
+                                                            
+                                                        
+                                                        
                                                         </td>
-                                                        <!-- <td>
-                                                            <a href='edit_mahasiswa.php?id=<?php echo $row[' id ']; ?>' class='btn btn-success'>
+                                                         <td>
+                                                            <a href="edit_pendaftaranTADOSEN.php?status=<?php echo $row['status']?>&id_tugasakhir=<?php echo $row['id_tugasakhir']; ?>" class='btn btn-success'>
                                                                 <span class='glyphicon glyphicon-edit'></span>Edit</button>
                                                             </a>
-                                                            <a href='hapus_mahasiswa.php?id=<?php echo $row[' id ']; ?>' class='btn btn-danger'>
-                                                                <span class='glyphicon glyphicon-remove-sign'>Delete</button></a>
-                                                        </td> -->
+                                                           <!-- <a href='hapus_mahasiswa.php?id=<?/*php echo $row[' id ']; */?>' class='btn btn-danger'>
+                                                                <span class='glyphicon glyphicon-remove-sign'>Delete</button></a> -->
+                                                        </td>
                                                     </tr>
                                                     <?php
                         }
@@ -392,7 +410,7 @@ header("location:../index.php");
                                                     <!-- ISINYA -->
                                                     <?php
 
-                                        $query = "SELECT catatan, tanggal, status FROM bimbingansempro where nama='$sesi' ";
+                                        $query = "SELECT catatan, tanggal, status FROM bimbingansempro";
                                         $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
                                         while ($row = mysqli_fetch_array($result)) {
                                     ?>
@@ -519,7 +537,7 @@ header("location:../index.php");
                                                     <!-- ISINYA -->
                                                     <?php
 
-                                        $query = "SELECT tanggal, jam FROM daftarsempro where nama='$sesi' ";
+                                        $query = "SELECT tanggal, jam FROM daftarsempro";
                                         $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
                                         while ($row = mysqli_fetch_array($result)) {
                                     ?>
@@ -591,7 +609,7 @@ header("location:../index.php");
                                                     <!-- ISINYA -->
                                                     <?php
 
-                                        $query = "SELECT tanggal, catatan, status FROM bimbinganta where nama='$sesi' ";
+                                        $query = "SELECT tanggal, catatan, status FROM bimbinganta";
                                         $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
                                         while ($row = mysqli_fetch_array($result)) {
                                     ?>
@@ -665,7 +683,7 @@ header("location:../index.php");
                                                     <!-- ISINYA -->
                                                     <?php
 
-                                        $query = "SELECT nama, nim, dosbing, tema, tanggal, jam,  status FROM daftarta where nama='$sesi' ";
+                                        $query = "SELECT nama, nim, dosbing, tema, tanggal, jam,  status FROM daftarta";
                                         $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
                                         while ($row = mysqli_fetch_array($result)) {
                                     ?>
@@ -736,7 +754,7 @@ header("location:../index.php");
                                                     <!-- ISINYA -->
                                                     <?php
 
-                                        $query = "SELECT tanggal, jam FROM daftarsempro where nama='$sesi'";
+                                        $query = "SELECT tanggal, jam FROM daftarsempro";
                                         $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
                                         while ($row = mysqli_fetch_array($result)) {
                                     ?>

@@ -15,8 +15,8 @@ if ($result8->num_rows > 0) {
   }
 } 
 
-
-/*$sql9 = "SELECT doswal FROM user WHERE nama='$namaMhs'";
+/*
+$sql9 = "SELECT doswal FROM user WHERE nama='$namaMhs'";
 $result9 = $koneksi->query($sql9);
 if ($result9->num_rows > 0) {
   // output data of each row
@@ -36,8 +36,7 @@ $namaAyah = $_POST['ayah_mahasiswa2'];
 $noAyah = $_POST['ayah_no_telepon2'];
 $alamatAyah = $_POST['ayah_alamat2'];
 
-$query = mysqli_query($koneksi, "UPDATE ortu SET nama='$namaMhs', no_induk='$nimMhs',
- no_telepon='$noTelpMhs', alamat='$alamatMhs', email='$emailMhs', doswal='$doswalMhs', 
+$query = mysqli_query($koneksi, "UPDATE ortu SET  no_telepon='$noTelpMhs', alamat='$alamatMhs', email='$emailMhs',  
  nama_ayah='$namaAyah',  no_ayah='$noAyah', alamat_ayah='$alamatAyah'");
 
 if($query){

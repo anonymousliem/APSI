@@ -4,6 +4,9 @@ if(isset($_GET['pesan'])){
   if($_GET['pesan'] == "berhasilupload"){
     echo '<script language="javascript">alert("berhasil upload file")</script>';
   }
+  if($_GET['pesan'] == "gagalupload"){
+    echo '<script language="javascript">alert("gagal upload")</script>';
+  }
 }
 
 session_start();
