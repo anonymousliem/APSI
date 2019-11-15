@@ -9,6 +9,9 @@ if(isset($_GET['pesan'])){
   } if($_GET['pesan'] == "sudahada"){
     echo '<script language="javascript">alert("anda sudah pernah memasukan sebelumnya")</script>';
   }
+  if($_GET['pesan'] == "belumdaftarsempro"){
+    echo '<script language="javascript">alert("anda belum disetujui atau belum mendaftar sempro")</script>';
+  }
 }
 
 session_start();
@@ -474,10 +477,10 @@ header("location:../index.php");
                             <tbody>
                                 <tr>
                                     <td>
-                                        <input type="date" name="tanggal1">
+                                        <input type="date" name="tanggal1" required>
                                     </td>
                                     <td>
-                                        <textarea rows="4" cols="50" name="textarea1"></textarea>
+                                        <textarea rows="4" cols="50" name="textarea1" required></textarea>
                                     </td>
                                     <!-- <td>
                                         <input type="checkbox" style="width:50px;" name="status1" required>
@@ -531,12 +534,13 @@ header("location:../index.php");
                             <input type="text" name="nim" value="<?php echo $nimasli ?>" readonly>
                             <br> DOSEN PEMBIMBING
                             <BR>
-                            <select name="dosbing" style="width:250px;">
-                                <option value="volvo"></option>
-                                <option value="volvo">Volvo</option>
-                                <option value="saab">Saab</option>
-                                <option value="fiat">Fiat</option>
-                                <option value="audi">Audi</option>
+                            <select name="dosbing" style="width:250px;" required>
+                                
+                                <option value=""></option>
+                                <option value="AGUS">Agus</option>
+                                <option value="Budi">Budi</option>
+                                <option value="Caca">Caca</option>
+                                <option value="Dodi">Dodi</option>
                             </select>
                             <br> Topik TA:
                             <br>

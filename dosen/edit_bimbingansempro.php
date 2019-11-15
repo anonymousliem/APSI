@@ -5,19 +5,19 @@ session_start();
 if ($_SESSION['level'] != 'dosen') {
   header("location:index.php");
 }
-$id = $_GET['id_tugasakhir'];
+$id = $_GET['id_bimbingansempro'];
 $namaDosen = $_SESSION['nama'];
-$sql8 = "SELECT id_tugasakhir, no_induk, dosbing1, nama, tema1,status FROM tugas_akhir WHERE dosbing1='$namaDosen' and id_tugasakhir='$id' ";
+$sql8 = "SELECT id_bimbingansempro, catatan,  tanggal, dosbing, nama ,status FROM bimbingansempro WHERE dosbing='$namaDosen' and id_bimbingansempro='$id' ";
 $result8 = $koneksi->query($sql8);
 if ($result8->num_rows > 0) {
   // output data of each row
   while($row = $result8->fetch_assoc()) {
-      $nimMhs =  $row["no_induk"];
+     $catatan =  $row["catatan"];
       $namaMhs =  $row["nama"];
-      $tema =  $row["tema1"];
-      $dosbing =  $row["dosbing1"];
+      $tanggal =  $row["tanggal"];
+      $dosbing =  $row["dosbing"];
       $status =  $row["status"];
-      $id_tugasakhir =  $row["id_tugasakhir"];
+      $id_bimbingansempro =  $row["id_bimbingansempro"];
    
   }
 } 
@@ -65,25 +65,23 @@ if ($result8->num_rows > 0) {
 
 
 
-            <form  method="POST" action="aksi_edit_pendaftaranTADOSEN.php">
+            <form  method="POST" action="aksi_edit_bimbingansempro.php">
                 <div class="form-group my-3">
-                <label for="no_induk" style="color: white" >ID SEMPRO</label>
-                    <input type="text" name="id_tugasakhir" readonly value="<?php echo $id_tugasakhir ?>" class="form-control">
+                <label for="no_induk" style="color: white" >ID Bimbingan</label>
+                    <input type="text" name="id_bimbingansempro" readonly value="<?php echo $id_bimbingansempro ?>" class="form-control">
 
-                    <label for="no_induk" style="color: white" >No Induk</label>
-                    <input type="text" name="nim" readonly value="<?php echo $nimMhs ?>" class="form-control">
-                </div>
+                    </div>
                 <div class="form-group my-3">
                     <label for="nama" style="color: white" >Nama</label>
                     <input type="text" name="nama" class="form-control" name="nama" readonly value="<?php echo $namaMhs ?>" >
                 </div>
                 <div class="form-group my-3">
-                    <label for="kata_sandi" style="color: white" >Topik</label>
-                    <input type="text"  name="topik" readonly value="<?php echo $tema ?>" class="form-control">
+                    <label for="kata_sandi" style="color: white" >Tanggal</label>
+                    <input type="text"  name="tanggal" readonly value="<?php echo $tanggal ?>" class="form-control">
                 </div>
                 <div class="form-group my-3">
-                    <label for="kata_sandi" style="color: white" >Dosen Pembimbing</label>
-                    <input type="text"name="dosbing" readonly value="<?php echo $namaDosen ?>" class="form-control" >
+                    <label for="kata_sandi" style="color: white" > Catatan</label>
+                    <input type="textarea" name="dosbing" readonly value="<?php echo $catatan ?>" class="form-control" >
                 </div>
             
                 <select class="mb-3" name="status" required >
@@ -93,7 +91,7 @@ if ($result8->num_rows > 0) {
                 </select>
                 <br>
                 <input type="submit" class="w3-button w3-block w3-grey">
-                   
+                    
                  
               <!--  <a href="" >
                <span class='glyphicon glyphicon-edit'></span>UPDATE</button>-->

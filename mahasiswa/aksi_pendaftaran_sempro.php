@@ -28,12 +28,6 @@ header("location:../index.php");
             $folder = 'lembarproposal/';
             move_uploaded_file($file_tmp,$folder.$filename);
 		/*	 if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
-
-                
-                      
-
-				
-
          }else{
 				echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
 			 }*/
@@ -73,18 +67,25 @@ header("location:../index.php");
                     echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
                  }*/
             } 
-
+            $cekisi    = "SELECT * FROM daftarsempro WHERE nama='$nama' AND status != 'Rejected' ";
+            $ada = $koneksi->query($cekisi);
+            if ($ada->num_rows > 0) {
+                header('location:index.php?pesan=sudahada');
+            }else{
             $query = mysqli_query($koneksi, 
                         "INSERT INTO daftarsempro (tema, status, nama, nim, dosbing, tanggal, jam, proposalta,seminarproposal)
                          VALUES ('$tema','pending','$nama','$nim','$dosenpembimbing','$tanggal', '$jam', '$lembarproposal','$lembarpersetujuan')
                          ") or die(mysqli_error($koneksi));
-if($query){
-    echo '<script language="javascript">alert("Data Berhasil Ditambahkan")</script>';
-           header('location:index.php?pesan=berhasilupload');
-       }   else{
-               echo mysqli_error($koneksi);
-   }
+            if($query){
+                    echo '<script language="javascript">alert("Data Berhasil Ditambahkan")</script>';
+                     header('location:index.php?pesan=berhasilupload');
+                      }   else{
+                     echo mysqli_error($koneksi);
+             }
+        }
 
+
+        
 		?>
 
 </body>
