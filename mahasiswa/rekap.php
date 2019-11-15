@@ -725,7 +725,7 @@ header("location:../index.php");
                                             <table class="table table-striped table-bordered table-hover table-condensed ">
                                                 <thead>
                                                     <tr>
-                                                        <th>Hari</th>
+                                                       <!-- <th>Hari</th> -->
                                                         <th>Tanggal</th>
                                                         <th>Jam</th>
                                                         <th>Ruangan</th>
@@ -737,15 +737,15 @@ header("location:../index.php");
                                                     <!-- ISINYA -->
                                                     <?php
 
-                                        $query = "SELECT status, hari, ruangan, dosenpenguji, tanggal, jam FROM daftarta where status !='Rejected'  ";
+                                        $query = "SELECT status, hari, ruangan, dosenpenguji, tanggal, jam FROM daftarta where nama='$sesi' and status !='Rejected'  ";
                                         $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
                                         while ($row = mysqli_fetch_array($result)) {
                                     ?>
 
                                                         <tr>
-                                                            <td>
+                                                            <!-- <td>
                                                                 <?php echo $row['hari']; ?>
-                                                            </td>
+                                                            </td> -->
                                                             <td>
                                                                 <?php echo $row['tanggal']; ?>
                                                             </td>
@@ -759,7 +759,9 @@ header("location:../index.php");
                                                             <td>
                                                                 <?php echo $row['dosenpenguji']; ?>
                                                             </td>
-                                                        
+                                                       <!--     <td>
+                                                                <?php echo $row['jam']; ?>
+                                                            </td> -->
                                                             <td>
                                                                 <?php echo $row['status']; ?>
                                                             </td>

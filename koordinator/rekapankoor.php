@@ -820,7 +820,7 @@ $query = "SELECT id_daftarta ,nama, nim, status, hari, ruangan, dosenpenguji, ta
 
 
                                                           <td>
-                                                           <a href='edit_jadwalseminar.php?id=<?php echo $row[' id ']; ?>' class='btn btn-success'>
+                                                           <a href='edit_jadwalseminar.php?id_daftarta=<?php echo $row['id_daftarta']; ?>' class='btn btn-success'>
                                                                <span class='glyphicon glyphicon-edit'></span>Edit</button>
                                                            </a>
                                                             <!--  <a href='hapus_mahasiswa.php?id=<?php echo $row[' id ']; ?>' class='btn btn-danger'>
