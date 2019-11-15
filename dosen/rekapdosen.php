@@ -614,22 +614,26 @@ header("location:../index.php");
                                             <table class="table table-striped table-bordered table-hover table-condensed ">
                                                 <thead>
                                                     <tr>
-                                                      
+                                                        <th>Id Bimbingan</th>
                                                         <th>Tanggal</th>
                                                         <th>Catatan</th>
                                                         <th>Status</th>
+                                                        <th>Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <!-- ISINYA -->
                                                     <?php
 
-                                        $query = "SELECT tanggal, catatan, status FROM bimbinganta";
+                                        $query = "SELECT id_bimbinganta, tanggal, catatan, status FROM bimbinganta";
                                         $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
                                         while ($row = mysqli_fetch_array($result)) {
                                     ?>
 
                                                         <tr>
+                                                            <td>
+                                                                <?php echo $row['id_bimbinganta']; ?>
+                                                            </td>
                                                             <td>
                                                                 <?php echo $row['tanggal']; ?>
                                                             </td>
@@ -654,11 +658,11 @@ header("location:../index.php");
                                                             </td> -->
 
 
-                                                            <!-- <td>
-                                                           <a href='edit_mahasiswa.php?id=<?php echo $row[' id ']; ?>' class='btn btn-success'>
+                                                          <td>
+                                                           <a href='edit_bimbinganta.php?id_bimbinganta=<?php echo $row['id_bimbinganta']; ?>' class='btn btn-success'>
                                                                <span class='glyphicon glyphicon-edit'></span>Edit</button>
                                                            </a>
-                                                           <a href='hapus_mahasiswa.php?id=<?php echo $row[' id ']; ?>' class='btn btn-danger'>
+                                                              <!--<a href='hapus_mahasiswa.php?id=<?php //echo $row[' id ']; ?>' class='btn btn-danger'>
                                                                <span class='glyphicon glyphicon-remove-sign'>Delete</button></a>
                                                        </td> -->
                                                         </tr>
@@ -685,6 +689,7 @@ header("location:../index.php");
                                             <table class="table table-striped table-bordered table-hover table-condensed ">
                                                 <thead>
                                                     <tr>
+                                                       <th>ID Pendaftaran TA</th>
                                                         <th>Nama</th>
                                                         <th>Nim</th>
                                                         <th>Dosen Pembimbing</th>
@@ -692,18 +697,21 @@ header("location:../index.php");
                                                         <th>Tanggal Seminar</th>
                                                         <th>Jam Seminar</th>
                                                         <th>Status</th>
+                                                        <th>Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <!-- ISINYA -->
                                                     <?php
 
-                                        $query = "SELECT nama, nim, dosbing, tema, tanggal, jam,  status FROM daftarta";
+                                        $query = "SELECT id_daftarta, nama, nim, dosbing, tema, tanggal, jam,  status FROM daftarta";
                                         $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
                                         while ($row = mysqli_fetch_array($result)) {
                                     ?>
 
-                                                        <tr>
+                                                        <tr><td>
+                                                                <?php echo $row['id_daftarta']; ?>
+                                                            </td>
                                                             <td>
                                                                 <?php echo $row['nama']; ?>
                                                             </td>
@@ -728,11 +736,11 @@ header("location:../index.php");
                                                             </td> 
 
 
-                                                            <!-- <td>
-                                                           <a href='edit_mahasiswa.php?id=<?php echo $row[' id ']; ?>' class='btn btn-success'>
+                                                            <td>
+                                                           <a href='edit_daftarta.php?id_daftarta=<?php echo $row['id_daftarta']; ?>' class='btn btn-success'>
                                                                <span class='glyphicon glyphicon-edit'></span>Edit</button>
                                                            </a>
-                                                           <a href='hapus_mahasiswa.php?id=<?php echo $row[' id ']; ?>' class='btn btn-danger'>
+                                                           <!-- <a href='hapus_mahasiswa.php?id=<?php echo $row[' id ']; ?>' class='btn btn-danger'>
                                                                <span class='glyphicon glyphicon-remove-sign'>Delete</button></a>
                                                        </td> -->
                                                         </tr>

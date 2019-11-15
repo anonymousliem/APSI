@@ -4,7 +4,7 @@ setlocale(LC_TIME, ['id_ID', 'INDONESIA']);
 $hostname = "localhost";
 $username = "root";
 $password = "";
-$database = "apsi";
+$database = "apsi2";
 
 $koneksi = mysqli_connect($hostname, $username, $password, $database);
 

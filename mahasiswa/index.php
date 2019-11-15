@@ -268,7 +268,7 @@ header("location:../index.php");
         }
     }
 
-    if ($result4->num_rows > 0) {
+  /*  if ($result4->num_rows > 0) {
             // output data of each row
             while($row = $result4->fetch_assoc()) {
                 $tanggalsempro =  $row["tanggal"];
@@ -279,8 +279,8 @@ header("location:../index.php");
         // output data of each row
         while($row = $result5->fetch_assoc()) {
             $jamsempro =  $row["jam"];
-        }
-    } 
+        } 
+    } */
     if ($result6->num_rows > 0) {
         // output data of each row
         while($row = $result6->fetch_assoc()) {
@@ -666,12 +666,10 @@ header("location:../index.php");
                             <input type="text" name="nim" readonly value="<?php echo $nimasli ?>" >
                             <br> DOSEN PEMBIMBING
                             <BR>
-                            <select name="dosbing" style="width:250px;">
-                                <option value="volvo"></option>
-                                <option value="volvo">Volvo</option>
-                                <option value="saab">Saab</option>
-                                <option value="fiat">Fiat</option>
-                                <option value="audi">Audi</option>
+                            <select name="dosbing" style="width:250px;" required>
+                            <option value=""></option>
+                            <option value="Caca">Caca</option>
+                            <option value="Dodi">Dodi</option>
                             </select>
                             <br> Topik TA:
                             <br>
@@ -681,7 +679,7 @@ header("location:../index.php");
                             <input type="date" name="tanggal" required>
                             <br> Jam Seminar:
                             <br>
-                            <input type="time" name="time" required>
+                            <input type="time" name="time">
                             <br> Proposal Tugas Akhir (format pdf)
                             <br>
                             <input type="file" value="Submit" name="lembar_proposal">
