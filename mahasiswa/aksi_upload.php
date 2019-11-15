@@ -55,8 +55,6 @@ if ($result8->num_rows > 0) {
 					"INSERT INTO tugas_akhir (status, nama, no_induk, ipk, sks, transkrip, tema1, tema2, dosbing1, dosbing2)
 					 VALUES ('pending','$namaMhs','$nimMhs', '$ipk', '$sks', '$filename', '$tema1','$tema2','$dosbing1','$dosbing2')
 					 ") or die(mysqli_error($koneksi));
-                    print_r($query);
-                    var_dump($query);
                     if ($query){
 						move_uploaded_file($file_tmp,$folder.$filename);
                         echo '<script language="javascript">alert("FILE Berhasil Ditambahkan")</script>';

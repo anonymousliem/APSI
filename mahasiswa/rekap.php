@@ -33,11 +33,9 @@ header("location:../index.php");
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
-    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
     <style>
         body,
@@ -164,18 +162,18 @@ header("location:../index.php");
 
             <div class="w3-bar-block">
                 <a href="index.php#beranda" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Beranda</a>
-                <a href="#Data_Diri" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Data Diri</a>
+                <a href="index.php#Data_Diri" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Data Diri</a>
                 <a href="profile.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Profile</a>
-                <a href="#daftar" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Pendaftaran Tugas Akhir</a>
+                <a href="index.php#daftar" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Pendaftaran Tugas Akhir</a>
 
                 <div class="w3-bar-block">
                     <ul>
                         <li class="dropdown">
-                            <a href="#bimbingan" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Seminar Proposal</a>
+                            <a href="index.php#bimbingan" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Seminar Proposal</a>
                             <div class="dropdown-content">
-                                <a href="#bimbingan">Bimbingan</a>
-                                <a href="#daftarsempro">Pendaftaran</a>
-                                <a href="#jadwalsempro">Jadwal Seminar</a>
+                                <a href="index.php#bimbingan">Bimbingan</a>
+                                <a href="index.php#daftarsempro">Pendaftaran</a>
+                                <a href="index.php#jadwalsempro">Jadwal Seminar</a>
                             </div>
                         </li>
                     </ul>
@@ -184,12 +182,12 @@ header("location:../index.php");
                 <div class="w3-bar-block">
                     <ul>
                         <li class="dropdown">
-                            <a href="#bimbingansidangTA" class="w3-bar-item w3-button w3-hover-white" onclick="w3_close()">Sidang Tugas Akhir</a>
+                            <a href="index.php#bimbingansidangTA" class="w3-bar-item w3-button w3-hover-white" onclick="w3_close()">Sidang Tugas Akhir</a>
                             <div class="dropdown-content">
-                                <a href="#bimbingansidangTA">Bimbingan</a>
-                                <a href="#daftarsidangTA">Pendaftaran</a>
-                                <a href="#jadwalsidangTA">Jadwal Sidang TA</a>
-                                <a href="#selamat">Upload Laporan Final</a>
+                                <a href="index.php#bimbingansidangTA">Bimbingan</a>
+                                <a href="index.php#daftarsidangTA">Pendaftaran</a>
+                                <a href="index.php#jadwalsidangTA">Jadwal Sidang TA</a>
+                                <a href="index.php#selamat">Upload Laporan Final</a>
                             </div>
                         </li>
                     </ul>
@@ -224,7 +222,7 @@ header("location:../index.php");
 
             <!-- Data Diri -->
             <div class="w3-container" style="margin-top:75px;margin-left:80px;" id="Data_Diri">
-                <h1 class="w3-xxxlarge w3-text-red"><b>Data Diri</b></h1>
+                <h1 class="w3-xxxlarge w3-text-red"><b>Rekapan</b></h1>
                 <hr style="width:50px;border:5px solid red" class="w3-round">
 
             </div>
@@ -309,76 +307,487 @@ header("location:../index.php");
                 <div class="container bootstrap snippet">
 
                     <div class="row">
-                        <div class="col-sm-9" >
+                        <div class="col-sm-9">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a data-toggle="tab" href="#home">Profile</a></li>
-                                <li><a data-toggle="tab" href="#messages">Edit Profile</a></li>
+                                <li class="active"><a data-toggle="tab" href="#home">Tab1</a></li>
+                                <li><a data-toggle="tab" href="#messages">tab2</a></li>
+                                <li><a data-toggle="tab" href="#daftarsempro">tab3</a></li>
+                                <li><a data-toggle="tab" href="#jadwalseminarsempro">tab4</a></li>
+                                <li><a data-toggle="tab" href="#bimbinganTA">tab5</a></li>
+                                <li><a data-toggle="tab" href="#pendaftaranTA">tab6</a></li>
+                                
+                                <li><a data-toggle="tab" href="#jadwalseminarTA">tab7</a></li>
+                                
                             </ul>
                             <hr>
                             <!-- <div class="col-sm-9" > -->
                             <div class="tab-content">
-                                <div class="tab-pane active" id="home" >
+                                <div class="tab-pane active" id="home">
                                     <form class="form" method="post" id="registrationForm">
-                                    <h1>Table Apa ya</h1>                                                                            
-                                    <table class="table table-striped table-bordered table-hover table-condensed " >
-                                        <thead>
-                                        <tr>
-                                            <th>1</th>
-                                            <th>Firstname</th>
-                                            <th>Firstname</th>
-                                            <th>Firstname</th>
-                                            <th>Firstname</th>
-                                            <th>Firstname</th>                                            
-                                        </tr>
-                                        </thead>
-                                        <tbody >
-                                       <!-- ISINYA -->
-                                        </tbody>
-                                    </table>
+                                        <h1>Pendaftaran Tugas Akhir</h1>
+                                        <table class="table table-striped table-bordered table-hover table-condensed ">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nama</th>
+                                                    <th>Nim</th>
+                                                    <th>Topik</th>
+                                                    <th>Dosen Pembimbing</th>
+                                                    <th>status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+
+                                         $query = "SELECT no_induk, nama, tema1, dosbing1, status FROM tugas_akhir";
+                                         $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
+                                         while ($row = mysqli_fetch_array($result)) {
+                                     ?>
+
+                                                    <tr>
+                                                        <td>
+                                                            <?php echo $row['no_induk']; ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $row['nama']; ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $row['tema1']; ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $row['dosbing1']; ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $row['status']; ?>
+                                                        </td>
+                                                        <!-- <td>
+                                                            <a href='edit_mahasiswa.php?id=<?php echo $row[' id ']; ?>' class='btn btn-success'>
+                                                                <span class='glyphicon glyphicon-edit'></span>Edit</button>
+                                                            </a>
+                                                            <a href='hapus_mahasiswa.php?id=<?php echo $row[' id ']; ?>' class='btn btn-danger'>
+                                                                <span class='glyphicon glyphicon-remove-sign'>Delete</button></a>
+                                                        </td> -->
+                                                    </tr>
+                                                    <?php
+                        }
+                        ?>
+                                            </tbody>
+                                        </table>
                                     </form>
                                 </div>
                                 <!--/tab-pane-->
                                 <div class="tab-pane" id="messages">
-                                    <h2></h2>                                    
-                                    <div class="tab-pane active" id="home" >
-                                    <form class="form" method="post" id="registrationForm">
-                                    <h1>Table Apa ya</h1>                                                                            
-                                    <table class="table table-striped table-bordered table-hover table-condensed " >
-                                        <thead>
-                                        <tr>
-                                            <th>1</th>
-                                            <th>asdasdname</th>
-                                            <th>Fasdname</th>
-                                            <th>asdatname</th>
-                                            <th>Fstname</th>
-                                            <th>Firstname</th>                                            
-                                        </tr>
-                                        </thead>
-                                        <tbody >
-                                       <!-- ISINYA -->
-                                       <tr>
-                                            <th>1</th>
-                                            <th>anjya</th>
-                                            <th>Fasdname</th>
-                                            <th>asdatname</th>
-                                            <th>Fstname</th>
-                                            <th>Firstname</th>                                            
-                                        </tr>
-                                        <tr>
-                                            <th>1</th>
-                                            <th>anjya</th>
-                                            <th>Fasdname</th>
-                                            <th>asdatname</th>
-                                            <th>Fstname</th>
-                                            <th>Firstname</th>                                            
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                    </form>
-                                </div>
+                                    <h2></h2>
+                                    <div class="tab-pane active" id="home">
+                                        <form class="form" method="post" id="registrationForm">
+                                            <h1>Bimbingan Sempro</h1>
+                                            <table class="table table-striped table-bordered table-hover table-condensed ">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Tanggal</th>
+                                                        <th>Catatan</th>
+                                                        <th>Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- ISINYA -->
+                                                    <?php
+
+                                        $query = "SELECT catatan, tanggal, status FROM bimbingansempro";
+                                        $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
+                                        while ($row = mysqli_fetch_array($result)) {
+                                    ?>
+
+                                                        <tr>
+                                                            <td>
+                                                                <?php echo $row['tanggal']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $row['catatan']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $row['status']; ?>
+                                                            </td>
+
+                                                            <!-- <td>
+                                                           <a href='edit_mahasiswa.php?id=<?php echo $row[' id ']; ?>' class='btn btn-success'>
+                                                               <span class='glyphicon glyphicon-edit'></span>Edit</button>
+                                                           </a>
+                                                           <a href='hapus_mahasiswa.php?id=<?php echo $row[' id ']; ?>' class='btn btn-danger'>
+                                                               <span class='glyphicon glyphicon-remove-sign'>Delete</button></a>
+                                                       </td> -->
+                                                        </tr>
+                                                        <?php
+                       }
+                       ?>
+
+                                                </tbody>
+                                            </table>
+                                        </form>
+                                    </div>
 
                                 </div>
                                 <!--/tab-pane-->
+
+                                <div class="tab-pane" id="daftarsempro">
+                                    <h2></h2>
+                                    <div class="tab-pane active" id="home">
+                                        <form class="form" method="post" id="registrationForm">
+                                            <h1>Pendaftaran Sempro</h1>
+                                            <table class="table table-striped table-bordered table-hover table-condensed ">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Nama</th>
+                                                        <th>Nim</th>
+                                                        <th>Dosen Pembimbing</th>
+                                                        <th>Topik TA</th>
+                                                        <th>Tanggal Seminar</th>
+                                                        <th>Jam Seminar</th>
+                                                        <th>Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- ISINYA -->
+                                                    <?php
+
+                                        $query = "SELECT nama, nim, dosbing, tema, tanggal, jam, status FROM daftarsempro";
+                                        $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
+                                        while ($row = mysqli_fetch_array($result)) {
+                                    ?>
+
+                                                        <tr>
+                                                            <td>
+                                                                <?php echo $row['nama']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $row['nim']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $row['dosbing']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $row['tema']; ?>
+                                                            </td>
+
+                                                            <td>
+                                                                <?php echo $row['tanggal']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $row['jam']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $row['status']; ?>
+                                                            </td>
+
+
+                                                            <!-- <td>
+                                                           <a href='edit_mahasiswa.php?id=<?php echo $row[' id ']; ?>' class='btn btn-success'>
+                                                               <span class='glyphicon glyphicon-edit'></span>Edit</button>
+                                                           </a>
+                                                           <a href='hapus_mahasiswa.php?id=<?php echo $row[' id ']; ?>' class='btn btn-danger'>
+                                                               <span class='glyphicon glyphicon-remove-sign'>Delete</button></a>
+                                                       </td> -->
+                                                        </tr>
+                                                        <?php
+                       }
+                       ?>
+
+                                                </tbody>
+                                            </table>
+                                        </form>
+                                    </div>
+
+                                </div>
+                                <!-- tab pan-->
+
+                                <!-- tab jadwal seminar sempro -->
+                                <div class="tab-pane" id="jadwalseminarsempro">
+                                    <h2></h2>
+                                    <div class="tab-pane active" id="home">
+                                        <form class="form" method="post" id="registrationForm">
+                                            <h1>Jadwal Seminar Proposal</h1>
+                                            <table class="table table-striped table-bordered table-hover table-condensed ">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Hari</th>
+                                                        <th>Tanggal</th>
+                                                        <th>Jam</th>
+                                                        <th>Ruangan</th>
+                                                        <th>Dosen Penguji</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- ISINYA -->
+                                                    <?php
+
+                                        $query = "SELECT tanggal, jam FROM daftarsempro";
+                                        $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
+                                        while ($row = mysqli_fetch_array($result)) {
+                                    ?>
+
+                                                        <tr>
+                                                            <td>
+                                                                <?php echo $row['tanggal']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $row['jam']; ?>
+                                                            </td>
+                                                        <!--    <td>
+                                                                <?php echo $row['dosbing']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $row['tema']; ?>
+                                                            </td>
+
+                                                            <td>
+                                                                <?php echo $row['tanggal']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $row['jam']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $row['status']; ?>
+                                                            </td> -->
+
+
+                                                            <!-- <td>
+                                                           <a href='edit_mahasiswa.php?id=<?php echo $row[' id ']; ?>' class='btn btn-success'>
+                                                               <span class='glyphicon glyphicon-edit'></span>Edit</button>
+                                                           </a>
+                                                           <a href='hapus_mahasiswa.php?id=<?php echo $row[' id ']; ?>' class='btn btn-danger'>
+                                                               <span class='glyphicon glyphicon-remove-sign'>Delete</button></a>
+                                                       </td> -->
+                                                        </tr>
+                                                        <?php
+                       }
+                       ?>
+
+                                                </tbody>
+                                            </table>
+                                        </form>
+                                    </div>
+
+                                </div>
+                             
+
+
+                                <!--penutup tab jadwal seminar sempro -->
+
+                                <!-- tab bimbingan seminar ta -->
+                                 <div class="tab-pane" id="bimbinganTA">
+                                    <h2></h2>
+                                    <div class="tab-pane active" id="home">
+                                        <form class="form" method="post" id="registrationForm">
+                                            <h1>Bimbingan TA</h1>
+                                            <table class="table table-striped table-bordered table-hover table-condensed ">
+                                                <thead>
+                                                    <tr>
+                                                      
+                                                        <th>Tanggal</th>
+                                                        <th>Catatan</th>
+                                                        <th>Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- ISINYA -->
+                                                    <?php
+
+                                        $query = "SELECT tanggal, catatan, status FROM bimbinganta";
+                                        $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
+                                        while ($row = mysqli_fetch_array($result)) {
+                                    ?>
+
+                                                        <tr>
+                                                            <td>
+                                                                <?php echo $row['tanggal']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $row['catatan']; ?>
+                                                            </td>
+                                                          <td>
+                                                                <?php echo $row['status']; ?>
+                                                            </td>
+                                                            <!--  <td>
+                                                                <?php echo $row['tema']; ?>
+                                                            </td>
+
+                                                            <td>
+                                                                <?php echo $row['tanggal']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $row['jam']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $row['status']; ?>
+                                                            </td> -->
+
+
+                                                            <!-- <td>
+                                                           <a href='edit_mahasiswa.php?id=<?php echo $row[' id ']; ?>' class='btn btn-success'>
+                                                               <span class='glyphicon glyphicon-edit'></span>Edit</button>
+                                                           </a>
+                                                           <a href='hapus_mahasiswa.php?id=<?php echo $row[' id ']; ?>' class='btn btn-danger'>
+                                                               <span class='glyphicon glyphicon-remove-sign'>Delete</button></a>
+                                                       </td> -->
+                                                        </tr>
+                                                        <?php
+                       }
+                       ?>
+
+                                                </tbody>
+                                            </table>
+                                        </form>
+                                    </div>
+
+                                </div>
+                             
+                         <!-- tab PENUTUP bimbingan seminar ta -->
+
+
+         <!-- tab pendaftaran seminar ta -->
+         <div class="tab-pane" id="pendaftaranTA">
+                                    <h2></h2>
+                                    <div class="tab-pane active" id="home">
+                                        <form class="form" method="post" id="registrationForm">
+                                            <h1>Pendaftaran TA</h1>
+                                            <table class="table table-striped table-bordered table-hover table-condensed ">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Nama</th>
+                                                        <th>Nim</th>
+                                                        <th>Dosen Pembimbing</th>
+                                                        <th>Topik TA</th>
+                                                        <th>Tanggal Seminar</th>
+                                                        <th>Jam Seminar</th>
+                                                        <th>Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- ISINYA -->
+                                                    <?php
+
+                                        $query = "SELECT nama, nim, dosbing, tema, tanggal, jam,  status FROM daftarta";
+                                        $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
+                                        while ($row = mysqli_fetch_array($result)) {
+                                    ?>
+
+                                                        <tr>
+                                                            <td>
+                                                                <?php echo $row['nama']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $row['nim']; ?>
+                                                            </td>
+                                                          <td>
+                                                                <?php echo $row['dosbing']; ?>
+                                                            </td>
+                                                             <td>
+                                                                <?php echo $row['tema']; ?>
+                                                            </td>
+
+                                                            <td>
+                                                                <?php echo $row['tanggal']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $row['jam']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $row['status']; ?>
+                                                            </td> 
+
+
+                                                            <!-- <td>
+                                                           <a href='edit_mahasiswa.php?id=<?php echo $row[' id ']; ?>' class='btn btn-success'>
+                                                               <span class='glyphicon glyphicon-edit'></span>Edit</button>
+                                                           </a>
+                                                           <a href='hapus_mahasiswa.php?id=<?php echo $row[' id ']; ?>' class='btn btn-danger'>
+                                                               <span class='glyphicon glyphicon-remove-sign'>Delete</button></a>
+                                                       </td> -->
+                                                        </tr>
+                                                        <?php
+                       }
+                       ?>
+
+                                                </tbody>
+                                            </table>
+                                        </form>
+                                    </div>
+
+                                </div>
+                             
+                         <!-- tab PENUTUP pendaftaran seminar ta -->
+
+<!-- tab jadwal seminar ta -->
+<div class="tab-pane" id="jadwalseminarTA">
+                                    <h2></h2>
+                                    <div class="tab-pane active" id="home">
+                                        <form class="form" method="post" id="registrationForm">
+                                            <h1>Jadwal Seminar Tugas Akhir</h1>
+                                            <table class="table table-striped table-bordered table-hover table-condensed ">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Hari</th>
+                                                        <th>Tanggal</th>
+                                                        <th>Jam</th>
+                                                        <th>Ruangan</th>
+                                                        <th>Dosen Penguji</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- ISINYA -->
+                                                    <?php
+
+                                        $query = "SELECT tanggal, jam FROM daftarsempro";
+                                        $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
+                                        while ($row = mysqli_fetch_array($result)) {
+                                    ?>
+
+                                                        <tr>
+                                                            <td>
+                                                                <?php echo $row['tanggal']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $row['jam']; ?>
+                                                            </td>
+                                                        <!--    <td>
+                                                                <?php echo $row['dosbing']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $row['tema']; ?>
+                                                            </td>
+
+                                                            <td>
+                                                                <?php echo $row['tanggal']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $row['jam']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $row['status']; ?>
+                                                            </td> -->
+
+
+                                                            <!-- <td>
+                                                           <a href='edit_mahasiswa.php?id=<?php echo $row[' id ']; ?>' class='btn btn-success'>
+                                                               <span class='glyphicon glyphicon-edit'></span>Edit</button>
+                                                           </a>
+                                                           <a href='hapus_mahasiswa.php?id=<?php echo $row[' id ']; ?>' class='btn btn-danger'>
+                                                               <span class='glyphicon glyphicon-remove-sign'>Delete</button></a>
+                                                       </td> -->
+                                                        </tr>
+                                                        <?php
+                       }
+                       ?>
+
+                                                </tbody>
+                                            </table>
+                                        </form>
+                                    </div>
+
+                                </div>
+                             
+
+
+                                <!--penutup tab jadwal seminar ta -->
 
                             </div>
                             <!--/tab-pane-->

@@ -149,6 +149,7 @@ header("location:../index.php");
             <div class="w3-bar-block">
                 <a href="#beranda" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Beranda</a>
                 <a href="#Data_Diri" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Data Diri</a>
+                <a href="rekap.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Rekap</a>
                 <a href="profile.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Profile</a>
                 <a href="#daftar" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Pendaftaran Tugas Akhir</a>
 

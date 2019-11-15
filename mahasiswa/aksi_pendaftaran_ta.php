@@ -99,10 +99,10 @@ header("location:../index.php");
                     echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
                  }*/
             } 
-
+            $tema = $_POST['topik'];
             $query = mysqli_query($koneksi, 
-                        "INSERT INTO daftarta (status, nama, nim, dosbing, tanggal, jam, proposalta,seminarproposal,toefl)
-                         VALUES ('pending','$nama','$nim','$dosenpembimbing','$tanggal', '$jam', '$lembarproposal','$lembarpersetujuan','$toefl')
+                        "INSERT INTO daftarta (tema, status, nama, nim, dosbing, tanggal, jam, proposalta,seminarproposal,toefl)
+                         VALUES ('$tema','pending','$nama','$nim','$dosenpembimbing','$tanggal', '$jam', '$lembarproposal','$lembarpersetujuan','$toefl')
                          ") or die(mysqli_error($koneksi));
 if($query){
     echo '<script language="javascript">alert("Data Berhasil Ditambahkan")</script>';

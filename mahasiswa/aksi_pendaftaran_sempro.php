@@ -45,7 +45,8 @@ header("location:../index.php");
              $dosenpembimbing = $_POST['dosbing'];
 			 $topik = $_POST['topik'];
 			 $tanggal = $_POST['tanggal'];
-			 $jam = $_POST['jam'];
+             $jam = $_POST['jam'];
+             $tema = $_POST['topik'];
              $lembarpersetujuan= $_POST['lembar_persetujuan'];
              if($lembarpersetujuan){
                 $ekstensi_diperbolehkan2	= array('pdf','docx','doc');
@@ -74,8 +75,8 @@ header("location:../index.php");
             } 
 
             $query = mysqli_query($koneksi, 
-                        "INSERT INTO daftarsempro (status, nama, nim, dosbing, tanggal, jam, proposalta,seminarproposal)
-                         VALUES ('pending','$nama','$nim','$dosenpembimbing','$tanggal', '$jam', '$lembarproposal','$lembarpersetujuan')
+                        "INSERT INTO daftarsempro (tema, status, nama, nim, dosbing, tanggal, jam, proposalta,seminarproposal)
+                         VALUES ('$tema','pending','$nama','$nim','$dosenpembimbing','$tanggal', '$jam', '$lembarproposal','$lembarpersetujuan')
                          ") or die(mysqli_error($koneksi));
 if($query){
     echo '<script language="javascript">alert("Data Berhasil Ditambahkan")</script>';
