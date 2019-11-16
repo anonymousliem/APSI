@@ -75,9 +75,9 @@
       <div class="w3-bar-block">
         <a href="#beranda" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Beranda</a>
         <a href="rekapankoor.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Rekapan</a>
-        <!-- <a href="../koordinator/registerdosen.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Tambah Dosen</a>
+        <!-- <a href="../koordinator/registerdosen.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Tambah Dosen</a> -->
         <a href="../registrasi.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Register Akun</a>
-        
+        <!--
         <a href="#daftar" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Pendaftaran Tugas Akhir</a>
         <a href="#sempro" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Seminar Proposal</a>
         <a href="#semta" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Sidang Tugas Akhir</a>
