@@ -156,7 +156,7 @@ header("location:../index.php");
                 <a href="#Data_Diri" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Data Diri</a>
                 <a href="rekap.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Rekap</a>
                 <a href="profile.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Profile</a>
-                <a href="gantipassword.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Ganti Password</a>
+              <!--  <a href="gantipassword.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Ganti Password</a> -->
                 <a href="#daftar" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Pendaftaran Tugas Akhir</a>
 
                 <div class="w3-bar-block">
@@ -568,6 +568,7 @@ header("location:../index.php");
                 </div>
 
                 <!-- jadwal semimar proposal -->
+                <!--
                 <div class="w3-container" id="jadwalsempro" style="margin-top:75px">
                     <h3 class="w3-xxxlarge w3-text-red">Jadwal Seminar Proposal<b></b></h3>
                     <hr style="width:50px;border:5px solid red" class="w3-round">
@@ -592,7 +593,7 @@ header("location:../index.php");
                         <br>
                         <input type="text" name="sks">
                     </form>
-                </div>
+                </div> -->
 
                 <!-- bimbingan sidang tugas akhir-->
                 <div class="w3-container" id="bimbingansidangTA" style="margin-top:75px">
