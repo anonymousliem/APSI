@@ -449,7 +449,7 @@ header("location:../index.php");
                                                     <!-- ISINYA -->
                                                     <?php
 
-                                        $query = "SELECT nama, nim, dosbing, tema, tanggal, jam, status FROM daftarsempro";
+                                        $query = "SELECT nama, nim, dosbing, tema, tanggal, jam, status FROM daftarsempro WHERE nama='$sesi' ";
                                         $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
                                         while ($row = mysqli_fetch_array($result)) {
                                     ?>
@@ -508,18 +508,18 @@ header("location:../index.php");
                                             <table class="table table-striped table-bordered table-hover table-condensed ">
                                                 <thead>
                                                     <tr>
-                                                        <th>Hari</th>
                                                         <th>Tanggal</th>
                                                         <th>Jam</th>
                                                         <th>Ruangan</th>
                                                         <th>Dosen Penguji</th>
+                                                        <th>Status</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <!-- ISINYA -->
                                                     <?php
 
-                                        $query = "SELECT tanggal, jam FROM daftarsempro where nama='$sesi' ";
+                                        $query = "SELECT tanggal, jam, ruangan, dosenpenguji, status FROM daftarsempro where nama='$sesi' and status !='Rejected' ";
                                         $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
                                         while ($row = mysqli_fetch_array($result)) {
                                     ?>
@@ -531,17 +531,17 @@ header("location:../index.php");
                                                             <td>
                                                                 <?php echo $row['jam']; ?>
                                                             </td>
-                                                        <!--    <td>
-                                                                <?php echo $row['dosbing']; ?>
+                                                           <td>
+                                                                <?php echo $row['ruangan']; ?>
                                                             </td>
                                                             <td>
-                                                                <?php echo $row['tema']; ?>
+                                                                <?php echo $row['dosenpenguji']; ?>
                                                             </td>
 
                                                             <td>
-                                                                <?php echo $row['tanggal']; ?>
+                                                                <?php echo $row['status']; ?>
                                                             </td>
-                                                            <td>
+                                                            <!-- <td>
                                                                 <?php echo $row['jam']; ?>
                                                             </td>
                                                             <td>

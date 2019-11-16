@@ -407,6 +407,8 @@ header("location:../index.php");
                                                         <th>Tanggal</th>
                                                         <th>Catatan</th>
                                                         <th>Status</th>
+                                                        
+                                                        <th>Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -541,7 +543,7 @@ header("location:../index.php");
                                             <table class="table table-striped table-bordered table-hover table-condensed ">
                                                 <thead>
                                                     <tr>
-                                                        <th>Hari</th>
+                                                        
                                                         <th>Tanggal</th>
                                                         <th>Jam</th>
                                                         <th>Ruangan</th>
@@ -552,7 +554,7 @@ header("location:../index.php");
                                                     <!-- ISINYA -->
                                                     <?php
 
-                                        $query = "SELECT tanggal, jam FROM daftarsempro";
+                                        $query = "SELECT tanggal, jam, ruangan, dosenpenguji FROM daftarsempro WHERE dosenpenguji='$dosenasli' " ;
                                         $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
                                         while ($row = mysqli_fetch_array($result)) {
                                     ?>
@@ -564,13 +566,13 @@ header("location:../index.php");
                                                             <td>
                                                                 <?php echo $row['jam']; ?>
                                                             </td>
-                                                        <!--    <td>
-                                                                <?php echo $row['dosbing']; ?>
+                                                        <td>
+                                                                <?php echo $row['ruangan']; ?>
                                                             </td>
                                                             <td>
-                                                                <?php echo $row['tema']; ?>
+                                                                <?php echo $row['dosenpenguji']; ?>
                                                             </td>
-
+   <!-- 
                                                             <td>
                                                                 <?php echo $row['tanggal']; ?>
                                                             </td>
@@ -625,7 +627,7 @@ header("location:../index.php");
                                                     <!-- ISINYA -->
                                                     <?php
 
-                                        $query = "SELECT id_bimbinganta, tanggal, catatan, status FROM bimbinganta";
+                                        $query = "SELECT id_bimbinganta, tanggal, catatan, status FROM bimbinganta where dosbing = '$dosenasli' ";
                                         $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
                                         while ($row = mysqli_fetch_array($result)) {
                                     ?>
@@ -704,7 +706,7 @@ header("location:../index.php");
                                                     <!-- ISINYA -->
                                                     <?php
 
-                                        $query = "SELECT id_daftarta, nama, nim, dosbing, tema, tanggal, jam,  status FROM daftarta";
+                                        $query = "SELECT id_daftarta, nama, nim, dosbing, tema, tanggal, jam,  status FROM daftarta where dosbing='$dosenasli' ";
                                         $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
                                         while ($row = mysqli_fetch_array($result)) {
                                     ?>
@@ -766,7 +768,7 @@ header("location:../index.php");
                                             <table class="table table-striped table-bordered table-hover table-condensed ">
                                                 <thead>
                                                     <tr>
-                                                        <th>Hari</th>
+                                                       
                                                         <th>Tanggal</th>
                                                         <th>Jam</th>
                                                         <th>Ruangan</th>
@@ -777,7 +779,7 @@ header("location:../index.php");
                                                     <!-- ISINYA -->
                                                     <?php
 
-                                        $query = "SELECT tanggal, jam FROM daftarsempro";
+                                        $query = "SELECT ruangan, dosenpenguji, tanggal, jam FROM daftarta where dosenpenguji='$dosenasli' ";
                                         $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
                                         while ($row = mysqli_fetch_array($result)) {
                                     ?>
@@ -789,14 +791,14 @@ header("location:../index.php");
                                                             <td>
                                                                 <?php echo $row['jam']; ?>
                                                             </td>
-                                                        <!--    <td>
-                                                                <?php echo $row['dosbing']; ?>
+                                                       <td>
+                                                                <?php echo $row['ruangan']; ?>
                                                             </td>
                                                             <td>
-                                                                <?php echo $row['tema']; ?>
+                                                                <?php echo $row['dosenpenguji']; ?>
                                                             </td>
 
-                                                            <td>
+                                                              <!--   <td>
                                                                 <?php echo $row['tanggal']; ?>
                                                             </td>
                                                             <td>

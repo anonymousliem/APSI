@@ -5,8 +5,8 @@ session_start();
 if ($_SESSION['level'] != 'koordinator') {
   header("location:index.php");
 }
-$id = $_GET['id_daftarta'];
-$sql8 = "SELECT nama, hari, tanggal, jam, ruangan, dosenpenguji, status FROM daftarta WHERE and id_daftarta='$id'  ";
+$id = $_GET['id_daftarsempro'];
+$sql8 = "SELECT nama, hari, tanggal, jam, ruangan, dosenpenguji, status FROM daftarsempro WHERE and id_daftarsempro='$id'  ";
 $result8 = $koneksi->query($sql8);
 /*if ($result8->num_rows > 0) {
   // output data of each row
@@ -65,11 +65,11 @@ $result8 = $koneksi->query($sql8);
 
 
 
-            <form  method="POST" action="aksi_edit_jadwalseminar.php">
+            <form  method="POST" action="aksi_edit_jadwalsempro.php">
                 <div class="form-group my-3">
              
                    <label for="no_induk" style="color: white" >ID</label><br>
-                    <input type="text" name="id_daftarta" readonly value="<?php echo $id ?>" style="width:150px;">
+                    <input type="text" name="id_daftarsempro" readonly value="<?php echo $id ?>" style="width:150px;">
 <!--
                     <label for="no_induk" style="color: white" >Hari</label>
                     <select class="mb-3" name="tanggal" required >
@@ -102,7 +102,7 @@ $result8 = $koneksi->query($sql8);
                 </select>                
                 </div>
             
-               <<!-- label>Status</label><br>
+               <!-- label>Status</label><br>
                 <select class="mb-3" name="status"   style="width:150px">
                       <option value="Pending">Pending</option>
                     <option value="Approved">Approved</option>

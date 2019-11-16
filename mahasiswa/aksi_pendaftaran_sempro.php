@@ -73,8 +73,8 @@ header("location:../index.php");
                 header('location:index.php?pesan=sudahada');
             }else{
             $query = mysqli_query($koneksi, 
-                        "INSERT INTO daftarsempro (tema, status, nama, nim, dosbing, tanggal, jam, proposalta,seminarproposal)
-                         VALUES ('$tema','pending','$nama','$nim','$dosenpembimbing','$tanggal', '$jam', '$lembarproposal','$lembarpersetujuan')
+                        "INSERT INTO daftarsempro (hari, ruangan, dosenpenguji, tema, status, nama, nim, dosbing, tanggal, jam, proposalta,seminarproposal)
+                         VALUES ('Belum Diatur','Belum Diatur','Belum Diatur','$tema','pending','$nama','$nim','$dosenpembimbing','$tanggal', '$jam', '$lembarproposal','$lembarpersetujuan')
                          ") or die(mysqli_error($koneksi));
             if($query){
                     echo '<script language="javascript">alert("Data Berhasil Ditambahkan")</script>';
