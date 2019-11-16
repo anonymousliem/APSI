@@ -74,13 +74,14 @@
 
       <div class="w3-bar-block">
         <a href="#beranda" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Beranda</a>
-        <a href="../koordinator/registerdosen.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Tambah Dosen</a>
-        <a href="../registrasi.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Register Akun</a>
         <a href="rekapankoor.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Rekapan</a>
+        <!-- <a href="../koordinator/registerdosen.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Tambah Dosen</a>
+        <a href="../registrasi.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Register Akun</a>
+        
         <a href="#daftar" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Pendaftaran Tugas Akhir</a>
         <a href="#sempro" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Seminar Proposal</a>
         <a href="#semta" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Sidang Tugas Akhir</a>
-        <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+        <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a> -->
         
         <a href="../logout.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a>
         
@@ -123,6 +124,7 @@
       </div>
 
       <!-- Data Diri -->
+      <!--
       <div class="w3-container" style="margin-top:75px" id="Data_Diri">
         <h1 class="w3-xxxlarge w3-text-red"><b>Data Diri</b></h1>
         <hr style="width:50px;border:5px solid red" class="w3-round">
@@ -142,9 +144,9 @@
           <input type="submit" value="Submit">
         </form>
 
-      </div>
+      </div> -->
 
-      <!-- Designers -->
+      <!-- Designers --><!--
       <div class="w3-container" id="daftar" style="margin-top:75px">
         <h1 class="w3-xxxlarge w3-text-red">Pendaftaran Tugas Akhir<b></b></h1>
         <hr style="width:50px;border:5px solid red" class="w3-round">
@@ -161,7 +163,7 @@
         </b></div>
       </form>
 
-    </div>
+    </div>-->
 
 
 

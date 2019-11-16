@@ -165,7 +165,7 @@ header("location:../index.php");
                             <div class="dropdown-content">
                                 <a href="#bimbingan">Bimbingan</a>
                                 <a href="#daftarsempro">Pendaftaran</a>
-                                <a href="#jadwalsempro">Jadwal Seminar</a>
+                              <!--  <a href="#jadwalsempro">Jadwal Seminar</a> -->
                             </div>
                         </li>
                     </ul>
@@ -178,14 +178,14 @@ header("location:../index.php");
                             <div class="dropdown-content">
                                 <a href="#bimbingansidangTA">Bimbingan</a>
                                 <a href="#daftarsidangTA">Pendaftaran</a>
-                                <a href="#jadwalsidangTA">Jadwal Sidang TA</a>
+                             <!--   <a href="#jadwalsidangTA">Jadwal Sidang TA</a> -->
                                 <a href="#selamat">Upload Laporan Final</a>
                             </div>
                         </li>
                     </ul>
                 </div>
 
-                <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+               <!-- <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a> -->
                 <a href="../logout.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a>
             </div>
         </nav>
@@ -440,7 +440,7 @@ header("location:../index.php");
                 <!-- pengumuman dosen -->
 
     
-
+    <!--
                 <div class="w3-container" id="pengumumandosen" style="margin-top:75px">
                     <h3 class="w3-xxxlarge w3-text-red">Pengumuman Dosen Pembimbing<b></b></h3>
                     <hr style="width:50px;border:5px solid red" class="w3-round">
@@ -459,7 +459,7 @@ header("location:../index.php");
                         <br>
                         <input type="text" disabled value="<?php echo $dosbingku; ?>">
                     </form>
-                </div>
+                </div> -->
 
                 <!-- bimbingan sempro -->
                 <div class="w3-container" id="bimbingan" style="margin-top:75px">
@@ -701,6 +701,7 @@ header("location:../index.php");
                 </div>
 
                 <!-- jadwal sidang tugas akhir -->
+                <!--
                 <div class="w3-container" id="jadwalsidangTA" style="margin-top:75px">
                     <h3 class="w3-xxxlarge w3-text-red">Jadwal Sidang Tugas Akhir<b></b></h3>
                     <hr style="width:50px;border:5px solid red" class="w3-round">
@@ -726,7 +727,7 @@ header("location:../index.php");
                       <a  href="#selamat"><button  style="background:red; width:200px">LANJUT</a>
                   
                 </div>
-
+-->
                 <!-- Upload Laporan Final -->
                 <div class="w3-container" style="margin-top:75px" id="selamat">
                     <h1> <FONT COLOR="red"><b>SELAMAT!</b></h1>

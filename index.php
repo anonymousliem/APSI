@@ -36,7 +36,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
 
 	<h1 style="color: white; text-align:right;">SISTEM INFORMASI TUGAS AKHIR</h1>
 	<h2 style="color: white; text-align:right;">TEKNIK INDUSTRI<BR>UNIVERSITAS DIPONEGORO</h2>
-<center>
+
 	<section class="col-lg-4 col-12 px-0 shadow">
 		<div class="card-body" CLASS="w3-display-topleft" style="background-color: rgba(255, 0, 0, 0.7)">
 			<img src="https://upload.wikimedia.org/wikipedia/id/thumb/2/2d/Undip.png/220px-Undip.png" width="50" height="50">
@@ -77,13 +77,13 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
 				</button>
 			</form>
 			<br>
-		<!--	<p class=text-center style="color:white"><a href="registrasi.php">Belum punya akun? Registrasi disini<a></p>
-			<p class=text-center style="color:white">Lupa password? <br> Silahkan hubungi bagian akademik </p>
-		--></div>
+		<!--	<p class=text-center style="color:white"><a href="registrasi.php">Belum punya akun? Registrasi disini<a></p> -->
+			<p class=text-center style="color:white">Belum Punya Akun? <br> Silahkan hubungi bagian akademik </p>
+		</div>
 
 		</div>
 	</section>
-</center>
+
 </body>
 
 </html>

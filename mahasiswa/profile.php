@@ -161,7 +161,8 @@ header("location:../index.php");
             <div class="w3-bar-block">
                 <a href="index.php#beranda" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Beranda</a>
                 <a href="index.php#Data_Diri" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Data Diri</a>
-                <a href="index.php#profile.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Profile</a>
+                <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Profile</a>
+                <a href="rekap.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Rekapan</a>
                 <a href="index.php#daftar" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Pendaftaran Tugas Akhir</a>
 
                 <div class="w3-bar-block">
@@ -171,7 +172,7 @@ header("location:../index.php");
                             <div class="dropdown-content">
                                 <a href="index.php#bimbingan">Bimbingan</a>
                                 <a href="index.php#daftarsempro">Pendaftaran</a>
-                                <a href="index.php#jadwalsempro">Jadwal Seminar</a>
+                              <!--  <a href="index.php#jadwalsempro">Jadwal Seminar</a> -->
                             </div>
                         </li>
                     </ul>
@@ -184,14 +185,14 @@ header("location:../index.php");
                             <div class="dropdown-content">
                                 <a href="index.php#bimbingansidangTA">Bimbingan</a>
                                 <a href="index.php#daftarsidangTA">Pendaftaran</a>
-                                <a href="index.php#jadwalsidangTA">Jadwal Sidang TA</a>
+                           <!--     <a href="index.php#jadwalsidangTA">Jadwal Sidang TA</a> --->
                                 <a href="index.php#selamat">Upload Laporan Final</a>
                             </div>
                         </li>
                     </ul>
                 </div>
 
-                <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+              <!--  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a> -->
                 <a href="../logout.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a>
             </div>
         </nav>
