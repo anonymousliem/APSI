@@ -116,9 +116,10 @@ header("location:../index.php");
             display: block;
         }
         
-        body {
-            background-image: url(https://pbs.twimg.com/media/EId7pQsU0AAca8l?format=png&name=900x900)
-        }
+        body { 
+background-color: #FEF9E7 
+          /*  background-image: url(https://pbs.twimg.com/media/EId7pQsU0AAca8l?format=png&name=900x900)
+       */ }
         
         thead {
             color: red;

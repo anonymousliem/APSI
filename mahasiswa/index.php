@@ -776,7 +776,7 @@ header("location:../index.php");
                             <br>
                             <input type="file" value="Submit" name="toefl">
                             <BR>
-                            <BR> -->
+                            <BR> --><BR><BR>
                             <input type="submit" value="Submit" style="background:red; width:200px">
                         </form>
 
