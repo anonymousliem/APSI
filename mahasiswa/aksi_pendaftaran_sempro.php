@@ -67,14 +67,14 @@ header("location:../index.php");
                     echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
                  }*/
             } 
-            $cekisi    = "SELECT * FROM daftarsempro WHERE nama='$nama' AND status != 'Rejected' ";
+            $cekisi    = "SELECT * FROM daftarsempro WHERE nama='$nama' AND status != 'Rejected' AND status2 != 'Rejected'  ";
             $ada = $koneksi->query($cekisi);
             if ($ada->num_rows > 0) {
                 header('location:index.php?pesan=sudahada');
             }else{
             $query = mysqli_query($koneksi, 
-                        "INSERT INTO daftarsempro (hari, ruangan, dosenpenguji, tema, status, nama, nim, dosbing, tanggal, jam, proposalta,seminarproposal)
-                         VALUES ('Belum Diatur','Belum Diatur','Belum Diatur','$tema','pending','$nama','$nim','$dosenpembimbing','$tanggal', '$jam', '$lembarproposal','$lembarpersetujuan')
+                        "INSERT INTO daftarsempro (status2,hari, dosenpenguji2, dosenpenguji, tema, status, nama, nim, dosbing, tanggal, jam, proposalta,seminarproposal)
+                         VALUES ('pending','Belum Diatur','Belum Diatur','Belum Diatur','$tema','pending','$nama','$nim','$dosenpembimbing','$tanggal', '$jam', '$lembarproposal','$lembarpersetujuan')
                          ") or die(mysqli_error($koneksi));
             if($query){
                     echo '<script language="javascript">alert("Data Berhasil Ditambahkan")</script>';

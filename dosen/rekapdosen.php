@@ -555,7 +555,7 @@ header("location:../index.php");
                                                     <!-- ISINYA -->
                                                     <?php
 
-                                        $query = "SELECT tanggal, jam, ruangan, dosenpenguji FROM daftarsempro WHERE dosenpenguji='$dosenasli' " ;
+                                        $query = "SELECT tanggal, jam, dosenpenguji FROM daftarsempro WHERE dosenpenguji='$dosenasli' " ;
                                         $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
                                         while ($row = mysqli_fetch_array($result)) {
                                     ?>

@@ -142,6 +142,7 @@ header("location:../index.php");
     <body>
 
         <!-- Sidebar/menu -->
+        <!-- Sidebar/menu -->
         <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar">
             <br>
             <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
@@ -162,9 +163,10 @@ header("location:../index.php");
 
             <div class="w3-bar-block">
                 <a href="index.php#beranda" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Beranda</a>
-                <a href="index.php#Data_Diri" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Data Diri</a>
                 <a href="profile.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Profile</a>
-                <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Rekapan</a>
+             <!--   <a href="#Data_Diri" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Data Diri</a> -->
+                    
+              <!--  <a href="gantipassword.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Ganti Password</a> -->
                 <a href="index.php#daftar" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Pendaftaran Tugas Akhir</a>
 
                 <div class="w3-bar-block">
@@ -174,7 +176,7 @@ header("location:../index.php");
                             <div class="dropdown-content">
                                 <a href="index.php#bimbingan">Bimbingan</a>
                                 <a href="index.php#daftarsempro">Pendaftaran</a>
-                               <!-- <a href="index.php#jadwalsempro">Jadwal Seminar</a> -->
+                              <!--  <a href="#jadwalsempro">Jadwal Seminar</a> -->
                             </div>
                         </li>
                     </ul>
@@ -187,14 +189,15 @@ header("location:../index.php");
                             <div class="dropdown-content">
                                 <a href="index.php#bimbingansidangTA">Bimbingan</a>
                                 <a href="index.php#daftarsidangTA">Pendaftaran</a>
-                                 <!-- <a href="index.php#jadwalsidangTA">Jadwal Sidang TA</a> -->
+                             <!--   <a href="#jadwalsidangTA">Jadwal Sidang TA</a> -->
                                 <a href="index.php#selamat">Upload Laporan Final</a>
                             </div>
                         </li>
                     </ul>
                 </div>
-
-              <!--  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a> -->
+                <a href="rekap.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Rekap</a>
+    
+               <!-- <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a> -->
                 <a href="../logout.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a>
             </div>
         </nav>
@@ -511,8 +514,9 @@ header("location:../index.php");
                                                     <tr>
                                                         <th>Tanggal</th>
                                                         <th>Jam</th>
-                                                        <th>Ruangan</th>
                                                         <th>Dosen Penguji</th>
+                                                        <th>Status</th>
+                                                        <th>Dosen Penguji 2</th>
                                                         <th>Status</th>
                                                     </tr>
                                                 </thead>
@@ -520,7 +524,7 @@ header("location:../index.php");
                                                     <!-- ISINYA -->
                                                     <?php
 
-                                        $query = "SELECT tanggal, jam, ruangan, dosenpenguji, status FROM daftarsempro where nama='$sesi' and status !='Rejected' ";
+                                        $query = "SELECT tanggal, jam , dosenpenguji, dosenpenguji2, status, status2 FROM daftarsempro where nama='$sesi' and status !='Rejected' ";
                                         $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
                                         while ($row = mysqli_fetch_array($result)) {
                                     ?>
@@ -533,19 +537,18 @@ header("location:../index.php");
                                                                 <?php echo $row['jam']; ?>
                                                             </td>
                                                            <td>
-                                                                <?php echo $row['ruangan']; ?>
-                                                            </td>
-                                                            <td>
                                                                 <?php echo $row['dosenpenguji']; ?>
                                                             </td>
-
                                                             <td>
                                                                 <?php echo $row['status']; ?>
                                                             </td>
-                                                            <!-- <td>
-                                                                <?php echo $row['jam']; ?>
-                                                            </td>
                                                             <td>
+                                                                <?php echo $row['dosenpenguji2']; ?>
+                                                            </td>
+                                                              <td>
+                                                                <?php echo $row['status2']; ?>
+                                                            </td>
+                                                               <!-- <td>
                                                                 <?php echo $row['status']; ?>
                                                             </td> -->
 

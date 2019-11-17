@@ -153,9 +153,9 @@ header("location:../index.php");
 
             <div class="w3-bar-block">
                 <a href="#beranda" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Beranda</a>
-                <a href="#Data_Diri" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Data Diri</a>
-                <a href="rekap.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Rekap</a>
                 <a href="profile.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Profile</a>
+             <!--   <a href="#Data_Diri" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Data Diri</a> -->
+                    
               <!--  <a href="gantipassword.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Ganti Password</a> -->
                 <a href="#daftar" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Pendaftaran Tugas Akhir</a>
 
@@ -185,7 +185,8 @@ header("location:../index.php");
                         </li>
                     </ul>
                 </div>
-
+                <a href="rekap.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Rekap</a>
+    
                <!-- <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a> -->
                 <a href="../logout.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a>
             </div>
@@ -307,6 +308,7 @@ header("location:../index.php");
                         <br> 2. Capaian SKS minimal 128 SKS dengan nilai minimal C
                         <br> 3. IPK > 2,25
                         <br> 4. Lulus Kerja Praktek</p>
+                        <b><h2 class="w3-text-red">Belum pernah registrasi Diri?</b><a href="#Data_Diri"><button style="background:red; height:50px"><b><font color="white">Klik Di sini</a></b></font></button></h1>
                 </p>
             </div>
 
@@ -392,27 +394,29 @@ header("location:../index.php");
                         <br>
                         <h2 style="color:#f44336"><b>Pengajuan Tema</b></h2>
                         <B> TEMA 1 </B><br>
-                        <input type="text" name="tema1" required>
-                      <!--  <select name="tema1" style="width:250px;">
-                            <option value="volvo"></option>
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="fiat">Fiat</option>
-                            <option value="audi">Audi</option>
+                        <!-- <input type="text" name="tema1" required> -->
+                        <select name="tema1" style="width:250px;" required>
+                            <option value=""></option>
+                            <option value=" Pengembangan Produk"> Pengembangan Produk</option>
+                            <option value=" Perencanaan dan Pengendalian Kualitas"> Perencanaan dan Pengendalian Kualitas</option>
+                            <option value="Supply Chain Management">Supply Chain Management</option>
+                            <option value="Sistem Informasi Perusahaan">Sistem Informasi Perusahaan</option>
+                            <option value=" Sistem Kerja dan Ergonomi"> Sistem Kerja dan Ergonomi</option>
                         </select>
-                        -->
+                        
                         <br>
                     
                         <B> TEMA 2 </B><br>
-                        <input type="text" name="tema2" required>
-                        <!--  <select name="tema1" style="width:250px;">
-                            <option value="volvo"></option>
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="fiat">Fiat</option>
-                            <option value="audi">Audi</option>
+                        <!-- <input type="text" name="tema2" required> -->
+                        <select name="tema2" style="width:250px;" required>
+                            <option value=""></option>
+                            <option value=" Pengembangan Produk"> Pengembangan Produk</option>
+                            <option value=" Perencanaan dan Pengendalian Kualitas"> Perencanaan dan Pengendalian Kualitas</option>
+                            <option value="Supply Chain Management">Supply Chain Management</option>
+                            <option value="Sistem Informasi Perusahaan">Sistem Informasi Perusahaan</option>
+                            <option value=" Sistem Kerja dan Ergonomi"> Sistem Kerja dan Ergonomi</option>
                         </select>
-                        -->
+                        
                         <br>
                         <h2 style="color:#f44336"><b>Pengajuan Dosen Pembimbing</b></h2>
                         <B> DOSEN PEMBIMBING 1 </B>
@@ -545,13 +549,21 @@ header("location:../index.php");
                             </select>
                             <br> Topik TA:
                             <br>
-                            <input type="text" name="topik" required>
-                            <br> Tanggal Seminar:
+                            <!-- <input type="text" name="topik" required> -->
+                        <select name="topik" style="width:250px;" required>
+                            <option value=""></option>
+                            <option value=" Pengembangan Produk"> Pengembangan Produk</option>
+                            <option value=" Perencanaan dan Pengendalian Kualitas"> Perencanaan dan Pengendalian Kualitas</option>
+                            <option value="Supply Chain Management">Supply Chain Management</option>
+                            <option value="Sistem Informasi Perusahaan">Sistem Informasi Perusahaan</option>
+                            <option value=" Sistem Kerja dan Ergonomi"> Sistem Kerja dan Ergonomi</option>
+                        </select>
+                           <!--    <br> Tanggal Seminar:
                             <br>
                             <input type="date" name="tanggal" required>
                             <br> Jam Seminar:
                             <br>
-                            <input type="time" name="jam" required>
+                         <input type="time" name="jam" required> -->
                             <br> Proposal Tugas Akhir (format pdf)
                             <br>
                             <input type="file" value="Submit" name="lembar_proposal">
@@ -675,13 +687,21 @@ header("location:../index.php");
                             </select>
                             <br> Topik TA:
                             <br>
-                            <input type="text" name="topik" required>
-                            <br> Tanggal Seminar:
+                            <!-- <input type="text" name="topik" required> -->
+                            <select name="topik" style="width:250px;" required>
+                            <option value=""></option>
+                            <option value=" Pengembangan Produk"> Pengembangan Produk</option>
+                            <option value=" Perencanaan dan Pengendalian Kualitas"> Perencanaan dan Pengendalian Kualitas</option>
+                            <option value="Supply Chain Management">Supply Chain Management</option>
+                            <option value="Sistem Informasi Perusahaan">Sistem Informasi Perusahaan</option>
+                            <option value=" Sistem Kerja dan Ergonomi"> Sistem Kerja dan Ergonomi</option>
+                        </select>
+                         <!--   <br> Tanggal Seminar:
                             <br>
                             <input type="date" name="tanggal" required>
                             <br> Jam Seminar:
                             <br>
-                            <input type="time" name="time">
+                            <input type="time" name="time"> -->
                             <br> Proposal Tugas Akhir (format pdf)
                             <br>
                             <input type="file" value="Submit" name="lembar_proposal">
@@ -689,7 +709,7 @@ header("location:../index.php");
                             <br> Lembar Persetujuan Sidang TA
                             <br>
                             <input type="file" value="Submit" name="lembar_persetujuan">
-                            <br>
+                           
                            
                             <br> Sertifikat TOEFL
                             <br>

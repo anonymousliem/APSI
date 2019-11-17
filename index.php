@@ -26,7 +26,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 </head>
 
-<body id="index" style="background-image: url(https://scontent-sin6-2.cdninstagram.com/vp/bc5cfff8536f149968e956c134a32e70/5DC2C71D/t51.2885-15/e35/65673466_686091891817492_4145229985833254060_n.jpg?_nc_ht=scontent-sin6-2.cdninstagram.com); background-repeat: no-repeat; background-position-y: -10rem; background-size:100%;">
+<body id="index" style="background-image: url(https://pbs.twimg.com/media/EJj-vINVUAIX6JL?format=jpg&name=900x900); background-repeat: no-repeat; background-position-y: -10rem; background-size:100%;">
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
@@ -34,8 +34,8 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-	<h1 style="color: white; text-align:right;">SISTEM INFORMASI TUGAS AKHIR</h1>
-	<h2 style="color: white; text-align:right;">TEKNIK INDUSTRI<BR>UNIVERSITAS DIPONEGORO</h2>
+	<h1 style="color: white; text-align:right;margin-right:20px;margin-top:20px">SISTEM INFORMASI TUGAS AKHIR</h1>
+	<h2 style="color: white; text-align:right;margin-right:20px">TEKNIK INDUSTRI<BR>UNIVERSITAS DIPONEGORO</h2>
 
 	<section class="col-lg-4 col-12 px-0 shadow">
 		<div class="card-body" CLASS="w3-display-topleft" style="background-color: rgba(255, 0, 0, 0.7)">
