@@ -108,7 +108,8 @@ header("location:../index.php");
         }
         
         body {
-            background-image: url(https://pbs.twimg.com/media/EId7pQsU0AAca8l?format=png&name=900x900)
+            background-color: #FEF9E7 
+            /*background-image: url(https://pbs.twimg.com/media/EId7pQsU0AAca8l?format=png&name=900x900)*/
         }
         
         thead {
@@ -338,15 +339,27 @@ header("location:../index.php");
                         <input type="text" name="email_mahasiswa" required>
                         <br> Dosen Wali:
                         <br>
-                
 
-                        <select name="doswal_mahasiswa" style="width:200px;">
+                        <select name="doswal_mahasiswa" style="width:250px;" required>
+                        <option value=""></option>
+                            <?php 
+                              $query = "SELECT * FROM user where level = 'dosen' ";
+                              $result    = mysqli_query($koneksi, $query) or die(mysqli_error($connect));
+                              while ($row    = mysqli_fetch_array($result)) {
+                                ?>
+                                <option value="<?php echo $row['nama']; ?>">
+                                 <?php echo $row['nama']; ?></option>
+                            <?php } ?>
+                        
+                            </select>
+
+                      <!--  <select name="doswal_mahasiswa" style="width:200px;">
                             <option value=""></option>
                             <option value="AGUS">Agus</option>
                             <option value="Budi">Budi</option>
                             <option value="Caca">Caca</option>
                             <option value="Dodi">Dodi</option>
-                        </select>
+                        </select> -->
                         <br>
 
                         <h2 style="color:#f44336"><b>Data Orang Tua</b></h2> Nama Ayah:
@@ -390,10 +403,16 @@ header("location:../index.php");
                         <br>
                         <input type="file" name="file">
                         <br>
+                        Pra Bimbingan
+                        <br>
+                        <input type="file" name="file2">
+                        <br>
+                        
+                        
 
                         <br>
                         <h2 style="color:#f44336"><b>Pengajuan Tema</b></h2>
-                        <B> TEMA 1 </B><br>
+                        <B> Topik </B><br>
                         <!-- <input type="text" name="tema1" required> -->
                         <select name="tema1" style="width:250px;" required>
                             <option value=""></option>
@@ -406,8 +425,8 @@ header("location:../index.php");
                         
                         <br>
                     
-                        <B> TEMA 2 </B><br>
-                        <!-- <input type="text" name="tema2" required> -->
+                     <!--   <B> TEMA 2 </B><br>
+                        <input type="text" name="tema2" required> 
                         <select name="tema2" style="width:250px;" required>
                             <option value=""></option>
                             <option value=" Pengembangan Produk"> Pengembangan Produk</option>
@@ -416,24 +435,38 @@ header("location:../index.php");
                             <option value="Sistem Informasi Perusahaan">Sistem Informasi Perusahaan</option>
                             <option value=" Sistem Kerja dan Ergonomi"> Sistem Kerja dan Ergonomi</option>
                         </select>
+                        -->
                         
-                        <br>
                         <h2 style="color:#f44336"><b>Pengajuan Dosen Pembimbing</b></h2>
                         <B> DOSEN PEMBIMBING 1 </B>
                         <BR>
                         <select name="dosbing1" style="width:250px;" required>
                         <option value=""></option>
-                            <option value="Caca">Caca</option>
-                            <option value="Dodi">Dodi</option>
-                        </select>
+                            <?php 
+                              $query = "SELECT * FROM user where level = 'dosen' ";
+                              $result    = mysqli_query($koneksi, $query) or die(mysqli_error($connect));
+                              while ($row    = mysqli_fetch_array($result)) {
+                                ?>
+                                <option value="<?php echo $row['nama']; ?>">
+                                 <?php echo $row['nama']; ?></option>
+                            <?php } ?>
+                        
+                      </select>
                         <br>
                         <B> DOSEN PEMBIMBING 2 </B>
                         <BR>
                         <select name="dosbing2" style="width:250px;" required>
                         <option value=""></option>
-                                <option value="Caca">Caca</option>
-                            <option value="Dodi">Dodi</option>
-                        </select>
+                            <?php 
+                              $query = "SELECT * FROM user where level = 'dosen' ";
+                              $result    = mysqli_query($koneksi, $query) or die(mysqli_error($connect));
+                              while ($row    = mysqli_fetch_array($result)) {
+                                ?>
+                                <option value="<?php echo $row['nama']; ?>">
+                                 <?php echo $row['nama']; ?></option>
+                            <?php } ?>
+                        
+           </select>
                         <br>
                        
                         <br>
@@ -468,7 +501,7 @@ header("location:../index.php");
 
                 <!-- bimbingan sempro -->
                 <div class="w3-container" id="bimbingan" style="margin-top:75px">
-                    <h3 class="w3-xxxlarge w3-text-red">Bimbingan<b></b></h3>
+                    <h3 class="w3-xxxlarge w3-text-red">Bimbingan Tugas Akhir Tahap 1<b></b></h3>
                     <hr style="width:50px;border:5px solid red" class="w3-round">
                     <form  method="POST" action="aksi_bimbingan_sempro.php">
                         <table>
@@ -524,7 +557,7 @@ header("location:../index.php");
 
                 <!-- Pendaftaran Sempro -->
                 <div class="w3-container" id="daftarsempro" style="margin-top:75px">
-                    <h3 class="w3-xxxlarge w3-text-red">Pendaftaran<b></b></h3>
+                    <h3 class="w3-xxxlarge w3-text-red">Pendaftaran Seminar Proposal<b></b></h3>
                     <hr style="width:50px;border:5px solid red" class="w3-round">
 
                     <div class="w3-container">
@@ -537,27 +570,40 @@ header("location:../index.php");
                             <br> NIM:
                             <br>
                             <input type="text" name="nim" value="<?php echo $nimasli ?>" readonly>
+                            <br> Judul:
+                            <br>
+                            <input type="text" name="judul" required>
+                        
                             <br> DOSEN PEMBIMBING
                             <BR>
-                            <select name="dosbing" style="width:250px;" required>
-                                
-                                <option value=""></option>
-                                <option value="AGUS">Agus</option>
-                                <option value="Budi">Budi</option>
-                                <option value="Caca">Caca</option>
-                                <option value="Dodi">Dodi</option>
-                            </select>
+                            <select name="dosbing" style="width:250px;" readonly required>
+                      
+                            <?php 
+                              $query = "SELECT dosbing1 FROM tugas_akhir where nama='$sesi' and status='Approved' ";
+                              $result    = mysqli_query($koneksi, $query) or die(mysqli_error($connect));
+                              while ($row    = mysqli_fetch_array($result)) {
+                                ?>
+                                <option value="<?php echo $row['dosbing1']; ?>">
+                                 <?php echo $row['dosbing1']; ?></option>
+                            <?php } ?>
+                        
+           </select>
                             <br> Topik TA:
                             <br>
                             <!-- <input type="text" name="topik" required> -->
-                        <select name="topik" style="width:250px;" required>
-                            <option value=""></option>
-                            <option value=" Pengembangan Produk"> Pengembangan Produk</option>
-                            <option value=" Perencanaan dan Pengendalian Kualitas"> Perencanaan dan Pengendalian Kualitas</option>
-                            <option value="Supply Chain Management">Supply Chain Management</option>
-                            <option value="Sistem Informasi Perusahaan">Sistem Informasi Perusahaan</option>
-                            <option value=" Sistem Kerja dan Ergonomi"> Sistem Kerja dan Ergonomi</option>
-                        </select>
+                            <select name="topik" style="width:250px;" readonly required>
+                      
+                      <?php 
+                        $query = "SELECT tema1 FROM tugas_akhir where nama='$sesi' and status='Approved' ";
+                        $result    = mysqli_query($koneksi, $query) or die(mysqli_error($connect));
+                        while ($row    = mysqli_fetch_array($result)) {
+                          ?>
+                          <option value="<?php echo $row['tema1']; ?>">
+                           <?php echo $row['tema1']; ?></option>
+                      <?php } ?>
+                  
+     </select>
+
                            <!--    <br> Tanggal Seminar:
                             <br>
                             <input type="date" name="tanggal" required>
@@ -609,7 +655,7 @@ header("location:../index.php");
 
                 <!-- bimbingan sidang tugas akhir-->
                 <div class="w3-container" id="bimbingansidangTA" style="margin-top:75px">
-                    <h3 class="w3-xxxlarge w3-text-red">Bimbingan<b></b></h3>
+                    <h3 class="w3-xxxlarge w3-text-red">Bimbingan Tugas Akhir Tahap 2<b></b></h3>
                     <hr style="width:50px;border:5px solid red" class="w3-round">
                     <form method="POST" action="aksi_bimbingan_TA.php">
                         <table>
@@ -665,7 +711,7 @@ header("location:../index.php");
 
                 <!-- Pendaftaran Sidang tugas akhir -->
                 <div class="w3-container" id="daftarsidangTA" style="margin-top:75px">
-                    <h3 class="w3-xxxlarge w3-text-red">Pendaftaran<b></b></h3>
+                    <h3 class="w3-xxxlarge w3-text-red">Pendaftaran Sidang Tugas Akhir<b></b></h3>
                     <hr style="width:50px;border:5px solid red" class="w3-round">
 
                     <div class="w3-container">
@@ -681,20 +727,35 @@ header("location:../index.php");
                             <br> DOSEN PEMBIMBING
                             <BR>
                             <select name="dosbing" style="width:250px;" required>
-                            <option value=""></option>
-                            <option value="Caca">Caca</option>
-                            <option value="Dodi">Dodi</option>
+                        
+                            <?php 
+                            
+                              $query = "SELECT dosbing FROM daftarsempro where nama='$sesi' and status='Approved' ";
+                              $result    = mysqli_query($koneksi, $query) or die(mysqli_error($connect));
+                              while ($row    = mysqli_fetch_array($result)) {
+                                ?>
+                                <option value="<?php echo $row['dosbing']; ?>" readonly>
+                                 <?php echo $row['dosbing']; ?></option>
+                            <?php } ?>
+                            
+                        
                             </select>
                             <br> Topik TA:
                             <br>
                             <!-- <input type="text" name="topik" required> -->
                             <select name="topik" style="width:250px;" required>
-                            <option value=""></option>
-                            <option value=" Pengembangan Produk"> Pengembangan Produk</option>
-                            <option value=" Perencanaan dan Pengendalian Kualitas"> Perencanaan dan Pengendalian Kualitas</option>
-                            <option value="Supply Chain Management">Supply Chain Management</option>
-                            <option value="Sistem Informasi Perusahaan">Sistem Informasi Perusahaan</option>
-                            <option value=" Sistem Kerja dan Ergonomi"> Sistem Kerja dan Ergonomi</option>
+                        
+                        <?php 
+                        
+                          $query = "SELECT tema FROM daftarsempro where nama='$sesi' and status='Approved' ";
+                          $result    = mysqli_query($koneksi, $query) or die(mysqli_error($connect));
+                          while ($row    = mysqli_fetch_array($result)) {
+                            ?>
+                            <option value="<?php echo $row['tema']; ?>" readonly>
+                             <?php echo $row['tema']; ?></option>
+                        <?php } ?>
+                        
+                    
                         </select>
                          <!--   <br> Tanggal Seminar:
                             <br>
@@ -711,11 +772,11 @@ header("location:../index.php");
                             <input type="file" value="Submit" name="lembar_persetujuan">
                            
                            
-                            <br> Sertifikat TOEFL
+                           <!-- <br> Sertifikat TOEFL
                             <br>
                             <input type="file" value="Submit" name="toefl">
                             <BR>
-                            <BR>
+                            <BR> -->
                             <input type="submit" value="Submit" style="background:red; width:200px">
                         </form>
 

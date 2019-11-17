@@ -377,13 +377,13 @@ header("location:../index.php");
                                                         
                                                         
                                                         </td>
-                                                         <td>
-                                                            <!--<a href="edit_pendaftaranTADOSEN.php?status=<?php echo $row['status']?>&id_tugasakhir=<?php echo $row['id_tugasakhir']; ?>" class='btn btn-success'>
+                                                      <!--   <td>
+                                                          <a href="edit_pendaftaranTADOSEN.php?status=<?php echo $row['status']?>&id_tugasakhir=<?php echo $row['id_tugasakhir']; ?>" class='btn btn-success'>
                                                                 <span class='glyphicon glyphicon-edit'></span>Edit</button>
                                                             </a>
                                                             <a href='hapus_mahasiswa.php?id=<?/*php echo $row[' id ']; */?>' class='btn btn-danger'>
-                                                                <span class='glyphicon glyphicon-remove-sign'>Delete</button></a> -->
-                                                        </td>
+                                                                <span class='glyphicon glyphicon-remove-sign'>Delete</button></a> 
+                                                        </td> -->
                                                     </tr>
                                                     <?php
                         }
@@ -413,14 +413,14 @@ header("location:../index.php");
                                                     <!-- ISINYA -->
                                                     <?php
 
-                                        $query = "SELECT nama, id_bimbingansempro, catatan, tanggal, status FROM bimbingansempro ";
+                                        $query = "SELECT nama, id_bimbinganta, catatan, tanggal, status FROM bimbinganta ";
                                         $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
                                         while ($row = mysqli_fetch_array($result)) {
                                     ?>
 
                                                         <tr>
                                                         <td>
-                                                            <?php echo $row['id_bimbingansempro']; ?>
+                                                            <?php echo $row['id_bimbinganta']; ?>
                                                             <td>
                                                                 <?php echo $row['nama']; ?>
                                                             </td>
@@ -543,11 +543,12 @@ header("location:../index.php");
                                                     <tr><th>ID</th>
                                                     <th>Nama</th>
                                                         <th>Nim</th>
-                                                        
                                                         <th>Tanggal</th>
                                                         <th>Jam</th>
-                                                        <th>Ruangan</th>
-                                                        <th>Dosen Penguji</th>
+                                
+                                                        <th>Dosen Penguji 1</th>
+                                                
+                                                        <th>Dosen Penguji 2</th>
                                                         <th>Aksi</th>
                                                     </tr>
                                                 </thead>
@@ -555,7 +556,7 @@ header("location:../index.php");
                                                     <!-- ISINYA -->
                                                     <?php
 
-                                        $query = "SELECT id_daftarsempro ,nama, nim, status, hari, ruangan, dosenpenguji, tanggal, jam FROM daftarsempro where  status !='Rejected'  ";
+                                        $query = "SELECT id_daftarsempro ,nama, nim, status, dosenpenguji, dosenpenguji2, tanggal, jam FROM daftarsempro where  status !='Rejected'  ";
                                         $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
                                         while ($row = mysqli_fetch_array($result)) {
                                     ?>
@@ -576,13 +577,22 @@ header("location:../index.php");
                                                             <td>
                                                                 <?php echo $row['jam']; ?>
                                                             </td>
-                                                         <td>
-                                                                <?php echo $row['ruangan']; ?>
-                                                            </td>
+                                                         
                                                             <td>
                                                                 <?php echo $row['dosenpenguji']; ?>
                                                             </td>
-  <!-- 
+                                                            <td>
+                                                                <?php echo $row['dosenpenguji2']; ?>
+                                                            </td>
+                                                            <td>
+                                                           <a href='edit_jadwalsempro.php?id_daftarsempro=<?php echo $row['id_daftarsempro']; ?>' class='btn btn-success'>
+                                                               <span class='glyphicon glyphicon-edit'></span>Edit</button>
+                                                            <!--  </a>
+                                                           <a href='hapus_mahasiswa.php?id=<?php echo $row[' id ']; ?>' class='btn btn-danger'>
+                                                               <span class='glyphicon glyphicon-remove-sign'>Delete</button></a>
+                                                       --> </td> 
+                                                             
+                                                           <!-- 
                                                             <td>
                                                                 <?php echo $row['tanggal']; ?>
                                                             </td>
@@ -594,13 +604,7 @@ header("location:../index.php");
                                                             </td> -->
 
 
-                                                          <td>
-                                                           <a href='edit_jadwalsempro.php?id_daftarsempro=<?php echo $row['id_daftarsempro']; ?>' class='btn btn-success'>
-                                                               <span class='glyphicon glyphicon-edit'></span>Edit</button>
-                                                            <!--  </a>
-                                                           <a href='hapus_mahasiswa.php?id=<?php echo $row[' id ']; ?>' class='btn btn-danger'>
-                                                               <span class='glyphicon glyphicon-remove-sign'>Delete</button></a>
-                                                       </td> -->
+                                                        
                                                         </tr>
                                                         <?php
                        }
@@ -710,9 +714,9 @@ header("location:../index.php");
                                                         <th>Nim</th>
                                                         <th>Dosen Pembimbing</th>
                                                         <th>Topik TA</th>
-                                                        <th>Tanggal Seminar</th>
+                                                       <!-- <th>Tanggal Seminar</th>
                                                         <th>Jam Seminar</th>
-                                                        <th>Status</th>
+                                                        <th>Status</th> -->
                                                       <!--  <th>Aksi</th> -->
                                                     </tr>
                                                 </thead>
@@ -720,7 +724,7 @@ header("location:../index.php");
                                                     <!-- ISINYA -->
                                                     <?php
 
-                                        $query = "SELECT id_daftarta, nama, nim, dosbing, tema, tanggal, jam,  status FROM daftarta";
+                                        $query = "SELECT id_daftarta, nama, nim, dosbing, tema FROM daftarta";
                                         $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
                                         while ($row = mysqli_fetch_array($result)) {
                                     ?>
@@ -740,7 +744,7 @@ header("location:../index.php");
                                                              <td>
                                                                 <?php echo $row['tema']; ?>
                                                             </td>
-
+                                                        <!--
                                                             <td>
                                                                 <?php echo $row['tanggal']; ?>
                                                             </td>
@@ -749,7 +753,7 @@ header("location:../index.php");
                                                             </td>
                                                             <td>
                                                                 <?php echo $row['status']; ?>
-                                                            </td> 
+                                                            </td> -->
 
 
                                                             <td>
@@ -784,20 +788,22 @@ header("location:../index.php");
                                                     <tr><th>ID</th>
                                                         <th>Nama</th>
                                                         <th>Nim</th>
-                                                        
-                                                        <th>Hari</th>
                                                         <th>Tanggal</th>
                                                         <th>Jam</th>
-                                                        <th>Ruangan</th>
-                                                        <th>Dosen Penguji</th>
+                                                      
+                                                        <th>Dosen Penguji 2</th>
                                                         <th>Status</th>
+
+                                                        <th>Dosen Penguji 1</th>
+                                                        <th>Status</th>
+
                                                         <th>Aksi</th>
                                                 </thead>
                                                 <tbody>
                                                     <!-- ISINYA -->
                                                     <?php
 
-$query = "SELECT id_daftarta ,nama, nim, status, hari, ruangan, dosenpenguji, tanggal, jam FROM daftarta where  status !='Rejected'  ";
+                                        $query = "SELECT id_daftarta ,nama, nim, tanggal, jam, dosenpenguji, statuspenguji1, dosenpenguji2, statuspenguji2 FROM daftarta where  status !='Rejected'  ";
     
                                         $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
                                         while ($row = mysqli_fetch_array($result)) {
@@ -814,23 +820,23 @@ $query = "SELECT id_daftarta ,nama, nim, status, hari, ruangan, dosenpenguji, ta
                                                                 <?php echo $row['nim']; ?>
                                                             </td>
                                                             <td>
-                                                                <?php echo $row['hari']; ?>
-                                                            </td>
-                                                            <td>
                                                                 <?php echo $row['tanggal']; ?>
                                                             </td>
-                                                          <td>
+                                                            <td>
                                                                 <?php echo $row['jam']; ?>
                                                             </td>
-                                                            <td>
-                                                                <?php echo $row['ruangan']; ?>
-                                                            </td>
-
-                                                            <td>
+                                                          <td>
                                                                 <?php echo $row['dosenpenguji']; ?>
                                                             </td>
                                                             <td>
-                                                                <?php echo $row['status']; ?>
+                                                                <?php echo $row['statuspenguji1']; ?>
+                                                            </td>
+
+                                                            <td>
+                                                                <?php echo $row['dosenpenguji2']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $row['statuspenguji2']; ?>
                                                             </td>
                                                         
 

@@ -63,7 +63,7 @@ header("location:../index.php");
                  }*/
             } 
 
-            $toefl= $_POST['toefl'];
+         /*   $toefl= $_POST['toefl'];
             if($toefl){
                 $ekstensi_diperbolehkan4	= array('pdf','docx','doc');
                 $filename3 = $_FILES['lembar_persetujuan']['name'];
@@ -88,7 +88,7 @@ header("location:../index.php");
              }else{
                     echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
                  }*/
-            } 
+            }  */
             
             $tema = $_POST['topik'];
 
@@ -98,8 +98,8 @@ header("location:../index.php");
                 header('location:index.php?pesan=sudahada');
             }else{
         $query = mysqli_query($koneksi, 
-                        "INSERT INTO daftarta (hari, ruangan, dosenpenguji, tema, status, nama, nim, dosbing, tanggal, jam, proposalta,seminarproposal,toefl)
-                         VALUES ('belum diatur','belum diatur','belum diatur','$tema','Pending','$nama','$nim','$dosenpembimbing','$tanggal', '$jam', '$lembarproposal','$lembarpersetujuan','$toefl')
+                        "INSERT INTO daftarta (statuspenguji2, dosenpenguji2,statuspenguji1, hari, dosenpenguji, tema, status, nama, nim, dosbing, tanggal, jam, proposalta,seminarproposal,toefl)
+                         VALUES ('belum diatur','belum diatur','belum diatur','belum diatur','belum diatur','$tema','Pending','$nama','$nim','$dosenpembimbing','belum diatur', 'belum diatur', '$lembarproposal','$lembarpersetujuan','toefl')
                          ") or die(mysqli_error($koneksi));
         if($query){
             echo '<script language="javascript">alert("Data Berhasil Ditambahkan")</script>';

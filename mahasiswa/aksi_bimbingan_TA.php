@@ -15,7 +15,7 @@ $catatan1 = $_POST['catatan1TA'];
 //$status2 = $_POST['status2'];
 //$status3 = $_POST['status3'];
 
-$cekisi    = "SELECT dosbing FROM daftarta WHERE nama='$nama' and status = 'Approved' ";
+$cekisi    = "SELECT dosbing FROM daftarsempro WHERE nama='$nama' and status = 'Approved' ";
 $ada = $koneksi->query($cekisi);
 if ($ada->num_rows > 0) {
   while($row = $ada->fetch_assoc()) {

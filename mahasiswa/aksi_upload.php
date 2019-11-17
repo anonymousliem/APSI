@@ -65,6 +65,10 @@ if ($_POST['upload']) {
     } */
 }
 
+if ($_POST['file2']) {
+    $filename2  = $_FILES['file2']['name'];
+}
+
 $cekisi    = "SELECT * FROM tugas_akhir WHERE nama='$namaMhs' and status != 'Rejected' ";
 $ada = $koneksi->query($cekisi);
 
@@ -74,8 +78,8 @@ $ada = $koneksi->query($cekisi);
 if ($ada->num_rows > 0) {
 	header('location:index.php?pesan=sudahada');
 }else{
-	$query = mysqli_query($koneksi, "INSERT INTO tugas_akhir (status, nama, no_induk, ipk, sks, transkrip, tema1, tema2, dosbing1, dosbing2)
-	VALUES ('Pending','$namaMhs','$nimMhs', '$ipk', '$sks', '$filename', '$tema1','$tema2','$dosbing1','$dosbing2')
+	$query = mysqli_query($koneksi, "INSERT INTO tugas_akhir (file2, status2, status, nama, no_induk, ipk, sks, transkrip, tema1, dosbing1, dosbing2)
+	VALUES ('fileprabimbingan','Pending','Pending','$namaMhs','$nimMhs', '$ipk', '$sks', '$filename', '$tema1','$dosbing1','$dosbing2')
 	") or die(mysqli_error($koneksi));
 	if ($query) {
 

@@ -35,6 +35,7 @@ header("location:../index.php");
         
              
              $nama = $_SESSION['nama'];
+             $judul = $_POST['judul'];
              $nim = $_POST['nim'];
              $dosenpembimbing = $_POST['dosbing'];
 			 $topik = $_POST['topik'];
@@ -73,8 +74,8 @@ header("location:../index.php");
                 header('location:index.php?pesan=sudahada');
             }else{
             $query = mysqli_query($koneksi, 
-                        "INSERT INTO daftarsempro (status2,hari, dosenpenguji2, dosenpenguji, tema, status, nama, nim, dosbing, tanggal, jam, proposalta,seminarproposal)
-                         VALUES ('pending','Belum Diatur','Belum Diatur','Belum Diatur','$tema','pending','$nama','$nim','$dosenpembimbing','$tanggal', '$jam', '$lembarproposal','$lembarpersetujuan')
+                        "INSERT INTO daftarsempro (judul, statuspenguji1, status2, dosenpenguji2, dosenpenguji, tema, status, nama, nim, dosbing, tanggal, jam, proposalta,seminarproposal)
+                         VALUES ('$judul','Pending','Pending','Belum Diatur','Belum Diatur','$tema','pending','$nama','$nim','$dosenpembimbing','belum diatur', 'belum diatur', '$lembarproposal','$lembarpersetujuan')
                          ") or die(mysqli_error($koneksi));
             if($query){
                     echo '<script language="javascript">alert("Data Berhasil Ditambahkan")</script>';

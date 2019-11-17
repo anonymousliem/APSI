@@ -15,16 +15,16 @@ $catatan1 = $_POST['textarea1'];
 //$status2 = $_POST['status2'];
 //$status3 = $_POST['status3'];
 
-$cekisi    = "SELECT dosbing FROM daftarsempro WHERE nama='$nama' and status = 'Approved' ";
+$cekisi    = "SELECT dosbing1, status FROM tugas_akhir WHERE nama='$nama' and status = 'Approved' ";
 $ada = $koneksi->query($cekisi);
 if ($ada->num_rows > 0) {
   while($row = $ada->fetch_assoc()) {
-    $dosbing =  $row["dosbing"];
+    $dosbing =  $row["dosbing1"];
 }
 
 $query = mysqli_query($koneksi, "INSERT INTO 
-bimbingansempro (dosbing, nama, tanggal, catatan, status)
-    VALUES ('$dosbing','$nama','$tanggal1','$catatan1','Pending')  ");
+bimbinganta (dosbing, nama, tanggal, catatan, status)
+VALUES ('$dosbing','$nama','$tanggal1','$catatan1','Pending')  ");
 
 if($query){
  

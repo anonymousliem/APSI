@@ -69,7 +69,7 @@ $result8 = $koneksi->query($sql8);
                 <div class="form-group my-3">
              
                    <label for="no_induk" style="color: white" >ID</label><br>
-                    <input type="text" name="id_daftarsempro" readonly value="<?php echo $id ?>" style="width:150px;">
+                    <input type="text" name="id_daftarsempro" readonly value="<?php echo $id ?>" style="width:250px;">
 <!--
                     <label for="no_induk" style="color: white" >Hari</label>
                     <select class="mb-3" name="tanggal" required >
@@ -86,20 +86,44 @@ $result8 = $koneksi->query($sql8);
                     <input type="text" name="nama" class="form-control" name="nama" readonly value="<?php echo $tanggal ?>" >
                 </div> -->
                 <div class="form-group my-3">
-                    <label for="kata_sandi" style="color: white" >Ruangan</label><br>
-                    <select class="mb-3" name="ruangan"  style="width:150px" >
-                    <option value=""></option>
-                      <option value="D205">RUANG SIDANG 1</option>
-                    <option value="E201">RUANG SIDANG 2</option>
-                </select>        
+                    <label for="nama" style="color: white" >Tanggal</label>
+                    <input type="date" name="tanggal" class="form-control" required  style="width:250px;">
                 </div>
                 <div class="form-group my-3">
-                    <label for="kata_sandi" style="color: white" >Dosen Penguji</label><br>
-                    <select class="mb-3" name="dosenpenguji"    style="width:150px">
-                    <option value=""></option>
-                      <option value="Dodi">Dodi</option>
-                    <option value="Caca">Caca</option>
-                </select>                
+                    <label for="nama" style="color: white" >Jam</label>
+                    <input type="time" name="jam" class="form-control" required  style="width:250px;">
+                </div>
+    
+                <div class="form-group my-3">
+                    <label for="kata_sandi" style="color: white" >Dosen Penguji 1</label><br>
+                    <select name="dosenpenguji" style="width:250px;" required>
+                        <option value=""></option>
+                            <?php 
+                              $query = "SELECT * FROM user where level = 'dosen' ";
+                              $result    = mysqli_query($koneksi, $query) or die(mysqli_error($connect));
+                              while ($row    = mysqli_fetch_array($result)) {
+                                ?>
+                                <option value="<?php echo $row['nama']; ?>">
+                                 <?php echo $row['nama']; ?></option>
+                            <?php } ?>
+                        
+           </select>           
+                </div>
+
+                <div class="form-group my-3">
+                    <label for="kata_sandi" style="color: white" >Dosen Penguji 2</label><br>
+                    <select name="dosenpenguji2" style="width:250px;" required>
+                        <option value=""></option>
+                            <?php 
+                              $query = "SELECT * FROM user where level = 'dosen' ";
+                              $result    = mysqli_query($koneksi, $query) or die(mysqli_error($connect));
+                              while ($row    = mysqli_fetch_array($result)) {
+                                ?>
+                                <option value="<?php echo $row['nama']; ?>">
+                                 <?php echo $row['nama']; ?></option>
+                            <?php } ?>
+                        
+           </select>           
                 </div>
             
                <!-- label>Status</label><br>
