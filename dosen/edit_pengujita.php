@@ -5,19 +5,19 @@ session_start();
 if ($_SESSION['level'] != 'dosen') {
   header("location:index.php");
 }
-$id = $_GET['id_tugasakhir'];
+$id = $_GET['id_daftarsempro'];
 $namaDosen = $_SESSION['nama'];
-$sql8 = "SELECT id_tugasakhir, no_induk, dosbing2, nama, tema1,status2 FROM tugas_akhir WHERE dosbing2='$namaDosen' and id_tugasakhir='$id' ";
+$sql8 = "SELECT id_daftarsempro, nim, dosenpenguji, nama, tema, statuspenguji1 FROM daftarsempro WHERE dosenpenguji='$namaDosen' and id_daftarsempro='$id' ";
 $result8 = $koneksi->query($sql8);
 if ($result8->num_rows > 0) {
   // output data of each row
   while($row = $result8->fetch_assoc()) {
-      $nimMhs =  $row["no_induk"];
+      $nimMhs =  $row["nim"];
       $namaMhs =  $row["nama"];
-      $tema =  $row["tema1"];
-      $dosbing =  $row["dosbing2"];
-      $status =  $row["status2"];
-      $id_tugasakhir =  $row["id_tugasakhir"];
+      $tema =  $row["tema"];
+      $dosbing =  $row["dosenpenguji"];
+      $status =  $row["statuspenguji1"];
+      $id_daftarsempro =  $row["id_daftarsempro"];
    
   }
 } 
@@ -65,10 +65,10 @@ if ($result8->num_rows > 0) {
 
 
 
-            <form  method="POST" action="aksi_edit_pendaftaranTADOSEN2.php">
+            <form  method="POST" action="aksi_edit_pengujianta.php">
                 <div class="form-group my-3">
-                <label for="no_induk" style="color: white" >ID</label>
-                    <input type="text" name="id_tugasakhir" readonly value="<?php echo $id_tugasakhir ?>" class="form-control">
+                <label for="no_induk" style="color: white" >ID SEMPRO</label>
+                    <input type="text" name="id_daftarsempro" readonly value="<?php echo $id_daftarsempro ?>" class="form-control">
 
                     <label for="no_induk" style="color: white" >No Induk</label>
                     <input type="text" name="nim" readonly value="<?php echo $nimMhs ?>" class="form-control">

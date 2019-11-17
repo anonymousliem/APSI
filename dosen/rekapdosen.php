@@ -559,35 +559,57 @@ header("location:../index.php");
                                             <table class="table table-striped table-bordered table-hover table-condensed ">
                                                 <thead>
                                                     <tr>
-                                                        
-                                                        <th>Tanggal</th>
+                                                    <th>ID</th>
+                                                         <th>Tanggal</th>
                                                         <th>Jam</th>
-                                                        <th>Ruangan</th>
                                                         <th>Dosen Penguji</th>
+                                                        <th>Status</th>
+                                                        <th>Aksi</th>
+                                                        <th>Dosen Penguji 2</th>
+                                                        <th>Status</th>
+                                                        <th>Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <!-- ISINYA -->
                                                     <?php
 
-                                        $query = "SELECT tanggal, jam, dosenpenguji FROM daftarsempro WHERE dosenpenguji='$dosenasli' " ;
+                                        $query = "SELECT id_daftarsempro, tanggal, jam , dosenpenguji, dosenpenguji2, statuspenguji1, status2 FROM daftarsempro WHERE dosenpenguji='$dosenasli' OR dosenpenguji2='$dosenasli' " ;
                                         $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
                                         while ($row = mysqli_fetch_array($result)) {
                                     ?>
 
                                                         <tr>
+                                                        <tr>
+                                                        <td>
+                                                                <?php echo $row['id_daftarsempro']; ?>
+                                                            </td>
                                                             <td>
                                                                 <?php echo $row['tanggal']; ?>
                                                             </td>
                                                             <td>
                                                                 <?php echo $row['jam']; ?>
                                                             </td>
-                                                        <td>
-                                                                <?php echo $row['ruangan']; ?>
-                                                            </td>
-                                                            <td>
+                                                           <td>
                                                                 <?php echo $row['dosenpenguji']; ?>
                                                             </td>
+                                                            <td>
+                                                                <?php echo $row['statuspenguji1']; ?>
+                                                            </td>
+                                                            <td>
+                                                           <a href='edit_pengujita.php?id_daftarsempro=<?php echo $row['id_daftarsempro']; ?>' class='btn btn-success'>
+                                                               <span class='glyphicon glyphicon-edit'></span>Edit</button>
+                                                           </a></td>
+                                                            <td>
+                                                                <?php echo $row['dosenpenguji2']; ?>
+                                                            </td>
+                                                              <td>
+                                                                <?php echo $row['status2']; ?>
+                                                            </td>
+                                                            <td>
+                                                           <a href='edit_pengujita2.php?id_daftarsempro=<?php echo $row['id_daftarsempro']; ?>' class='btn btn-success'>
+                                                               <span class='glyphicon glyphicon-edit'></span>Edit</button>
+                                                           </a></td>
    <!-- 
                                                             <td>
                                                                 <?php echo $row['tanggal']; ?>
@@ -711,11 +733,11 @@ header("location:../index.php");
                                                         <th>Nama</th>
                                                         <th>Nim</th>
                                                         <th>Dosen Pembimbing</th>
-                                                        <th>Topik TA</th>
+                                                        <th>Topik TA</th><!--
                                                         <th>Tanggal Seminar</th>
                                                         <th>Jam Seminar</th>
                                                         <th>Status</th>
-                                                        <th>Aksi</th>
+                                                        <th>Aksi</th> -->
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -742,7 +764,7 @@ header("location:../index.php");
                                                              <td>
                                                                 <?php echo $row['tema']; ?>
                                                             </td>
-
+<!--
                                                             <td>
                                                                 <?php echo $row['tanggal']; ?>
                                                             </td>
@@ -751,13 +773,13 @@ header("location:../index.php");
                                                             </td>
                                                             <td>
                                                                 <?php echo $row['status']; ?>
-                                                            </td> 
+                                                            </td>  -->
 
-
+                                                        <!--
                                                             <td>
                                                            <a href='edit_daftarta.php?id_daftarta=<?php echo $row['id_daftarta']; ?>' class='btn btn-success'>
                                                                <span class='glyphicon glyphicon-edit'></span>Edit</button>
-                                                           </a>
+                                                           </a> -->
                                                            <!-- <a href='hapus_mahasiswa.php?id=<?php echo $row[' id ']; ?>' class='btn btn-danger'>
                                                                <span class='glyphicon glyphicon-remove-sign'>Delete</button></a>
                                                        </td> -->
@@ -785,44 +807,58 @@ header("location:../index.php");
                                                 <thead>
                                                     <tr>
                                                        
-                                                        <th>Tanggal</th>
+                                                    <th>ID</th>
+                                                         <th>Tanggal</th>
                                                         <th>Jam</th>
-                                                        <th>Ruangan</th>
                                                         <th>Dosen Penguji</th>
+                                                        <th>Status</th>
+                                                        <th>Aksi</th>
+                                                        <th>Dosen Penguji 2</th>
+                                                        <th>Status</th>
+                                                        <th>Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <!-- ISINYA -->
                                                     <?php
 
-                                        $query = "SELECT ruangan, dosenpenguji, tanggal, jam FROM daftarta where dosenpenguji='$dosenasli' ";
+                                        //$query = "SELECT ruangan, dosenpenguji, tanggal, jam FROM daftarta where dosenpenguji='$dosenasli' ";
+                                        $query = "SELECT id_daftarta, tanggal, jam , dosenpenguji, dosenpenguji2, statuspenguji1, statuspenguji2 FROM daftarta WHERE dosenpenguji='$dosenasli' OR dosenpenguji2='$dosenasli' " ;
                                         $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
                                         while ($row = mysqli_fetch_array($result)) {
                                     ?>
 
                                                         <tr>
                                                             <td>
-                                                                <?php echo $row['tanggal']; ?>
+                                                                <?php echo $row['id_daftarta']; ?>
                                                             </td>
                                                             <td>
-                                                                <?php echo $row['jam']; ?>
+                                                                <?php echo $row['tanggal']; ?>
                                                             </td>
                                                        <td>
-                                                                <?php echo $row['ruangan']; ?>
+                                                                <?php echo $row['jam']; ?>
                                                             </td>
                                                             <td>
                                                                 <?php echo $row['dosenpenguji']; ?>
                                                             </td>
 
-                                                              <!--   <td>
-                                                                <?php echo $row['tanggal']; ?>
+                                                                <td>
+                                                                <?php echo $row['statuspenguji1']; ?>
                                                             </td>
                                                             <td>
-                                                                <?php echo $row['jam']; ?>
+                                                           <a href='edit_jadwalseminarTA.php?id_daftarta=<?php echo $row['id_daftarta']; ?>' class='btn btn-success'>
+                                                               <span class='glyphicon glyphicon-edit'></span>Edit</button>
+                                                           </a></td>
+                                                            <td>
+                                                                <?php echo $row['dosenpenguji2']; ?>
                                                             </td>
                                                             <td>
-                                                                <?php echo $row['status']; ?>
-                                                            </td> -->
+                                                                <?php echo $row['statuspenguji2']; ?>
+                                                            </td> 
+                                                            <td>
+                                                            <a href='edit_jadwalseminarTA2.php?id_daftarta=<?php echo $row['id_daftarta']; ?>' class='btn btn-success'>
+                                                               <span class='glyphicon glyphicon-edit'></span>Edit</button>
+                                                           </a></td>
 
 
                                                             <!-- <td>
